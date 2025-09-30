@@ -43,9 +43,6 @@ zig-out/
 *.wasm
 *.obj
 *.o
-src/parser.c
-src/scanner.c
-src/scanner.cc
 
 # Archives
 *.tar.gz
