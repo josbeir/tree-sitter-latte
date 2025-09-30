@@ -689,24 +689,8 @@
           "type": "FIELD",
           "name": "elseif_start",
           "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "{elseif"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[^}]*"
-                },
-                {
-                  "type": "STRING",
-                  "value": "}"
-                }
-              ]
-            }
+            "type": "SYMBOL",
+            "name": "elseif_start"
           }
         },
         {
@@ -718,6 +702,26 @@
         }
       ]
     },
+    "elseif_start": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{elseif"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^}]*"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
+    },
     "else_block": {
       "type": "SEQ",
       "members": [
@@ -725,24 +729,8 @@
           "type": "FIELD",
           "name": "else_start",
           "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "{else"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[^}]*"
-                },
-                {
-                  "type": "STRING",
-                  "value": "}"
-                }
-              ]
-            }
+            "type": "SYMBOL",
+            "name": "else_start"
           }
         },
         {
@@ -753,6 +741,26 @@
           }
         }
       ]
+    },
+    "else_start": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{else"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^}]*"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
     },
     "macro": {
       "type": "SEQ",

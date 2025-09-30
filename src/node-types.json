@@ -247,7 +247,18 @@
   {
     "type": "else_block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "else_start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "else_start",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -302,7 +313,18 @@
   {
     "type": "elseif_block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "elseif_start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "elseif_start",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -616,6 +638,14 @@
   {
     "type": "doctype",
     "named": false
+  },
+  {
+    "type": "else_start",
+    "named": true
+  },
+  {
+    "type": "elseif_start",
+    "named": true
   },
   {
     "type": "entity",
