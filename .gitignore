@@ -6,7 +6,6 @@ Cargo.lock
 build/
 prebuilds/
 node_modules/
-package-lock.json
 
 # Swift artifacts
 .build/
@@ -59,9 +58,6 @@ zig-out/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Misc
-bindings/
 
 AGENTS.md
 CLAUDE.md

@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-const html = require("./vendor/tree-sitter-html/grammar");
+const html = require("./tree-sitter-html/grammar");
 
 module.exports = grammar(html, {
   name: "latte",
@@ -54,18 +54,11 @@ module.exports = grammar(html, {
       ),
 
     elseif_block: ($) =>
-      seq(
-        field("elseif_start", $.elseif_start),
-        repeat($._node),
-      ),
+      seq(field("elseif_start", $.elseif_start), repeat($._node)),
 
     elseif_start: (_) => token(seq("{elseif", /[^}]*/, "}")),
 
-    else_block: ($) =>
-      seq(
-        field("else_start", $.else_start),
-        repeat($._node),
-      ),
+    else_block: ($) => seq(field("else_start", $.else_start), repeat($._node)),
 
     else_start: (_) => token(seq("{else", /[^}]*/, "}")),
 
