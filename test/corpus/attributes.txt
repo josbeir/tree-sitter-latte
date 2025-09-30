@@ -1,0 +1,36 @@
+================================================================================
+n:if attribute
+================================================================================
+
+<div n:if="$foo">Hello</div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (text)
+    (end_tag
+      (tag_name))))
+
+================================================================================
+Multiple n:attributes
+================================================================================
+
+<a n:if="$foo" n:href="$bar">Link</a>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute (attribute_name) (quoted_attribute_value (attribute_value)))
+      (attribute (attribute_name) (quoted_attribute_value (attribute_value))))
+    (text)
+    (end_tag (tag_name))))
