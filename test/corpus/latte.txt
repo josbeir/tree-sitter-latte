@@ -1,0 +1,153 @@
+==================
+Print tag
+==================
+
+{=1 + 2}
+
+---
+
+(source_file (latte_print_tag))
+
+==================
+Comment
+==================
+
+{* This is a comment *}
+
+---
+
+(source_file (latte_comment))
+
+==================
+HTML
+==================
+
+Hello world!
+
+---
+
+(source_file (html_content))
+
+==================
+Pair tag (if)
+==================
+
+{if $foo}
+  Hello
+{/if}
+
+---
+
+(source_file (if_tag (html_content)))
+
+==================
+Pair tag with else
+==================
+
+{if $foo}
+  Yes
+{else}
+  No
+{/if}
+
+---
+
+(source_file (if_tag (html_content) (else_tag (html_content))))
+
+==================
+Self-closing tag
+==================
+
+{include 'file.latte'}
+
+---
+
+(source_file (include_tag))
+
+==================
+Translation tag (inline)
+==================
+
+{_'Basket'}
+
+---
+
+(source_file (latte_translation_tag))
+
+==================
+Translation tag (block)
+==================
+
+{translate}Order{/translate}
+
+---
+
+(source_file (latte_translation_tag (latte_translation_tag) (html_content) (latte_translation_tag)))
+
+==================
+Literal braces
+==================
+
+{l} {r}
+
+---
+
+(source_file (latte_literal_brace) (html_content) (latte_literal_brace))
+
+==================
+Block tag
+==================
+
+{block}
+  Content
+{/block}
+
+---
+
+(source_file
+  (block_tag (html_content)))
+
+==================
+varType tag
+==================
+
+{varType $foo int}
+
+---
+
+(source_file
+  (varType_tag))
+
+==================
+templateType tag
+==================
+
+{templateType App\UI\MyComponent}
+
+---
+
+(source_file
+  (templateType_tag))
+
+==================
+Nested blocks
+==================
+
+{block}
+  {if $foo}
+    {block}
+      {foreach $bar as $baz}
+        {include 'file.latte'}
+      {/foreach}
+    {/block}
+  {/if}
+{/block}
+
+---
+
+(source_file
+  (block_tag
+    (if_tag
+      (block_tag
+        (foreach_tag
+          (include_tag))))))

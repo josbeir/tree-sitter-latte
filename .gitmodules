@@ -1,0 +1,3 @@
+[submodule "vendor/tree-sitter-html"]
+	path = vendor/tree-sitter-html
+	url = https://github.com/tree-sitter/tree-sitter-html.git

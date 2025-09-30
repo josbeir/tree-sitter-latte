@@ -1,0 +1,473 @@
+[
+  {
+    "type": "block_tag",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "block_tag",
+            "named": true
+          },
+          {
+            "type": "foreach_tag",
+            "named": true
+          },
+          {
+            "type": "html_content",
+            "named": true
+          },
+          {
+            "type": "if_tag",
+            "named": true
+          },
+          {
+            "type": "include_tag",
+            "named": true
+          },
+          {
+            "type": "latte_comment",
+            "named": true
+          },
+          {
+            "type": "latte_literal_brace",
+            "named": true
+          },
+          {
+            "type": "latte_print_tag",
+            "named": true
+          },
+          {
+            "type": "latte_translation_tag",
+            "named": true
+          },
+          {
+            "type": "templateType_tag",
+            "named": true
+          },
+          {
+            "type": "varType_tag",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "else_tag",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "block_tag",
+            "named": true
+          },
+          {
+            "type": "foreach_tag",
+            "named": true
+          },
+          {
+            "type": "html_content",
+            "named": true
+          },
+          {
+            "type": "if_tag",
+            "named": true
+          },
+          {
+            "type": "include_tag",
+            "named": true
+          },
+          {
+            "type": "latte_comment",
+            "named": true
+          },
+          {
+            "type": "latte_literal_brace",
+            "named": true
+          },
+          {
+            "type": "latte_print_tag",
+            "named": true
+          },
+          {
+            "type": "latte_translation_tag",
+            "named": true
+          },
+          {
+            "type": "templateType_tag",
+            "named": true
+          },
+          {
+            "type": "varType_tag",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "foreach_tag",
+    "named": true,
+    "fields": {
+      "alternative": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "block_tag",
+            "named": true
+          },
+          {
+            "type": "foreach_tag",
+            "named": true
+          },
+          {
+            "type": "html_content",
+            "named": true
+          },
+          {
+            "type": "if_tag",
+            "named": true
+          },
+          {
+            "type": "include_tag",
+            "named": true
+          },
+          {
+            "type": "latte_comment",
+            "named": true
+          },
+          {
+            "type": "latte_literal_brace",
+            "named": true
+          },
+          {
+            "type": "latte_print_tag",
+            "named": true
+          },
+          {
+            "type": "latte_translation_tag",
+            "named": true
+          },
+          {
+            "type": "templateType_tag",
+            "named": true
+          },
+          {
+            "type": "varType_tag",
+            "named": true
+          }
+        ]
+      },
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "block_tag",
+            "named": true
+          },
+          {
+            "type": "foreach_tag",
+            "named": true
+          },
+          {
+            "type": "html_content",
+            "named": true
+          },
+          {
+            "type": "if_tag",
+            "named": true
+          },
+          {
+            "type": "include_tag",
+            "named": true
+          },
+          {
+            "type": "latte_comment",
+            "named": true
+          },
+          {
+            "type": "latte_literal_brace",
+            "named": true
+          },
+          {
+            "type": "latte_print_tag",
+            "named": true
+          },
+          {
+            "type": "latte_translation_tag",
+            "named": true
+          },
+          {
+            "type": "templateType_tag",
+            "named": true
+          },
+          {
+            "type": "varType_tag",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "else_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block_tag",
+          "named": true
+        },
+        {
+          "type": "else_tag",
+          "named": true
+        },
+        {
+          "type": "foreach_tag",
+          "named": true
+        },
+        {
+          "type": "html_content",
+          "named": true
+        },
+        {
+          "type": "if_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_comment",
+          "named": true
+        },
+        {
+          "type": "latte_literal_brace",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_translation_tag",
+          "named": true
+        },
+        {
+          "type": "templateType_tag",
+          "named": true
+        },
+        {
+          "type": "varType_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "latte_comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "latte_print_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "latte_translation_tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block_tag",
+          "named": true
+        },
+        {
+          "type": "foreach_tag",
+          "named": true
+        },
+        {
+          "type": "html_content",
+          "named": true
+        },
+        {
+          "type": "if_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_comment",
+          "named": true
+        },
+        {
+          "type": "latte_literal_brace",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_translation_tag",
+          "named": true
+        },
+        {
+          "type": "templateType_tag",
+          "named": true
+        },
+        {
+          "type": "varType_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block_tag",
+          "named": true
+        },
+        {
+          "type": "foreach_tag",
+          "named": true
+        },
+        {
+          "type": "html_content",
+          "named": true
+        },
+        {
+          "type": "if_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_comment",
+          "named": true
+        },
+        {
+          "type": "latte_literal_brace",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_translation_tag",
+          "named": true
+        },
+        {
+          "type": "templateType_tag",
+          "named": true
+        },
+        {
+          "type": "varType_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "templateType_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "varType_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "*}",
+    "named": false
+  },
+  {
+    "type": "html_content",
+    "named": true
+  },
+  {
+    "type": "include",
+    "named": false
+  },
+  {
+    "type": "latte_literal_brace",
+    "named": true
+  },
+  {
+    "type": "templateType",
+    "named": false
+  },
+  {
+    "type": "varType",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "{*",
+    "named": false
+  },
+  {
+    "type": "{=",
+    "named": false
+  },
+  {
+    "type": "{_",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
