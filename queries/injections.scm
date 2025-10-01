@@ -1,12 +1,14 @@
+; inherits: html
+
 ; Latte injection queries
-; Injects JavaScript and CSS into script and style elements
+; Extends HTML injection with Latte-specific contexts
 
-; Inject JavaScript into script elements
-((script_element
-  (raw_text) @injection.content)
- (#set! injection.language "javascript"))
+; Inject PHP into latte_expression nodes in attributes
+((latte_expression) @injection.content
+ (#set! injection.language "php_only")
+ (#set! injection.include-children))
 
-; Inject CSS into style elements
-((style_element
-  (raw_text) @injection.content)
- (#set! injection.language "css"))
+; Inject PHP into filter expressions
+((filter_expression) @injection.content
+ (#set! injection.language "php_only")
+ (#set! injection.include-children))
