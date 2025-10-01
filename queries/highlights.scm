@@ -51,6 +51,8 @@
 
 ; Latte special tags
 (var_tag) @keyword.directive
+(var_type_tag) @keyword.type
+(template_type_tag) @keyword.type
 (default_tag) @keyword.directive
 (capture_tag) @keyword.directive
 (include_tag) @keyword.directive
@@ -61,6 +63,8 @@
 (sandbox_tag) @keyword.directive
 (dump_tag) @keyword.directive
 (debugbreak_tag) @keyword.directive
+(template_print_tag) @keyword.directive
+(var_print_tag) @keyword.directive
 
 ; Latte filters - highlight the pipe and filter name
 (filter_chain

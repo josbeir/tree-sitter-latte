@@ -90,6 +90,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "var_type_tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "template_type_tag"
+        },
+        {
+          "type": "SYMBOL",
           "name": "default_tag"
         },
         {
@@ -127,6 +135,14 @@
         {
           "type": "SYMBOL",
           "name": "debugbreak_tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "template_print_tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_print_tag"
         },
         {
           "type": "SYMBOL",
@@ -708,6 +724,46 @@
         }
       ]
     },
+    "var_type_tag": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{varType"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^}]+"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
+    },
+    "template_type_tag": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{templateType"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^}]+"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
+    },
     "capture_tag": {
       "type": "SEQ",
       "members": [
@@ -933,6 +989,20 @@
             "value": "}"
           }
         ]
+      }
+    },
+    "template_print_tag": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "{templatePrint}"
+      }
+    },
+    "var_print_tag": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "{varPrint}"
       }
     },
     "_expression_with_filters": {

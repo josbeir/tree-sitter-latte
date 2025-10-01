@@ -29,6 +29,8 @@ module.exports = grammar(html, {
         $.latte_print_tag,
         $.latte_variable,
         $.var_tag,
+        $.var_type_tag,
+        $.template_type_tag,
         $.default_tag,
         $.capture_tag,
         $.include_tag,
@@ -39,6 +41,8 @@ module.exports = grammar(html, {
         $.sandbox_tag,
         $.dump_tag,
         $.debugbreak_tag,
+        $.template_print_tag,
+        $.var_print_tag,
         $.block,
         $.if_block,
         $.foreach_block,
@@ -88,6 +92,12 @@ module.exports = grammar(html, {
         "}",
       ),
 
+    // VarType tag {varType Type $var}
+    var_type_tag: (_) => token(seq("{varType", /[^}]+/, "}")),
+
+    // TemplateType tag {templateType ClassName}
+    template_type_tag: (_) => token(seq("{templateType", /[^}]+/, "}")),
+
     // Capture tag {capture $var}...{/capture}
     capture_tag: ($) =>
       seq(
@@ -126,6 +136,12 @@ module.exports = grammar(html, {
 
     // Debugbreak tag {debugbreak}
     debugbreak_tag: (_) => token(seq("{debugbreak", optional(/[^}]+/), "}")),
+
+    // TemplatePrint tag {templatePrint}
+    template_print_tag: (_) => token("{templatePrint}"),
+
+    // VarPrint tag {varPrint}
+    var_print_tag: (_) => token("{varPrint}"),
 
     // Expression with optional filters
     _expression_with_filters: ($) =>

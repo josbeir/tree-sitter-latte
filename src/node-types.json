@@ -327,11 +327,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -470,11 +486,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -601,11 +633,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -732,11 +780,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -915,11 +979,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -1054,11 +1134,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -1185,11 +1281,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -1316,11 +1428,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -1448,11 +1576,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -1735,11 +1879,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -1887,11 +2047,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -2069,11 +2245,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -2333,11 +2525,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -2921,11 +3129,27 @@
           "named": true
         },
         {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
         {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
           "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
           "named": true
         },
         {
@@ -3262,12 +3486,28 @@
     "named": true
   },
   {
+    "type": "template_print_tag",
+    "named": true
+  },
+  {
+    "type": "template_type_tag",
+    "named": true
+  },
+  {
     "type": "text",
     "named": true
   },
   {
     "type": "true",
     "named": false
+  },
+  {
+    "type": "var_print_tag",
+    "named": true
+  },
+  {
+    "type": "var_type_tag",
+    "named": true
   },
   {
     "type": "while_end",
