@@ -1,0 +1,159 @@
+================================================================================
+Variable with single filter
+================================================================================
+
+{$name|upper}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_variable
+    (variable_name)
+    (filter_chain
+      (filter
+        (filter_name)))))
+
+================================================================================
+Variable with chained filters
+================================================================================
+
+{$heading|lower|capitalize}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_variable
+    (variable_name)
+    (filter_chain
+      (filter
+        (filter_name))
+      (filter
+        (filter_name)))))
+
+================================================================================
+Variable with filter and arguments
+================================================================================
+
+{$text|truncate:20}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_variable
+    (variable_name)
+    (filter_chain
+      (filter
+        (filter_name)
+        (filter_args)))))
+
+================================================================================
+Variable with filter and multiple arguments
+================================================================================
+
+{$text|truncate:20,'...'}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_variable
+    (variable_name)
+    (filter_chain
+      (filter
+        (filter_name)
+        (filter_args)))))
+
+================================================================================
+Print tag with single filter
+================================================================================
+
+{=$variable|capitalize}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_print_tag
+    (filter_expression
+      (filter_chain
+        (filter
+          (filter_name))))))
+
+================================================================================
+Print tag with chained filters
+================================================================================
+
+{=$text|lower|upper|capitalize}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_print_tag
+    (filter_expression
+      (filter_chain
+        (filter
+          (filter_name))
+        (filter
+          (filter_name))
+        (filter
+          (filter_name))))))
+
+================================================================================
+Print tag with filter and arguments
+================================================================================
+
+{=$date|date:'Y-m-d H:i:s'}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_print_tag
+    (filter_expression
+      (filter_chain
+        (filter
+          (filter_name)
+          (filter_args))))))
+
+================================================================================
+Filter in HTML context
+================================================================================
+
+<p>{$name|upper}</p>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (latte_variable
+      (variable_name)
+      (filter_chain
+        (filter
+          (filter_name))))
+    (end_tag
+      (tag_name))))
+
+================================================================================
+Multiple filters in HTML
+================================================================================
+
+<div>{$first|lower} and {$second|upper}</div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (latte_variable
+      (variable_name)
+      (filter_chain
+        (filter
+          (filter_name))))
+    (text)
+    (latte_variable
+      (variable_name)
+      (filter_chain
+        (filter
+          (filter_name))))
+    (end_tag
+      (tag_name))))

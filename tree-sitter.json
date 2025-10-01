@@ -8,7 +8,9 @@
       "scope": "source.latte",
       "file-types": ["latte"],
       "injection-regex": "^latte$",
-      "class-name": "TreeSitterLatte"
+      "class-name": "TreeSitterLatte",
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm"
     }
   ],
   "metadata": {

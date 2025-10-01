@@ -23,3 +23,25 @@ If-Elseif-Else
       (else_start)
       (text))
     (block_end)))
+
+================================================================================
+Ifset Block
+================================================================================
+
+{ifset $footer}
+  <footer>{$footer}</footer>
+{/ifset}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (block_start)
+    (element
+      (start_tag
+        (tag_name))
+      (latte_variable
+        (variable_name))
+      (end_tag
+        (tag_name)))
+    (block_end)))

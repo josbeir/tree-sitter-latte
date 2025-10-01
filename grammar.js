@@ -22,6 +22,8 @@ module.exports = grammar(html, {
         $.style_element,
         $.erroneous_end_tag,
         alias($.latte_comment, $.comment),
+        $.latte_print_tag,
+        $.latte_variable,
         $.block,
         $.macro,
         $.macro_call,
@@ -29,6 +31,36 @@ module.exports = grammar(html, {
 
     // Latte comment {* ... *}
     latte_comment: (_) => token(seq("{*", /[^*]*\*+([^}*][^*]*\*+)*/, "}")),
+
+    // Latte print tag {= ... } or {$variable}
+    latte_print_tag: ($) =>
+      seq("{=", field("expression", $.filter_expression), "}"),
+
+    latte_variable: ($) =>
+      seq(
+        "{$",
+        field("variable_name", $.variable_name),
+        optional(field("filters", $.filter_chain)),
+        "}",
+      ),
+
+    variable_name: (_) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+
+    filter_expression: ($) => seq(/[^|}]+/, optional($.filter_chain)),
+
+    filter_chain: ($) => repeat1($.filter),
+
+    filter: ($) =>
+      seq(
+        optional(/\s+/),
+        "|",
+        field("filter_name", $.filter_name),
+        optional(field("filter_args", $.filter_args)),
+      ),
+
+    filter_name: (_) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+
+    filter_args: (_) => /:[^|}]+/,
 
     block: ($) =>
       seq(
@@ -42,6 +74,7 @@ module.exports = grammar(html, {
     block_start: (_) =>
       choice(
         token(seq("{if", /[^}]*/, "}")),
+        token(seq("{ifset", /[^}]*/, "}")),
         token(seq("{block", /[^}]*/, "}")),
         token(seq("{foreach", /[^}]*/, "}")),
       ),
@@ -49,6 +82,7 @@ module.exports = grammar(html, {
     block_end: (_) =>
       choice(
         token(seq("{/if", /[^}]*/, "}")),
+        token(seq("{/ifset", /[^}]*/, "}")),
         token(seq("{/block", /[^}]*/, "}")),
         token(seq("{/foreach", /[^}]*/, "}")),
       ),
