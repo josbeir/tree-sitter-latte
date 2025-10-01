@@ -10,9 +10,7 @@ Simple block
 
 (document
   (block
-    (block_start)
-    (text)
-    (block_end)))
+    (text)))
 
 ================================================================================
 Nested blocks
@@ -28,9 +26,55 @@ Nested blocks
 
 (document
   (block
-    (block_start)
     (block
-      (block_start)
+      (text))))
+
+================================================================================
+Foreach with else
+================================================================================
+
+{foreach $items as $item}
+  <li>{$item}</li>
+{else}
+  <p>No items</p>
+{/foreach}
+
+--------------------------------------------------------------------------------
+
+(document
+  (foreach_block
+    (element
+      (start_tag
+        (tag_name))
+      (latte_variable
+        (identifier))
+      (end_tag
+        (tag_name)))
+    (else_block
+      (element
+        (start_tag
+          (tag_name))
+        (text)
+        (end_tag
+          (tag_name))))))
+
+================================================================================
+Capture block
+================================================================================
+
+{capture $output}
+  <div>Some content</div>
+{/capture}
+
+--------------------------------------------------------------------------------
+
+(document
+  (capture_tag
+    (php_variable
+      (identifier))
+    (element
+      (start_tag
+        (tag_name))
       (text)
-      (block_end))
-    (block_end)))
+      (end_tag
+        (tag_name)))))

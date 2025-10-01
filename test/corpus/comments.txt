@@ -20,7 +20,5 @@ Comment inside block
 --------------------------------------------------------------------------------
 
 (document
-  (block
-    (block_start)
-    (comment)
-    (block_end)))
+  (if_block
+    (comment)))

@@ -8,7 +8,7 @@ Variable with single filter
 
 (document
   (latte_variable
-    (variable_name)
+    (identifier)
     (filter_chain
       (filter
         (filter_name)))))
@@ -23,7 +23,7 @@ Variable with chained filters
 
 (document
   (latte_variable
-    (variable_name)
+    (identifier)
     (filter_chain
       (filter
         (filter_name))
@@ -40,7 +40,7 @@ Variable with filter and arguments
 
 (document
   (latte_variable
-    (variable_name)
+    (identifier)
     (filter_chain
       (filter
         (filter_name)
@@ -56,7 +56,7 @@ Variable with filter and multiple arguments
 
 (document
   (latte_variable
-    (variable_name)
+    (identifier)
     (filter_chain
       (filter
         (filter_name)
@@ -72,10 +72,12 @@ Print tag with single filter
 
 (document
   (latte_print_tag
-    (filter_expression
-      (filter_chain
-        (filter
-          (filter_name))))))
+    (expression
+      (php_variable
+        (identifier)))
+    (filter_chain
+      (filter
+        (filter_name)))))
 
 ================================================================================
 Print tag with chained filters
@@ -87,14 +89,16 @@ Print tag with chained filters
 
 (document
   (latte_print_tag
-    (filter_expression
-      (filter_chain
-        (filter
-          (filter_name))
-        (filter
-          (filter_name))
-        (filter
-          (filter_name))))))
+    (expression
+      (php_variable
+        (identifier)))
+    (filter_chain
+      (filter
+        (filter_name))
+      (filter
+        (filter_name))
+      (filter
+        (filter_name)))))
 
 ================================================================================
 Print tag with filter and arguments
@@ -106,11 +110,13 @@ Print tag with filter and arguments
 
 (document
   (latte_print_tag
-    (filter_expression
-      (filter_chain
-        (filter
-          (filter_name)
-          (filter_args))))))
+    (expression
+      (php_variable
+        (identifier)))
+    (filter_chain
+      (filter
+        (filter_name)
+        (filter_args)))))
 
 ================================================================================
 Filter in HTML context
@@ -125,7 +131,7 @@ Filter in HTML context
     (start_tag
       (tag_name))
     (latte_variable
-      (variable_name)
+      (identifier)
       (filter_chain
         (filter
           (filter_name))))
@@ -145,13 +151,13 @@ Multiple filters in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (variable_name)
+      (identifier)
       (filter_chain
         (filter
           (filter_name))))
     (text)
     (latte_variable
-      (variable_name)
+      (identifier)
       (filter_chain
         (filter
           (filter_name))))

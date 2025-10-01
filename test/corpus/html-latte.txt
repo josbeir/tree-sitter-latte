@@ -26,15 +26,13 @@ HTML inside Latte block
 --------------------------------------------------------------------------------
 
 (document
-  (block
-    (block_start)
+  (if_block
     (element
       (start_tag
         (tag_name))
       (text)
       (end_tag
-        (tag_name)))
-    (block_end)))
+        (tag_name)))))
 
 ================================================================================
 Foreach with variable in HTML
@@ -47,13 +45,11 @@ Foreach with variable in HTML
 --------------------------------------------------------------------------------
 
 (document
-  (block
-    (block_start)
+  (foreach_block
     (element
       (start_tag
         (tag_name))
       (latte_variable
-        (variable_name))
+        (identifier))
       (end_tag
-        (tag_name)))
-    (block_end)))
+        (tag_name)))))

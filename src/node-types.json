@@ -1,5 +1,56 @@
 [
   {
+    "type": "argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "array_literal",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attribute",
     "named": true,
     "fields": {},
@@ -23,25 +74,267 @@
     }
   },
   {
-    "type": "block",
+    "type": "binary_expression",
     "named": true,
     "fields": {
-      "block_end": {
+      "left": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "block_end",
+            "type": "expression",
             "named": true
           }
         ]
       },
-      "block_start": {
+      "operator": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "block_start",
+            "type": "!=",
+            "named": false
+          },
+          {
+            "type": "!==",
+            "named": false
+          },
+          {
+            "type": "%",
+            "named": false
+          },
+          {
+            "type": "&&",
+            "named": false
+          },
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "**",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "/",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": "<=",
+            "named": false
+          },
+          {
+            "type": "<=>",
+            "named": false
+          },
+          {
+            "type": "<>",
+            "named": false
+          },
+          {
+            "type": "==",
+            "named": false
+          },
+          {
+            "type": "===",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          },
+          {
+            "type": ">=",
+            "named": false
+          },
+          {
+            "type": "??",
+            "named": false
+          },
+          {
+            "type": "and",
+            "named": false
+          },
+          {
+            "type": "or",
+            "named": false
+          },
+          {
+            "type": "||",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "capture_tag",
+    "named": true,
+    "fields": {
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "php_variable",
             "named": true
           }
         ]
@@ -56,7 +349,19 @@
           "named": true
         },
         {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
           "named": true
         },
         {
@@ -64,15 +369,15 @@
           "named": true
         },
         {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
           "type": "element",
           "named": true
         },
         {
-          "type": "else_block",
-          "named": true
-        },
-        {
-          "type": "elseif_block",
+          "type": "embed_tag",
           "named": true
         },
         {
@@ -84,11 +389,39 @@
           "named": true
         },
         {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
           "named": true
         },
         {
           "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
           "named": true
         },
         {
@@ -100,6 +433,10 @@
           "named": true
         },
         {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -108,21 +445,338 @@
           "named": true
         },
         {
+          "type": "switch_block",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "block_end",
+    "type": "case_block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "block_start",
+    "type": "default_case_block",
     "named": true,
-    "fields": {}
+    "fields": {
+      "default_start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{default}",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "default_tag",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "filters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "php_variable",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "doctype",
@@ -143,7 +797,19 @@
           "named": true
         },
         {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
           "named": true
         },
         {
@@ -151,7 +817,15 @@
           "named": true
         },
         {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
           "named": true
         },
         {
@@ -163,11 +837,39 @@
           "named": true
         },
         {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
           "named": true
         },
         {
           "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
           "named": true
         },
         {
@@ -179,6 +881,10 @@
           "named": true
         },
         {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -187,7 +893,19 @@
           "named": true
         },
         {
+          "type": "switch_block",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
@@ -206,7 +924,19 @@
           "named": true
         },
         {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
           "named": true
         },
         {
@@ -214,7 +944,15 @@
           "named": true
         },
         {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
           "named": true
         },
         {
@@ -230,6 +968,30 @@
           "named": true
         },
         {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
           "named": true
         },
@@ -238,11 +1000,19 @@
           "named": true
         },
         {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
           "type": "macro",
           "named": true
         },
         {
           "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -262,7 +1032,19 @@
           "named": true
         },
         {
+          "type": "switch_block",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
@@ -277,8 +1059,8 @@
         "required": true,
         "types": [
           {
-            "type": "else_start",
-            "named": true
+            "type": "{else}",
+            "named": false
           }
         ]
       }
@@ -292,7 +1074,19 @@
           "named": true
         },
         {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
           "named": true
         },
         {
@@ -300,7 +1094,15 @@
           "named": true
         },
         {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
           "named": true
         },
         {
@@ -312,11 +1114,39 @@
           "named": true
         },
         {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
           "named": true
         },
         {
           "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
           "named": true
         },
         {
@@ -328,6 +1158,10 @@
           "named": true
         },
         {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -336,7 +1170,19 @@
           "named": true
         },
         {
+          "type": "switch_block",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
@@ -345,18 +1191,7 @@
   {
     "type": "elseif_block",
     "named": true,
-    "fields": {
-      "elseif_start": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "elseif_start",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
@@ -366,7 +1201,19 @@
           "named": true
         },
         {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
           "named": true
         },
         {
@@ -374,7 +1221,15 @@
           "named": true
         },
         {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
           "named": true
         },
         {
@@ -386,11 +1241,39 @@
           "named": true
         },
         {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
           "named": true
         },
         {
           "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
           "named": true
         },
         {
@@ -402,6 +1285,10 @@
           "named": true
         },
         {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -410,7 +1297,146 @@
           "named": true
         },
         {
+          "type": "switch_block",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "embed_tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
@@ -441,6 +1467,65 @@
       "types": [
         {
           "type": "erroneous_end_tag_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "null_literal",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "php_variable",
+          "named": true
+        },
+        {
+          "type": "static_call",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "ternary_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
           "named": true
         }
       ]
@@ -488,35 +1573,498 @@
     }
   },
   {
-    "type": "filter_expression",
+    "type": "filter_name",
     "named": true,
-    "fields": {},
+    "fields": {}
+  },
+  {
+    "type": "for_block",
+    "named": true,
+    "fields": {
+      "for_end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{/for}",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "filter_chain",
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "else_block",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "filter_name",
+    "type": "foreach_block",
     "named": true,
-    "fields": {}
+    "fields": {
+      "foreach_end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{/foreach}",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "else_block",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "if_block",
+    "named": true,
+    "fields": {
+      "if_end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{/ifchanged}",
+            "named": false
+          },
+          {
+            "type": "{/ifset}",
+            "named": false
+          },
+          {
+            "type": "{/if}",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "else_block",
+          "named": true
+        },
+        {
+          "type": "elseif_block",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "latte_print_tag",
     "named": true,
     "fields": {
       "expression": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "filter_expression",
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "filters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_chain",
             "named": true
           }
         ]
@@ -527,6 +2075,16 @@
     "type": "latte_variable",
     "named": true,
     "fields": {
+      "constant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "filters": {
         "multiple": false,
         "required": false,
@@ -537,16 +2095,56 @@
           }
         ]
       },
-      "variable_name": {
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "method": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "variable_name",
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "property": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -562,7 +2160,19 @@
           "named": true
         },
         {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
           "named": true
         },
         {
@@ -570,7 +2180,15 @@
           "named": true
         },
         {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
           "named": true
         },
         {
@@ -582,11 +2200,39 @@
           "named": true
         },
         {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
           "named": true
         },
         {
           "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
           "named": true
         },
         {
@@ -598,6 +2244,10 @@
           "named": true
         },
         {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -606,7 +2256,19 @@
           "named": true
         },
         {
+          "type": "switch_block",
+          "named": true
+        },
+        {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
           "named": true
         }
       ]
@@ -642,6 +2304,97 @@
     "type": "macro_name",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "null_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "number_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parenthesized_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "php_variable",
+    "named": true,
+    "fields": {
+      "constant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "method": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "property": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "quoted_attribute_value",
@@ -724,6 +2477,57 @@
     }
   },
   {
+    "type": "static_call",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
+      "class": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "constant": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "method": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "style_element",
     "named": true,
     "fields": {},
@@ -747,12 +2551,323 @@
     }
   },
   {
-    "type": "variable_name",
+    "type": "switch_block",
     "named": true,
-    "fields": {}
+    "fields": {
+      "switch_end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{/switch}",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "case_block",
+          "named": true
+        },
+        {
+          "type": "default_case_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ternary_expression",
+    "named": true,
+    "fields": {
+      "alternative": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "consequence": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "unary_expression",
+    "named": true,
+    "fields": {
+      "operand": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "not",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_tag",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "filters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "php_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "while_block",
+    "named": true,
+    "fields": {
+      "while_end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{/while}",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "!==",
+    "named": false
   },
   {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "&&",
     "named": false
   },
   {
@@ -760,7 +2875,55 @@
     "named": false
   },
   {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "**",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": "/>",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
     "named": false
   },
   {
@@ -776,11 +2939,83 @@
     "named": false
   },
   {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "<=>",
+    "named": false
+  },
+  {
+    "type": "<>",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
   {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": "===",
+    "named": false
+  },
+  {
+    "type": "=>",
+    "named": false
+  },
+  {
     "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "??",
+    "named": false
+  },
+  {
+    "type": "FALSE",
+    "named": false
+  },
+  {
+    "type": "False",
+    "named": false
+  },
+  {
+    "type": "NULL",
+    "named": false
+  },
+  {
+    "type": "Null",
+    "named": false
+  },
+  {
+    "type": "TRUE",
+    "named": false
+  },
+  {
+    "type": "True",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "and",
     "named": false
   },
   {
@@ -797,15 +3032,15 @@
     "extra": true
   },
   {
+    "type": "debugbreak_tag",
+    "named": true
+  },
+  {
     "type": "doctype",
     "named": false
   },
   {
-    "type": "else_start",
-    "named": true
-  },
-  {
-    "type": "elseif_start",
+    "type": "dump_tag",
     "named": true
   },
   {
@@ -817,11 +3052,40 @@
     "named": true
   },
   {
+    "type": "extends_tag",
+    "named": true
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "filter_args",
     "named": true
   },
   {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "import_tag",
+    "named": true
+  },
+  {
+    "type": "include_tag",
+    "named": true
+  },
+  {
+    "type": "latte_comment",
+    "named": true,
+    "extra": true
+  },
+  {
     "type": "latte_expression",
+    "named": true
+  },
+  {
+    "type": "layout_tag",
     "named": true
   },
   {
@@ -829,7 +3093,23 @@
     "named": true
   },
   {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "null",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
     "type": "raw_text",
+    "named": true
+  },
+  {
+    "type": "sandbox_tag",
     "named": true
   },
   {
@@ -841,6 +3121,10 @@
     "named": true
   },
   {
+    "type": "true",
+    "named": false
+  },
+  {
     "type": "{",
     "named": false
   },
@@ -849,11 +3133,71 @@
     "named": false
   },
   {
+    "type": "{/capture}",
+    "named": false
+  },
+  {
+    "type": "{/embed}",
+    "named": false
+  },
+  {
+    "type": "{/foreach}",
+    "named": false
+  },
+  {
+    "type": "{/for}",
+    "named": false
+  },
+  {
+    "type": "{/ifchanged}",
+    "named": false
+  },
+  {
+    "type": "{/ifset}",
+    "named": false
+  },
+  {
+    "type": "{/if}",
+    "named": false
+  },
+  {
+    "type": "{/switch}",
+    "named": false
+  },
+  {
+    "type": "{/while}",
+    "named": false
+  },
+  {
     "type": "{=",
     "named": false
   },
   {
+    "type": "{capture",
+    "named": false
+  },
+  {
+    "type": "{default",
+    "named": false
+  },
+  {
+    "type": "{default}",
+    "named": false
+  },
+  {
+    "type": "{else}",
+    "named": false
+  },
+  {
+    "type": "{var",
+    "named": false
+  },
+  {
     "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
     "named": false
   },
   {

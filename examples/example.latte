@@ -1,4 +1,7 @@
 {* Example Latte 3.x template *}
+{extends 'layout.latte'}
+{import 'components.latte'}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +10,23 @@
 </head>
 <body>
     <h1 n:block="title">Welcome to Latte 3.x Example</h1>
+
+    {* Variable assignments *}
+    {var $name = 'John Doe'}
+    {var $age = 30}
+    {var $items = [1, 2, 3, 4, 5]}
+    {default $page = 1}
+
+    {* PHP Variables with properties and methods *}
+    <section>
+        <h2>Variable Examples</h2>
+        <p>Simple variable: {$name}</p>
+        <p>Object property: {$post->title}</p>
+        <p>Method call: {$user->getName()}</p>
+        <p>Array access: {$items[0]}</p>
+        <p>Chained property: {$user->profile->name}</p>
+        <p>Static constant: {Status::Published}</p>
+    </section>
 
     {* Filter examples *}
     <section>
@@ -18,14 +38,97 @@
         <p>Variable with filter: {$name|upper}</p>
     </section>
 
-    <ul>
+    {* Expression examples *}
+    <section>
+        <h2>Expression Examples</h2>
+        <p>Function call: {=$count}</p>
+        <p>Static method: {=$date}</p>
+        <p>Binary expression: {=$price}</p>
+        <p>Comparison: {=$status}</p>
+        <p>Null coalescing: {=$username}</p>
+        <p>Logic: {=$enabled}</p>
+    </section>
+
+    {* Conditional blocks *}
+    <section>
+        <h2>Conditional Examples</h2>
+
+        {if $post->status === Status::Published}
+            <p>Post is published</p>
+        {elseif $post->status === Status::Draft}
+            <p>Post is draft</p>
+        {else}
+            <p>Post status unknown</p>
+        {/if}
+
+        {if count($posts) > 0}
+            <p>There are {count($posts)} posts</p>
+        {else}
+            <p>No posts available</p>
+        {/if}
+    </section>
+
+    {* Loop examples *}
+    <section>
+        <h2>Loop Examples</h2>
+
         {foreach $items as $item}
             <li>{$item|capitalize}</li>
+        {else}
+            <li>No items found</li>
         {/foreach}
-    </ul>
 
+        {for $i = 0; $i < 10; $i++}
+            <p>Item {$i}</p>
+        {/for}
+
+        {while $condition}
+            <p>Processing...</p>
+        {/while}
+    </section>
+
+    {* Switch statement *}
+    <section>
+        <h2>Switch Example</h2>
+        {switch $status}
+            {case 'active'}
+                <span class="badge badge-success">Active</span>
+            {case 'inactive'}
+                <span class="badge badge-warning">Inactive</span>
+            {case 'deleted'}
+                <span class="badge badge-danger">Deleted</span>
+            {default}
+                <span class="badge badge-secondary">Unknown</span>
+        {/switch}
+    </section>
+
+    {* Block definition *}
+    {block sidebar}
+        <aside>Default sidebar content</aside>
+    {/block}
+
+    {* Capture example *}
+    {capture $output}
+        <div>Captured content</div>
+    {/capture}
+
+    {* Include example *}
+    {include 'header.latte', title: $title}
+
+    {* Ifset check *}
     {ifset $footer}
         <footer>{$footer|lower}</footer>
     {/ifset}
+
+    {* Embed example *}
+    {embed 'card.latte'}
+        {block content}
+            <p>Embedded content</p>
+        {/block}
+    {/embed}
+
+    {* Debug helpers *}
+    {* {dump $items} *}
+    {* {debugbreak} *}
 </body>
 </html>

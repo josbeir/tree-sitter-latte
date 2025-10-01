@@ -8,7 +8,7 @@
  (#set! injection.language "php_only")
  (#set! injection.include-children))
 
-; Inject PHP into filter expressions
-((filter_expression) @injection.content
+; Inject PHP into expressions
+((expression) @injection.content
  (#set! injection.language "php_only")
  (#set! injection.include-children))
