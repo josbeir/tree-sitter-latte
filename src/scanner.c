@@ -132,6 +132,7 @@ static bool scan_comment(TSLexer *lexer) {
                     lexer->mark_end(lexer);
                     return true;
                 }
+                /* fallthrough */
             default:
                 dashes = 0;
         }
@@ -151,7 +152,7 @@ static bool scan_raw_text(Scanner *scanner, TSLexer *lexer) {
 
     unsigned delimiter_index = 0;
     while (lexer->lookahead) {
-        if (towupper(lexer->lookahead) == end_delimiter[delimiter_index]) {
+        if (towupper(lexer->lookahead) == (unsigned char)end_delimiter[delimiter_index]) {
             delimiter_index++;
             if (delimiter_index == strlen(end_delimiter)) {
                 break;
