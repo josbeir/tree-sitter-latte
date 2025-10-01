@@ -10,7 +10,9 @@ Simple block
 
 (document
   (block
-    (text)))
+    (block_start)
+    (text)
+    (block_end)))
 
 ================================================================================
 Nested blocks
@@ -26,8 +28,12 @@ Nested blocks
 
 (document
   (block
+    (block_start)
     (block
-      (text))))
+      (block_start)
+      (text)
+      (block_end))
+    (block_end)))
 
 ================================================================================
 Foreach with else
@@ -43,6 +49,7 @@ Foreach with else
 
 (document
   (foreach_block
+    (foreach_start)
     (element
       (start_tag
         (tag_name))
@@ -51,12 +58,14 @@ Foreach with else
       (end_tag
         (tag_name)))
     (else_block
+      (else_start)
       (element
         (start_tag
           (tag_name))
         (text)
         (end_tag
-          (tag_name))))))
+          (tag_name))))
+    (foreach_end)))
 
 ================================================================================
 Capture block

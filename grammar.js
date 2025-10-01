@@ -368,95 +368,109 @@ module.exports = grammar(html, {
     // Generic block (for {block name})
     block: ($) =>
       seq(
-        token(seq("{block", /[^}]*/, "}")),
+        field("open", $.block_start),
         repeat($._node),
-        token(seq("{/block", /[^}]*/, "}")),
+        field("close", $.block_end),
       ),
+
+    block_start: (_) => token(seq("{block", /[^}]*/, "}")),
+    block_end: (_) => token(seq("{/block", /[^}]*/, "}")),
 
     // If block with elseif/else support
     if_block: ($) =>
       seq(
-        field(
-          "if_start",
-          choice(
-            token(seq("{if", /[^}]*/, "}")),
-            token(seq("{ifset", /[^}]*/, "}")),
-            token(seq("{ifchanged", /[^}]*/, "}")),
-          ),
-        ),
+        field("open", $.if_start),
         repeat($._node),
         repeat($.elseif_block),
         optional($.else_block),
-        field(
-          "if_end",
-          choice(token("{/if}"), token("{/ifset}"), token("{/ifchanged}")),
-        ),
+        field("close", $.if_end),
       ),
 
-    elseif_block: ($) =>
-      seq(
-        field(
-          "elseif_start",
-          choice(
-            token(seq("{elseif", /[^}]*/, "}")),
-            token(seq("{elseifset", /[^}]*/, "}")),
-          ),
-        ),
-        repeat($._node),
+    if_start: (_) =>
+      choice(
+        token(seq("{if", /[^}]*/, "}")),
+        token(seq("{ifset", /[^}]*/, "}")),
+        token(seq("{ifchanged", /[^}]*/, "}")),
       ),
 
-    else_block: ($) =>
-      seq(field("else_start", token("{else}")), repeat($._node)),
+    if_end: (_) =>
+      choice(token("{/if}"), token("{/ifset}"), token("{/ifchanged}")),
+
+    elseif_block: ($) => seq($.elseif_start, repeat($._node)),
+
+    elseif_start: (_) =>
+      choice(
+        token(seq("{elseif", /[^}]*/, "}")),
+        token(seq("{elseifset", /[^}]*/, "}")),
+      ),
+
+    else_block: ($) => seq($.else_start, repeat($._node)),
+
+    else_start: (_) => token("{else}"),
 
     // Foreach block
     foreach_block: ($) =>
       seq(
-        field("foreach_start", token(seq("{foreach", /[^}]*/, "}"))),
+        field("open", $.foreach_start),
         repeat($._node),
         optional($.else_block),
-        field("foreach_end", token("{/foreach}")),
+        field("close", $.foreach_end),
       ),
+
+    foreach_start: (_) => token(seq("{foreach", /[^}]*/, "}")),
+    foreach_end: (_) => token("{/foreach}"),
 
     // For block
     for_block: ($) =>
       seq(
-        field("for_start", token(seq("{for", /[^}]*/, "}"))),
+        field("open", $.for_start),
         repeat($._node),
         optional($.else_block),
-        field("for_end", token("{/for}")),
+        field("close", $.for_end),
       ),
+
+    for_start: (_) => token(seq("{for", /[^}]*/, "}")),
+    for_end: (_) => token("{/for}"),
 
     // While block
     while_block: ($) =>
       seq(
-        field("while_start", token(seq("{while", /[^}]*/, "}"))),
+        field("open", $.while_start),
         repeat($._node),
-        field("while_end", token("{/while}")),
+        field("close", $.while_end),
       ),
+
+    while_start: (_) => token(seq("{while", /[^}]*/, "}")),
+    while_end: (_) => token("{/while}"),
 
     // Switch block
     switch_block: ($) =>
       seq(
-        field("switch_start", token(seq("{switch", /[^}]*/, "}"))),
+        field("open", $.switch_start),
         repeat(choice($.case_block, $.default_case_block)),
-        field("switch_end", token("{/switch}")),
+        field("close", $.switch_end),
       ),
 
-    case_block: ($) =>
-      seq(
-        field("case_start", token(seq("{case", /[^}]*/, "}"))),
-        repeat($._node),
-      ),
+    switch_start: (_) => token(seq("{switch", /[^}]*/, "}")),
+    switch_end: (_) => token("{/switch}"),
 
-    default_case_block: ($) =>
-      seq(field("default_start", token("{default}")), repeat($._node)),
+    case_block: ($) => seq($.case_start, repeat($._node)),
+
+    case_start: (_) => token(seq("{case", /[^}]*/, "}")),
+
+    default_case_block: ($) => seq($.default_start, repeat($._node)),
+
+    default_start: (_) => token("{default}"),
 
     macro: ($) =>
       seq(
-        field("macro_start", token(seq("{macro", /[^}]*/, "}"))),
+        field("open", $.macro_start),
         repeat($._node),
-        field("macro_end", token(seq("{/macro", /[^}]*/, "}"))),
+        field("close", $.macro_end),
       ),
+
+    macro_start: (_) => token(seq("{macro", /[^}]*/, "}")),
+    macro_end: (_) => token(seq("{/macro", /[^}]*/, "}")),
 
     macro_call: ($) =>
       seq(

@@ -12,7 +12,9 @@ Macro definition and usage
 
 (document
   (macro
-    (text))
+    (macro_start)
+    (text)
+    (macro_end))
   (macro_call
     (macro_name)
     (macro_args)))

@@ -112,7 +112,9 @@ Embed tag
 (document
   (embed_tag
     (block
-      (text))))
+      (block_start)
+      (text)
+      (block_end))))
 
 ================================================================================
 Var tag with string

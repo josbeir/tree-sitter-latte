@@ -196,7 +196,28 @@
   {
     "type": "block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "close": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block_start",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -469,7 +490,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -477,6 +498,10 @@
         },
         {
           "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "case_start",
           "named": true
         },
         {
@@ -593,21 +618,10 @@
   {
     "type": "default_case_block",
     "named": true,
-    "fields": {
-      "default_start": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "{default}",
-            "named": false
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -623,6 +637,10 @@
         },
         {
           "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_start",
           "named": true
         },
         {
@@ -1053,21 +1071,10 @@
   {
     "type": "else_block",
     "named": true,
-    "fields": {
-      "else_start": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "{else}",
-            "named": false
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -1099,6 +1106,10 @@
         },
         {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "else_start",
           "named": true
         },
         {
@@ -1194,7 +1205,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -1226,6 +1237,10 @@
         },
         {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "elseif_start",
           "named": true
         },
         {
@@ -1314,6 +1329,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "elseif_start",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "embed_tag",
@@ -1581,13 +1601,23 @@
     "type": "for_block",
     "named": true,
     "fields": {
-      "for_end": {
+      "close": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "{/for}",
-            "named": false
+            "type": "for_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "for_start",
+            "named": true
           }
         ]
       }
@@ -1723,13 +1753,23 @@
     "type": "foreach_block",
     "named": true,
     "fields": {
-      "foreach_end": {
+      "close": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "{/foreach}",
-            "named": false
+            "type": "foreach_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "foreach_start",
+            "named": true
           }
         ]
       }
@@ -1891,21 +1931,23 @@
     "type": "if_block",
     "named": true,
     "fields": {
-      "if_end": {
+      "close": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "{/ifchanged}",
-            "named": false
-          },
+            "type": "if_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
           {
-            "type": "{/ifset}",
-            "named": false
-          },
-          {
-            "type": "{/if}",
-            "named": false
+            "type": "if_start",
+            "named": true
           }
         ]
       }
@@ -2042,6 +2084,16 @@
     }
   },
   {
+    "type": "if_end",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "if_start",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "latte_print_tag",
     "named": true,
     "fields": {
@@ -2150,7 +2202,28 @@
   {
     "type": "macro",
     "named": true,
-    "fields": {},
+    "fields": {
+      "close": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "macro_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "macro_start",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -2554,13 +2627,23 @@
     "type": "switch_block",
     "named": true,
     "fields": {
-      "switch_end": {
+      "close": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "{/switch}",
-            "named": false
+            "type": "switch_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "switch_start",
+            "named": true
           }
         ]
       }
@@ -2708,13 +2791,23 @@
     "type": "while_block",
     "named": true,
     "fields": {
-      "while_end": {
+      "close": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "{/while}",
-            "named": false
+            "type": "while_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "while_start",
+            "named": true
           }
         ]
       }
@@ -3027,6 +3120,18 @@
     "named": true
   },
   {
+    "type": "block_end",
+    "named": true
+  },
+  {
+    "type": "block_start",
+    "named": true
+  },
+  {
+    "type": "case_start",
+    "named": true
+  },
+  {
     "type": "comment",
     "named": true,
     "extra": true
@@ -3036,11 +3141,19 @@
     "named": true
   },
   {
+    "type": "default_start",
+    "named": true
+  },
+  {
     "type": "doctype",
     "named": false
   },
   {
     "type": "dump_tag",
+    "named": true
+  },
+  {
+    "type": "else_start",
     "named": true
   },
   {
@@ -3061,6 +3174,22 @@
   },
   {
     "type": "filter_args",
+    "named": true
+  },
+  {
+    "type": "for_end",
+    "named": true
+  },
+  {
+    "type": "for_start",
+    "named": true
+  },
+  {
+    "type": "foreach_end",
+    "named": true
+  },
+  {
+    "type": "foreach_start",
     "named": true
   },
   {
@@ -3093,6 +3222,14 @@
     "named": true
   },
   {
+    "type": "macro_end",
+    "named": true
+  },
+  {
+    "type": "macro_start",
+    "named": true
+  },
+  {
     "type": "not",
     "named": false
   },
@@ -3113,6 +3250,14 @@
     "named": true
   },
   {
+    "type": "switch_end",
+    "named": true
+  },
+  {
+    "type": "switch_start",
+    "named": true
+  },
+  {
     "type": "tag_name",
     "named": true
   },
@@ -3123,6 +3268,14 @@
   {
     "type": "true",
     "named": false
+  },
+  {
+    "type": "while_end",
+    "named": true
+  },
+  {
+    "type": "while_start",
+    "named": true
   },
   {
     "type": "{",
@@ -3141,14 +3294,6 @@
     "named": false
   },
   {
-    "type": "{/foreach}",
-    "named": false
-  },
-  {
-    "type": "{/for}",
-    "named": false
-  },
-  {
     "type": "{/ifchanged}",
     "named": false
   },
@@ -3161,14 +3306,6 @@
     "named": false
   },
   {
-    "type": "{/switch}",
-    "named": false
-  },
-  {
-    "type": "{/while}",
-    "named": false
-  },
-  {
     "type": "{=",
     "named": false
   },
@@ -3178,14 +3315,6 @@
   },
   {
     "type": "{default",
-    "named": false
-  },
-  {
-    "type": "{default}",
-    "named": false
-  },
-  {
-    "type": "{else}",
     "named": false
   },
   {
