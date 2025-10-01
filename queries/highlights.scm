@@ -54,6 +54,9 @@
 (var_type_tag) @keyword.type
 (template_type_tag) @keyword.type
 (default_tag) @keyword.directive
+
+; Type identifiers in varType and templateType
+(type_identifier) @type
 (capture_tag) @keyword.directive
 (include_tag) @keyword.directive
 (extends_tag) @keyword.directive

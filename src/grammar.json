@@ -725,44 +725,71 @@
       ]
     },
     "var_type_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{varType"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{varType"
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_identifier"
           }
-        ]
-      }
+        },
+        {
+          "type": "FIELD",
+          "name": "variable",
+          "content": {
+            "type": "SYMBOL",
+            "name": "php_variable"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
     },
     "template_type_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{templateType"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{templateType"
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_identifier"
           }
-        ]
-      }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "type_identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "string|int|float|bool|array|object|mixed|void|null"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[A-Z][a-zA-Z0-9_]*(\\\\[A-Z][a-zA-Z0-9_]*)*(\\[\\])?"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[A-Z][a-zA-Z0-9_]*(\\[\\])?"
+        }
+      ]
     },
     "capture_tag": {
       "type": "SEQ",

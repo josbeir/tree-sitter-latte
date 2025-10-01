@@ -2872,6 +2872,22 @@
     }
   },
   {
+    "type": "template_type_tag",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "ternary_expression",
     "named": true,
     "fields": {
@@ -2906,6 +2922,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "type_identifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "unary_expression",
@@ -2979,6 +3000,32 @@
           },
           {
             "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "php_variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_type_tag",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
             "named": true
           }
         ]
@@ -3490,10 +3537,6 @@
     "named": true
   },
   {
-    "type": "template_type_tag",
-    "named": true
-  },
-  {
     "type": "text",
     "named": true
   },
@@ -3503,10 +3546,6 @@
   },
   {
     "type": "var_print_tag",
-    "named": true
-  },
-  {
-    "type": "var_type_tag",
     "named": true
   },
   {
@@ -3558,7 +3597,15 @@
     "named": false
   },
   {
+    "type": "{templateType",
+    "named": false
+  },
+  {
     "type": "{var",
+    "named": false
+  },
+  {
+    "type": "{varType",
     "named": false
   },
   {

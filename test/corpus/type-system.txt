@@ -7,7 +7,10 @@ VarType with simple type
 --------------------------------------------------------------------------------
 
 (document
-  (var_type_tag))
+  (var_type_tag
+    (type_identifier)
+    (php_variable
+      (identifier))))
 
 ================================================================================
 VarType with class type
@@ -18,7 +21,10 @@ VarType with class type
 --------------------------------------------------------------------------------
 
 (document
-  (var_type_tag))
+  (var_type_tag
+    (type_identifier)
+    (php_variable
+      (identifier))))
 
 ================================================================================
 VarType with array type
@@ -29,7 +35,10 @@ VarType with array type
 --------------------------------------------------------------------------------
 
 (document
-  (var_type_tag))
+  (var_type_tag
+    (type_identifier)
+    (php_variable
+      (identifier))))
 
 ================================================================================
 TemplateType declaration
@@ -40,7 +49,8 @@ TemplateType declaration
 --------------------------------------------------------------------------------
 
 (document
-  (template_type_tag))
+  (template_type_tag
+    (type_identifier)))
 
 ================================================================================
 VarType in HTML context
@@ -57,7 +67,10 @@ VarType in HTML context
   (element
     (start_tag
       (tag_name))
-    (var_type_tag)
+    (var_type_tag
+      (type_identifier)
+      (php_variable
+        (identifier)))
     (element
       (start_tag
         (tag_name))
@@ -79,9 +92,18 @@ Multiple varType declarations
 --------------------------------------------------------------------------------
 
 (document
-  (var_type_tag)
-  (var_type_tag)
-  (var_type_tag))
+  (var_type_tag
+    (type_identifier)
+    (php_variable
+      (identifier)))
+  (var_type_tag
+    (type_identifier)
+    (php_variable
+      (identifier)))
+  (var_type_tag
+    (type_identifier)
+    (php_variable
+      (identifier))))
 
 ================================================================================
 TemplateType with namespace
@@ -92,4 +114,5 @@ TemplateType with namespace
 --------------------------------------------------------------------------------
 
 (document
-  (template_type_tag))
+  (template_type_tag
+    (type_identifier)))

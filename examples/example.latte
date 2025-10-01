@@ -2,6 +2,13 @@
 {extends 'layout.latte'}
 {import 'components.latte'}
 
+{* Type declarations for IDE support and static analysis *}
+{templateType App\Presenters\Templates\ExampleTemplate}
+{varType string $title}
+{varType int $count}
+{varType array $items}
+{varType Nette\Security\User $user}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +23,9 @@
     {var $age = 30}
     {var $items = [1, 2, 3, 4, 5]}
     {default $page = 1}
+
+    {* Type declaration for local variable *}
+    {varType App\Model\Entity\Post[] $posts}
 
     {* PHP Variables with properties and methods *}
     <section>

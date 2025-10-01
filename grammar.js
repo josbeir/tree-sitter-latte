@@ -93,10 +93,28 @@ module.exports = grammar(html, {
       ),
 
     // VarType tag {varType Type $var}
-    var_type_tag: (_) => token(seq("{varType", /[^}]+/, "}")),
+    var_type_tag: ($) =>
+      seq(
+        "{varType",
+        field("type", $.type_identifier),
+        field("variable", $.php_variable),
+        "}",
+      ),
 
     // TemplateType tag {templateType ClassName}
-    template_type_tag: (_) => token(seq("{templateType", /[^}]+/, "}")),
+    template_type_tag: ($) =>
+      seq("{templateType", field("type", $.type_identifier), "}"),
+
+    // Type identifier: FQDN, primitive types, or array types
+    type_identifier: (_) =>
+      choice(
+        // Primitive types
+        /string|int|float|bool|array|object|mixed|void|null/,
+        // FQDN with optional array suffix: App\Model\User or App\Model\User[]
+        /[A-Z][a-zA-Z0-9_]*(\\[A-Z][a-zA-Z0-9_]*)*(\[\])?/,
+        // Simple class name with optional array suffix
+        /[A-Z][a-zA-Z0-9_]*(\[\])?/,
+      ),
 
     // Capture tag {capture $var}...{/capture}
     capture_tag: ($) =>
