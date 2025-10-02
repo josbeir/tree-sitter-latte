@@ -1,21 +1,7 @@
+; inherits: html
+
 ; Latte syntax highlighting queries
 ; Extends tree-sitter-html highlights
-
-; Inherit HTML highlighting
-(tag_name) @tag
-(erroneous_end_tag_name) @tag.error
-(doctype) @constant
-(attribute_name) @attribute
-(attribute_value) @string
-(entity) @constant.character.escape
-
-; HTML punctuation
-[
-  "<"
-  ">"
-  "</"
-  "/>"
-] @punctuation.bracket
 
 ; Latte comments
 (comment) @comment
@@ -54,9 +40,6 @@
 (var_type_tag) @keyword.type
 (template_type_tag) @keyword.type
 (default_tag) @keyword.directive
-
-; Type identifiers in varType and templateType
-(type_identifier) @type
 (capture_tag) @keyword.directive
 (include_tag) @keyword.directive
 (extends_tag) @keyword.directive

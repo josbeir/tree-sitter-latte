@@ -22,6 +22,7 @@
     {var $name = 'John Doe'}
     {var $age = 30}
     {var $items = [1, 2, 3, 4, 5]}
+    {var $items = [key: 'value', value: true]]}
     {default $page = 1}
 
     {* Type declaration for local variable *}
@@ -84,8 +85,6 @@
 
         {foreach $items as $item}
             <li>{$item|capitalize}</li>
-        {else}
-            <li>No items found</li>
         {/foreach}
 
         {for $i = 0; $i < 10; $i++}
