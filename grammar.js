@@ -11,7 +11,7 @@ module.exports = grammar(html, {
 
   extras: ($) => [/\s/, $.latte_comment],
 
-  conflicts: ($) => [],
+  //conflicts: ($) => [],
 
   rules: {
     document: ($) => repeat($._node),
