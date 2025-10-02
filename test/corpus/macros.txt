@@ -16,18 +16,31 @@ Macro definition and usage
     (text)
     close: (block_end))
   (latte_expression_tag
+    (ERROR
+      (macro_name))
     expression: (expression
-      (function_call
-        function: (identifier)
-        arguments: (argument_list
-          (expression
-            (string_literal)))))))
+      (parenthesized_expression
+        (expression
+          (string_literal))))))
 
 ================================================================================
-Macro call with identifier argument
+Macro call with uppercase identifier
 ================================================================================
 
 {CustomMacro argument}
+
+--------------------------------------------------------------------------------
+
+(document
+  (macro_call
+    name: (macro_name)
+    arguments: (macro_arguments)))
+
+================================================================================
+Macro call with lowercase identifier
+================================================================================
+
+{mytag 'tag', [key: 'value'], $myvar}
 
 --------------------------------------------------------------------------------
 

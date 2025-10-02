@@ -517,7 +517,7 @@ module.exports = grammar(html, {
         "}",
       ),
 
-    macro_name: (_) => token(prec(1, /[A-Z][a-zA-Z0-9_]+/)),
+    macro_name: (_) => token(prec(1, /[a-zA-Z_][a-zA-Z0-9_]*/)),
 
     macro_arguments: (_) => /\s+[^}]+/,
 

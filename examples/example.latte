@@ -11,6 +11,8 @@
 
 {CustomTag variable}
 {CustomTag 'variable'}
+{HtmlHelper method}
+{mytag 'tag', [key: 'value'], $myvar}
 
 <!DOCTYPE html>
 <html>
@@ -74,8 +76,8 @@
             <p>Post status unknown</p>
         {/if}
 
-        {if count($posts) > 0}
-            <p>There are {count($posts)} posts</p>
+        {if $posts}
+            <p>There are posts available</p>
         {else}
             <p>No posts available</p>
         {/if}
