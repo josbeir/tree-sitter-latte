@@ -5466,55 +5466,61 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'r') ADVANCE(12);
       END_STATE();
     case 6:
-      ACCEPT_TOKEN(sym_macro_name);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(6);
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(13);
       END_STATE();
     case 7:
-      if (lookahead == 'd') ADVANCE(13);
+      if (lookahead == 'd') ADVANCE(14);
       END_STATE();
     case 8:
-      if (lookahead == 'l') ADVANCE(14);
+      if (lookahead == 'l') ADVANCE(15);
       END_STATE();
     case 9:
-      if (lookahead == 't') ADVANCE(15);
+      if (lookahead == 't') ADVANCE(16);
       END_STATE();
     case 10:
-      if (lookahead == 'l') ADVANCE(16);
+      if (lookahead == 'l') ADVANCE(17);
       END_STATE();
     case 11:
       ACCEPT_TOKEN(anon_sym_or);
       END_STATE();
     case 12:
-      if (lookahead == 'u') ADVANCE(17);
+      if (lookahead == 'u') ADVANCE(18);
       END_STATE();
     case 13:
-      ACCEPT_TOKEN(anon_sym_and);
+      ACCEPT_TOKEN(sym_macro_name);
+      if (('0' <= lookahead && lookahead <= '9') ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(13);
       END_STATE();
     case 14:
-      if (lookahead == 's') ADVANCE(18);
+      ACCEPT_TOKEN(anon_sym_and);
       END_STATE();
     case 15:
-      ACCEPT_TOKEN(anon_sym_not);
+      if (lookahead == 's') ADVANCE(19);
       END_STATE();
     case 16:
-      if (lookahead == 'l') ADVANCE(19);
+      ACCEPT_TOKEN(anon_sym_not);
       END_STATE();
     case 17:
-      if (lookahead == 'e') ADVANCE(20);
+      if (lookahead == 'l') ADVANCE(20);
       END_STATE();
     case 18:
       if (lookahead == 'e') ADVANCE(21);
       END_STATE();
     case 19:
-      ACCEPT_TOKEN(anon_sym_null);
+      if (lookahead == 'e') ADVANCE(22);
       END_STATE();
     case 20:
-      ACCEPT_TOKEN(anon_sym_true);
+      ACCEPT_TOKEN(anon_sym_null);
       END_STATE();
     case 21:
+      ACCEPT_TOKEN(anon_sym_true);
+      END_STATE();
+    case 22:
       ACCEPT_TOKEN(anon_sym_false);
       END_STATE();
     default:
@@ -30934,8 +30940,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [1037] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_loop_block, 3, 0, 10),
   [1039] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_switch_block, 3, 0, 10),
   [1041] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_switch_block, 3, 0, 10),
-  [1043] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_macro_call, 3, 1, 4),
-  [1045] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_macro_call, 3, 1, 4),
+  [1043] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_macro_call, 3, 0, 4),
+  [1045] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_macro_call, 3, 0, 4),
   [1047] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_latte_expression_tag, 3, 0, 11),
   [1049] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_latte_expression_tag, 3, 0, 11),
   [1051] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_element, 3, 0, 0),
@@ -30998,8 +31004,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [1165] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_loop_block, 4, 0, 24),
   [1167] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_block, 2, 0, 3),
   [1169] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_block, 2, 0, 3),
-  [1171] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_macro_call, 4, 1, 25),
-  [1173] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_macro_call, 4, 1, 25),
+  [1171] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_macro_call, 4, 0, 25),
+  [1173] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_macro_call, 4, 0, 25),
   [1175] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_end_tag, 3, 0, 0),
   [1177] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_end_tag, 3, 0, 0),
   [1179] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_loop_block, 2, 0, 3),

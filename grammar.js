@@ -41,8 +41,8 @@ module.exports = grammar(html, {
         $.loop_block,
         $.switch_block,
         $.block, // Generic simple blocks (block, while, macro, php, spaceless, etc.)
-        $.macro_call, // Try macro call first (uppercase identifier)
-        $.latte_expression_tag, // Fall back to expression tag (handles {Status::Published})
+        $.macro_call, // Try macro call first
+        $.latte_expression_tag, // Fall back to expression tag
         // Text must come last as it's a catch-all
         $.text,
       ),
@@ -510,17 +510,14 @@ module.exports = grammar(html, {
     default_start: (_) => token("{default}"),
 
     macro_call: ($) =>
-      prec.dynamic(
-        1,
-        seq(
-          "{",
-          field("name", $.macro_name),
-          optional(field("arguments", $.macro_arguments)),
-          "}",
-        ),
+      seq(
+        "{",
+        field("name", $.macro_name),
+        optional(field("arguments", $.macro_arguments)),
+        "}",
       ),
 
-    macro_name: (_) => token(prec(1, /[A-Z][a-zA-Z0-9_]*/)),
+    macro_name: (_) => token(prec(1, /[A-Z][a-zA-Z0-9_]+/)),
 
     macro_arguments: (_) => /\s+[^}]+/,
 

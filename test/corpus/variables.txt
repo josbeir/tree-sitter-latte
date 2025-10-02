@@ -138,11 +138,10 @@ Static class constant
 --------------------------------------------------------------------------------
 
 (document
-  (latte_expression_tag
-    expression: (expression
-      (static_call
-        class: (identifier)
-        constant: (identifier)))))
+  (macro_call
+    (ERROR
+      (macro_name))
+    name: (macro_name)))
 
 ================================================================================
 Static method call
@@ -154,10 +153,11 @@ Static method call
 
 (document
   (latte_expression_tag
+    (ERROR
+      (macro_name))
     expression: (expression
-      (static_call
-        class: (identifier)
-        method: (identifier)
+      (function_call
+        function: (identifier)
         arguments: (argument_list
           (expression
             (php_variable
