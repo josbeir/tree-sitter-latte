@@ -348,6 +348,7 @@ module.exports = grammar(html, {
       choice(
         $.expression,
         seq(field("key", $.expression), "=>", field("value", $.expression)),
+        seq(field("key", $.identifier), ":", field("value", $.expression)),
       ),
 
     identifier: (_) => /[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*/,

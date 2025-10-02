@@ -1,8 +1,5 @@
 ; inherits: html
 
-; Latte syntax highlighting queries
-; Extends tree-sitter-html highlights
-
 ; Latte comments
 (comment) @comment
 
@@ -36,8 +33,6 @@
 (latte_file_tag) @keyword.directive
 (embed_tag) @keyword.directive
 (latte_single_tag) @keyword.directive
-
-
 
 ; Latte filters - highlight the pipe and filter name
 (filter_chain

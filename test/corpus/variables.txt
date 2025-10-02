@@ -367,3 +367,49 @@ Associative array literal
           (string_literal))
         (expression
           (number_literal))))))
+
+================================================================================
+Named array with colon syntax
+================================================================================
+
+{var $config = [debug: true, timeout: 30]}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_assignment_tag
+    (php_variable
+      (identifier))
+    (expression
+      (array_literal
+        (identifier)
+        (expression
+          (boolean_literal))
+        (identifier)
+        (expression
+          (number_literal))))))
+
+================================================================================
+Mixed array syntax
+================================================================================
+
+{var $data = [name: 'John', 'email' => 'john@example.com', active: true]}
+
+--------------------------------------------------------------------------------
+
+(document
+  (latte_assignment_tag
+    (php_variable
+      (identifier))
+    (expression
+      (array_literal
+        (identifier)
+        (expression
+          (string_literal))
+        (expression
+          (string_literal))
+        (expression
+          (string_literal))
+        (identifier)
+        (expression
+          (boolean_literal))))))
