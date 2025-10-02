@@ -34,6 +34,11 @@
 (embed_tag) @keyword.directive
 (latte_single_tag) @keyword.directive
 
+; Macro calls - {CustomTag args}
+(macro_call
+  name: (macro_name) @function.macro
+  arguments: (macro_arguments)? @parameter)
+
 ; Latte filters - highlight the pipe and filter name
 (filter_chain
   (filter

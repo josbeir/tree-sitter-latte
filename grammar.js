@@ -1,6 +1,6 @@
 /**
  * @file Latte grammar for tree-sitter
- * @author Jos Beir
+ * @author Josbeir
  * @license MIT
  */
 
@@ -10,6 +10,8 @@ module.exports = grammar(html, {
   name: "latte",
 
   extras: ($) => [/\s/, $.latte_comment],
+
+  word: ($) => $.identifier,
 
   //conflicts: ($) => [],
 
@@ -40,7 +42,7 @@ module.exports = grammar(html, {
         $.switch_block,
         $.block, // Generic simple blocks (block, while, macro, php, spaceless, etc.)
         $.macro_call, // Try macro call first (uppercase identifier)
-        $.latte_expression_tag, // Fall back to expression tag
+        $.latte_expression_tag, // Fall back to expression tag (handles {Status::Published})
         // Text must come last as it's a catch-all
         $.text,
       ),
@@ -507,8 +509,20 @@ module.exports = grammar(html, {
 
     default_start: (_) => token("{default}"),
 
-    macro_call: (_) =>
-      token(seq("{", /[A-Z][a-zA-Z0-9_]*/, optional(/\s+[^}]+/), "}")),
+    macro_call: ($) =>
+      prec.dynamic(
+        1,
+        seq(
+          "{",
+          field("name", $.macro_name),
+          optional(field("arguments", $.macro_arguments)),
+          "}",
+        ),
+      ),
+
+    macro_name: (_) => token(prec(1, /[A-Z][a-zA-Z0-9_]*/)),
+
+    macro_arguments: (_) => /\s+[^}]+/,
 
     // Generic expression tag for things like {count(...)} or {Status::Published}
     latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),

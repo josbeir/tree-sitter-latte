@@ -1809,6 +1809,32 @@
     }
   },
   {
+    "type": "macro_call",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "macro_arguments",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "macro_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "null_literal",
     "named": true,
     "fields": {}
@@ -2477,7 +2503,11 @@
     "named": true
   },
   {
-    "type": "macro_call",
+    "type": "macro_arguments",
+    "named": true
+  },
+  {
+    "type": "macro_name",
     "named": true
   },
   {

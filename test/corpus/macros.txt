@@ -32,7 +32,9 @@ Macro call with identifier argument
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call))
+  (macro_call
+    name: (macro_name)
+    arguments: (macro_arguments)))
 
 ================================================================================
 Macro call without arguments
@@ -43,7 +45,8 @@ Macro call without arguments
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call))
+  (macro_call
+    name: (macro_name)))
 
 ================================================================================
 Macro call with string argument
@@ -54,7 +57,9 @@ Macro call with string argument
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call))
+  (macro_call
+    name: (macro_name)
+    arguments: (macro_arguments)))
 
 ================================================================================
 Macro call with multiple arguments
@@ -65,4 +70,6 @@ Macro call with multiple arguments
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call))
+  (macro_call
+    name: (macro_name)
+    arguments: (macro_arguments)))
