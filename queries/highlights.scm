@@ -9,20 +9,13 @@
 ; Latte blocks - these are token nodes, so we can't drill into their contents
 ; but we can highlight the entire node with a specific scope
 (if_block) @keyword.control
-(foreach_block) @keyword.control
-(for_block) @keyword.control
-(while_block) @keyword.control
+(loop_block) @keyword.control
 (switch_block) @keyword.control
 (block) @keyword.control
 
 ; Note: Variables inside {if $var}, {foreach $items}, {switch $status} etc.
 ; are consumed as tokens and cannot be individually highlighted without
 ; restructuring the grammar to parse their contents (which would impact performance)
-
-; Latte macros
-(macro) @keyword.directive
-(macro_name) @function.macro
-(macro_args) @parameter
 
 ; Latte print tags - highlight differently from variables
 (latte_print_tag) @tag.builtin
@@ -36,25 +29,15 @@
   name: (identifier) @variable.builtin)
 
 ; Latte special tags
-(var_tag) @keyword.directive
+(latte_assignment_tag) @keyword.directive
 (var_type_tag) @keyword.type
 (template_type_tag) @keyword.type
-(default_tag) @keyword.directive
 (capture_tag) @keyword.directive
-(include_tag) @keyword.directive
-(extends_tag) @keyword.directive
-(layout_tag) @keyword.directive
+(latte_file_tag) @keyword.directive
 (embed_tag) @keyword.directive
-(import_tag) @keyword.directive
-(sandbox_tag) @keyword.directive
-(dump_tag) @keyword.directive
-(debugbreak_tag) @keyword.directive
-(template_print_tag) @keyword.directive
-(var_print_tag) @keyword.directive
 (latte_single_tag) @keyword.directive
 
-; Generic Latte blocks (spaceless, translate, php, cache, define, etc.)
-(latte_generic_block) @keyword.control
+
 
 ; Latte filters - highlight the pipe and filter name
 (filter_chain

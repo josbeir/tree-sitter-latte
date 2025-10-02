@@ -9,15 +9,15 @@ Spaceless block
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (element
       (start_tag
         (tag_name))
       (text)
       (end_tag
         (tag_name)))
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 Translate block
@@ -30,10 +30,10 @@ Hello World
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (text)
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 PHP block
@@ -47,10 +47,10 @@ echo $x;
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (text)
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 Cache block with parameters
@@ -63,10 +63,10 @@ Cached content
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (text)
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 Define block
@@ -79,10 +79,10 @@ Content
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (text)
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 Snippet block
@@ -95,15 +95,15 @@ Snippet block
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (element
       (start_tag
         (tag_name))
       (text)
       (end_tag
         (tag_name)))
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 Try block
@@ -116,10 +116,10 @@ Risky operation
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (text)
-    (latte_generic_block_end)))
+    (block_end)))
 
 ================================================================================
 IterateWhile block
@@ -132,7 +132,7 @@ Item content
 --------------------------------------------------------------------------------
 
 (document
-  (latte_generic_block
-    (latte_generic_block_start)
+  (block
+    (block_start)
     (text)
-    (latte_generic_block_end)))
+    (block_end)))

@@ -235,19 +235,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -267,27 +255,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -295,7 +267,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -311,19 +283,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -339,10 +303,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -351,19 +311,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -406,19 +354,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -438,27 +374,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -466,7 +386,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -482,19 +402,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -510,10 +422,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -522,19 +430,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -565,19 +461,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -597,27 +481,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -625,7 +493,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -641,19 +509,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -669,10 +529,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -681,19 +537,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -720,23 +564,11 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
           "type": "default_start",
           "named": true
         },
         {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -756,27 +588,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -784,7 +600,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -800,19 +616,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -828,10 +636,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -840,72 +644,10 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "default_tag",
-    "named": true,
-    "fields": {
-      "expression": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "filters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "variable": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "php_variable",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {
@@ -935,19 +677,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -967,27 +697,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -995,7 +709,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -1011,19 +725,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -1039,10 +745,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -1051,19 +753,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -1090,19 +780,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -1126,27 +804,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -1154,7 +816,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -1170,19 +832,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -1206,10 +860,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -1218,19 +868,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -1257,19 +895,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -1293,27 +919,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -1321,7 +931,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -1337,19 +947,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -1365,10 +967,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -1377,19 +975,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -1416,19 +1002,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -1452,27 +1026,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -1480,7 +1038,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -1496,19 +1054,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -1524,10 +1074,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -1536,19 +1082,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -1580,19 +1114,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -1612,27 +1134,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -1640,7 +1146,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -1656,19 +1162,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -1684,10 +1182,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -1696,19 +1190,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -1845,366 +1327,6 @@
     }
   },
   {
-    "type": "for_block",
-    "named": true,
-    "fields": {
-      "close": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "for_end",
-            "named": true
-          }
-        ]
-      },
-      "open": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "for_start",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "capture_tag",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
-          "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
-          "named": true
-        },
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "else_block",
-          "named": true
-        },
-        {
-          "type": "embed_tag",
-          "named": true
-        },
-        {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
-          "named": true
-        },
-        {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
-          "type": "if_block",
-          "named": true
-        },
-        {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
-          "named": true
-        },
-        {
-          "type": "latte_expression_tag",
-          "named": true
-        },
-        {
-          "type": "latte_generic_block",
-          "named": true
-        },
-        {
-          "type": "latte_print_tag",
-          "named": true
-        },
-        {
-          "type": "latte_single_tag",
-          "named": true
-        },
-        {
-          "type": "latte_variable",
-          "named": true
-        },
-        {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
-          "named": true
-        },
-        {
-          "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
-          "named": true
-        },
-        {
-          "type": "script_element",
-          "named": true
-        },
-        {
-          "type": "style_element",
-          "named": true
-        },
-        {
-          "type": "switch_block",
-          "named": true
-        },
-        {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
-          "type": "template_type_tag",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
-          "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "foreach_block",
-    "named": true,
-    "fields": {
-      "close": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "foreach_end",
-            "named": true
-          }
-        ]
-      },
-      "open": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "foreach_start",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "capture_tag",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
-          "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
-          "named": true
-        },
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "else_block",
-          "named": true
-        },
-        {
-          "type": "embed_tag",
-          "named": true
-        },
-        {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
-          "named": true
-        },
-        {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
-          "type": "if_block",
-          "named": true
-        },
-        {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
-          "named": true
-        },
-        {
-          "type": "latte_expression_tag",
-          "named": true
-        },
-        {
-          "type": "latte_generic_block",
-          "named": true
-        },
-        {
-          "type": "latte_print_tag",
-          "named": true
-        },
-        {
-          "type": "latte_single_tag",
-          "named": true
-        },
-        {
-          "type": "latte_variable",
-          "named": true
-        },
-        {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
-          "named": true
-        },
-        {
-          "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
-          "named": true
-        },
-        {
-          "type": "script_element",
-          "named": true
-        },
-        {
-          "type": "style_element",
-          "named": true
-        },
-        {
-          "type": "switch_block",
-          "named": true
-        },
-        {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
-          "type": "template_type_tag",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
-          "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "function_call",
     "named": true,
     "fields": {
@@ -2272,19 +1394,7 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
           "named": true
         },
         {
@@ -2312,27 +1422,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -2340,7 +1434,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -2356,19 +1450,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -2384,10 +1470,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -2396,19 +1478,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -2423,6 +1493,56 @@
     "type": "if_start",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "latte_assignment_tag",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "filters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "php_variable",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "latte_expression_tag",
@@ -2448,182 +1568,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "latte_generic_block",
-    "named": true,
-    "fields": {
-      "close": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "latte_generic_block_end",
-            "named": true
-          }
-        ]
-      },
-      "open": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "latte_generic_block_start",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "capture_tag",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
-          "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
-          "named": true
-        },
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "embed_tag",
-          "named": true
-        },
-        {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
-          "named": true
-        },
-        {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
-          "type": "if_block",
-          "named": true
-        },
-        {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
-          "named": true
-        },
-        {
-          "type": "latte_expression_tag",
-          "named": true
-        },
-        {
-          "type": "latte_generic_block",
-          "named": true
-        },
-        {
-          "type": "latte_print_tag",
-          "named": true
-        },
-        {
-          "type": "latte_single_tag",
-          "named": true
-        },
-        {
-          "type": "latte_variable",
-          "named": true
-        },
-        {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
-          "named": true
-        },
-        {
-          "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
-          "named": true
-        },
-        {
-          "type": "script_element",
-          "named": true
-        },
-        {
-          "type": "style_element",
-          "named": true
-        },
-        {
-          "type": "switch_block",
-          "named": true
-        },
-        {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
-          "type": "template_type_tag",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
-          "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -2733,7 +1677,7 @@
     }
   },
   {
-    "type": "macro",
+    "type": "loop_block",
     "named": true,
     "fields": {
       "close": {
@@ -2741,7 +1685,7 @@
         "required": true,
         "types": [
           {
-            "type": "macro_end",
+            "type": "loop_end",
             "named": true
           }
         ]
@@ -2751,7 +1695,7 @@
         "required": true,
         "types": [
           {
-            "type": "macro_start",
+            "type": "loop_start",
             "named": true
           }
         ]
@@ -2774,23 +1718,15 @@
           "named": true
         },
         {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
           "type": "doctype",
           "named": true
         },
         {
-          "type": "dump_tag",
+          "type": "element",
           "named": true
         },
         {
-          "type": "element",
+          "type": "else_block",
           "named": true
         },
         {
@@ -2806,27 +1742,11 @@
           "named": true
         },
         {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
           "type": "if_block",
           "named": true
         },
         {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
+          "type": "latte_assignment_tag",
           "named": true
         },
         {
@@ -2834,7 +1754,7 @@
           "named": true
         },
         {
-          "type": "latte_generic_block",
+          "type": "latte_file_tag",
           "named": true
         },
         {
@@ -2850,19 +1770,11 @@
           "named": true
         },
         {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
+          "type": "loop_block",
           "named": true
         },
         {
           "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
           "named": true
         },
         {
@@ -2878,10 +1790,6 @@
           "named": true
         },
         {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
           "type": "template_type_tag",
           "named": true
         },
@@ -2890,19 +1798,7 @@
           "named": true
         },
         {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
           "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
           "named": true
         }
       ]
@@ -3315,56 +2211,6 @@
     }
   },
   {
-    "type": "var_tag",
-    "named": true,
-    "fields": {
-      "expression": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "filters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "variable": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "php_variable",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "var_type_tag",
     "named": true,
     "fields": {
@@ -3388,182 +2234,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "while_block",
-    "named": true,
-    "fields": {
-      "close": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "while_end",
-            "named": true
-          }
-        ]
-      },
-      "open": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "while_start",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "capture_tag",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "debugbreak_tag",
-          "named": true
-        },
-        {
-          "type": "default_tag",
-          "named": true
-        },
-        {
-          "type": "doctype",
-          "named": true
-        },
-        {
-          "type": "dump_tag",
-          "named": true
-        },
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "embed_tag",
-          "named": true
-        },
-        {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
-          "named": true
-        },
-        {
-          "type": "extends_tag",
-          "named": true
-        },
-        {
-          "type": "for_block",
-          "named": true
-        },
-        {
-          "type": "foreach_block",
-          "named": true
-        },
-        {
-          "type": "if_block",
-          "named": true
-        },
-        {
-          "type": "import_tag",
-          "named": true
-        },
-        {
-          "type": "include_tag",
-          "named": true
-        },
-        {
-          "type": "latte_expression_tag",
-          "named": true
-        },
-        {
-          "type": "latte_generic_block",
-          "named": true
-        },
-        {
-          "type": "latte_print_tag",
-          "named": true
-        },
-        {
-          "type": "latte_single_tag",
-          "named": true
-        },
-        {
-          "type": "latte_variable",
-          "named": true
-        },
-        {
-          "type": "layout_tag",
-          "named": true
-        },
-        {
-          "type": "macro",
-          "named": true
-        },
-        {
-          "type": "macro_call",
-          "named": true
-        },
-        {
-          "type": "sandbox_tag",
-          "named": true
-        },
-        {
-          "type": "script_element",
-          "named": true
-        },
-        {
-          "type": "style_element",
-          "named": true
-        },
-        {
-          "type": "switch_block",
-          "named": true
-        },
-        {
-          "type": "template_print_tag",
-          "named": true
-        },
-        {
-          "type": "template_type_tag",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "var_print_tag",
-          "named": true
-        },
-        {
-          "type": "var_tag",
-          "named": true
-        },
-        {
-          "type": "var_type_tag",
-          "named": true
-        },
-        {
-          "type": "while_block",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -3768,20 +2438,12 @@
     "extra": true
   },
   {
-    "type": "debugbreak_tag",
-    "named": true
-  },
-  {
     "type": "default_start",
     "named": true
   },
   {
     "type": "doctype",
     "named": false
-  },
-  {
-    "type": "dump_tag",
-    "named": true
   },
   {
     "type": "else_start",
@@ -3793,10 +2455,6 @@
   },
   {
     "type": "erroneous_end_tag_name",
-    "named": true
-  },
-  {
-    "type": "extends_tag",
     "named": true
   },
   {
@@ -3812,31 +2470,7 @@
     "named": true
   },
   {
-    "type": "for_end",
-    "named": true
-  },
-  {
-    "type": "for_start",
-    "named": true
-  },
-  {
-    "type": "foreach_end",
-    "named": true
-  },
-  {
-    "type": "foreach_start",
-    "named": true
-  },
-  {
     "type": "identifier",
-    "named": true
-  },
-  {
-    "type": "import_tag",
-    "named": true
-  },
-  {
-    "type": "include_tag",
     "named": true
   },
   {
@@ -3849,11 +2483,7 @@
     "named": true
   },
   {
-    "type": "latte_generic_block_end",
-    "named": true
-  },
-  {
-    "type": "latte_generic_block_start",
+    "type": "latte_file_tag",
     "named": true
   },
   {
@@ -3861,7 +2491,11 @@
     "named": true
   },
   {
-    "type": "layout_tag",
+    "type": "loop_end",
+    "named": true
+  },
+  {
+    "type": "loop_start",
     "named": true
   },
   {
@@ -3869,15 +2503,7 @@
     "named": true
   },
   {
-    "type": "macro_end",
-    "named": true
-  },
-  {
     "type": "macro_name",
-    "named": true
-  },
-  {
-    "type": "macro_start",
     "named": true
   },
   {
@@ -3897,10 +2523,6 @@
     "named": true
   },
   {
-    "type": "sandbox_tag",
-    "named": true
-  },
-  {
     "type": "switch_end",
     "named": true
   },
@@ -3913,28 +2535,12 @@
     "named": true
   },
   {
-    "type": "template_print_tag",
-    "named": true
-  },
-  {
     "type": "text",
     "named": true
   },
   {
     "type": "true",
     "named": false
-  },
-  {
-    "type": "var_print_tag",
-    "named": true
-  },
-  {
-    "type": "while_end",
-    "named": true
-  },
-  {
-    "type": "while_start",
-    "named": true
   },
   {
     "type": "{",
@@ -3973,15 +2579,7 @@
     "named": false
   },
   {
-    "type": "{default",
-    "named": false
-  },
-  {
     "type": "{templateType",
-    "named": false
-  },
-  {
-    "type": "{var",
     "named": false
   },
   {

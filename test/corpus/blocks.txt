@@ -48,8 +48,8 @@ Foreach with else
 --------------------------------------------------------------------------------
 
 (document
-  (foreach_block
-    (foreach_start)
+  (loop_block
+    (loop_start)
     (element
       (start_tag
         (tag_name))
@@ -65,7 +65,7 @@ Foreach with else
         (text)
         (end_tag
           (tag_name))))
-    (foreach_end)))
+    (loop_end)))
 
 ================================================================================
 Capture block

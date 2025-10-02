@@ -47,8 +47,8 @@ Foreach with variable in HTML
 --------------------------------------------------------------------------------
 
 (document
-  (foreach_block
-    (foreach_start)
+  (loop_block
+    (loop_start)
     (element
       (start_tag
         (tag_name))
@@ -56,4 +56,4 @@ Foreach with variable in HTML
         (identifier))
       (end_tag
         (tag_name)))
-    (foreach_end)))
+    (loop_end)))

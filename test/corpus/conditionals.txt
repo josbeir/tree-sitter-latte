@@ -87,8 +87,8 @@ If with function call
     (element
       (start_tag
         (tag_name))
-      (foreach_block
-        (foreach_start)
+      (loop_block
+        (loop_start)
         (element
           (start_tag
             (tag_name))
@@ -96,7 +96,7 @@ If with function call
             (identifier))
           (end_tag
             (tag_name)))
-        (foreach_end))
+        (loop_end))
       (end_tag
         (tag_name)))
     (if_end)))
@@ -112,8 +112,8 @@ For loop
 --------------------------------------------------------------------------------
 
 (document
-  (for_block
-    (for_start)
+  (loop_block
+    (loop_start)
     (element
       (start_tag
         (tag_name))
@@ -122,7 +122,7 @@ For loop
         (identifier))
       (end_tag
         (tag_name)))
-    (for_end)))
+    (loop_end)))
 
 ================================================================================
 While loop
@@ -135,15 +135,15 @@ While loop
 --------------------------------------------------------------------------------
 
 (document
-  (while_block
-    (while_start)
+  (block
+    (block_start)
     (element
       (start_tag
         (tag_name))
       (text)
       (end_tag
         (tag_name)))
-    (while_end)))
+    (block_end)))
 
 ================================================================================
 Switch statement

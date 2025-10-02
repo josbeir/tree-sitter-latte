@@ -246,7 +246,7 @@ Variable assignment
 --------------------------------------------------------------------------------
 
 (document
-  (var_tag
+  (latte_assignment_tag
     (php_variable
       (identifier))
     (expression
@@ -261,7 +261,7 @@ Variable assignment with variable
 --------------------------------------------------------------------------------
 
 (document
-  (var_tag
+  (latte_assignment_tag
     (php_variable
       (identifier))
     (expression
@@ -277,7 +277,7 @@ Default variable assignment
 --------------------------------------------------------------------------------
 
 (document
-  (default_tag
+  (latte_assignment_tag
     (php_variable
       (identifier))
     (expression

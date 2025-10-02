@@ -11,10 +11,10 @@ Macro definition and usage
 --------------------------------------------------------------------------------
 
 (document
-  (macro
-    open: (macro_start)
+  (block
+    open: (block_start)
     (text)
-    close: (macro_end))
+    close: (block_end))
   (latte_expression_tag
     expression: (expression
       (function_call

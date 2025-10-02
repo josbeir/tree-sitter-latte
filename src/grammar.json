@@ -86,7 +86,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "var_tag"
+          "name": "latte_assignment_tag"
         },
         {
           "type": "SYMBOL",
@@ -98,23 +98,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "default_tag"
-        },
-        {
-          "type": "SYMBOL",
           "name": "capture_tag"
         },
         {
           "type": "SYMBOL",
-          "name": "include_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "extends_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "layout_tag"
+          "name": "latte_file_tag"
         },
         {
           "type": "SYMBOL",
@@ -122,35 +110,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "import_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "sandbox_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dump_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "debugbreak_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "template_print_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "var_print_tag"
-        },
-        {
-          "type": "SYMBOL",
           "name": "latte_single_tag"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "block"
         },
         {
           "type": "SYMBOL",
@@ -158,15 +118,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "foreach_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "for_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "while_block"
+          "name": "loop_block"
         },
         {
           "type": "SYMBOL",
@@ -174,7 +126,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "macro"
+          "name": "block"
         },
         {
           "type": "SYMBOL",
@@ -183,10 +135,6 @@
         {
           "type": "SYMBOL",
           "name": "macro_call"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "latte_generic_block"
         },
         {
           "type": "SYMBOL",
@@ -670,45 +618,24 @@
         }
       ]
     },
-    "var_tag": {
+    "latte_assignment_tag": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{var"
-        },
-        {
-          "type": "FIELD",
-          "name": "variable",
+          "type": "TOKEN",
           "content": {
-            "type": "SYMBOL",
-            "name": "php_variable"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "{var"
+              },
+              {
+                "type": "STRING",
+                "value": "{default"
+              }
+            ]
           }
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_expression_with_filters"
-          }
-        },
-        {
-          "type": "STRING",
-          "value": "}"
-        }
-      ]
-    },
-    "default_tag": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{default"
         },
         {
           "type": "FIELD",
@@ -835,54 +762,39 @@
         }
       ]
     },
-    "include_tag": {
+    "latte_file_tag": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
         "members": [
           {
             "type": "STRING",
-            "value": "{include"
+            "value": "{"
           },
           {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "extends_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{extends"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "layout_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{layout"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "include"
+              },
+              {
+                "type": "STRING",
+                "value": "extends"
+              },
+              {
+                "type": "STRING",
+                "value": "layout"
+              },
+              {
+                "type": "STRING",
+                "value": "import"
+              },
+              {
+                "type": "STRING",
+                "value": "sandbox"
+              }
+            ]
           },
           {
             "type": "PATTERN",
@@ -934,116 +846,6 @@
         }
       ]
     },
-    "import_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{import"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "sandbox_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{sandbox"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "dump_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{dump"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^}]+"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "debugbreak_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{debugbreak"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^}]+"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "template_print_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{templatePrint}"
-      }
-    },
-    "var_print_tag": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{varPrint}"
-      }
-    },
     "latte_single_tag": {
       "type": "TOKEN",
       "content": {
@@ -1079,6 +881,22 @@
               {
                 "type": "STRING",
                 "value": "syntax"
+              },
+              {
+                "type": "STRING",
+                "value": "dump"
+              },
+              {
+                "type": "STRING",
+                "value": "debugbreak"
+              },
+              {
+                "type": "STRING",
+                "value": "templatePrint"
+              },
+              {
+                "type": "STRING",
+                "value": "varPrint"
               }
             ]
           },
@@ -2277,11 +2095,72 @@
         "members": [
           {
             "type": "STRING",
-            "value": "{block"
+            "value": "{"
           },
           {
-            "type": "PATTERN",
-            "value": "[^}]*"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "block"
+              },
+              {
+                "type": "STRING",
+                "value": "while"
+              },
+              {
+                "type": "STRING",
+                "value": "macro"
+              },
+              {
+                "type": "STRING",
+                "value": "php"
+              },
+              {
+                "type": "STRING",
+                "value": "spaceless"
+              },
+              {
+                "type": "STRING",
+                "value": "translate"
+              },
+              {
+                "type": "STRING",
+                "value": "try"
+              },
+              {
+                "type": "STRING",
+                "value": "cache"
+              },
+              {
+                "type": "STRING",
+                "value": "define"
+              },
+              {
+                "type": "STRING",
+                "value": "snippet"
+              },
+              {
+                "type": "STRING",
+                "value": "snippetArea"
+              },
+              {
+                "type": "STRING",
+                "value": "iterateWhile"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^}]*"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           },
           {
             "type": "STRING",
@@ -2297,11 +2176,72 @@
         "members": [
           {
             "type": "STRING",
-            "value": "{/block"
+            "value": "{/"
           },
           {
-            "type": "PATTERN",
-            "value": "[^}]*"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "block"
+              },
+              {
+                "type": "STRING",
+                "value": "while"
+              },
+              {
+                "type": "STRING",
+                "value": "macro"
+              },
+              {
+                "type": "STRING",
+                "value": "php"
+              },
+              {
+                "type": "STRING",
+                "value": "spaceless"
+              },
+              {
+                "type": "STRING",
+                "value": "translate"
+              },
+              {
+                "type": "STRING",
+                "value": "try"
+              },
+              {
+                "type": "STRING",
+                "value": "cache"
+              },
+              {
+                "type": "STRING",
+                "value": "define"
+              },
+              {
+                "type": "STRING",
+                "value": "snippet"
+              },
+              {
+                "type": "STRING",
+                "value": "snippetArea"
+              },
+              {
+                "type": "STRING",
+                "value": "iterateWhile"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^}]*"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           },
           {
             "type": "STRING",
@@ -2532,7 +2472,7 @@
         "value": "{else}"
       }
     },
-    "foreach_block": {
+    "loop_block": {
       "type": "SEQ",
       "members": [
         {
@@ -2540,7 +2480,7 @@
           "name": "open",
           "content": {
             "type": "SYMBOL",
-            "name": "foreach_start"
+            "name": "loop_start"
           }
         },
         {
@@ -2567,19 +2507,32 @@
           "name": "close",
           "content": {
             "type": "SYMBOL",
-            "name": "foreach_end"
+            "name": "loop_end"
           }
         }
       ]
     },
-    "foreach_start": {
+    "loop_start": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
         "members": [
           {
             "type": "STRING",
-            "value": "{foreach"
+            "value": "{"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "foreach"
+              },
+              {
+                "type": "STRING",
+                "value": "for"
+              }
+            ]
           },
           {
             "type": "PATTERN",
@@ -2592,133 +2545,33 @@
         ]
       }
     },
-    "foreach_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{/foreach}"
-      }
-    },
-    "for_block": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "open",
-          "content": {
-            "type": "SYMBOL",
-            "name": "for_start"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_node"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "else_block"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "FIELD",
-          "name": "close",
-          "content": {
-            "type": "SYMBOL",
-            "name": "for_end"
-          }
-        }
-      ]
-    },
-    "for_start": {
+    "loop_end": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
         "members": [
           {
             "type": "STRING",
-            "value": "{for"
+            "value": "{/"
           },
           {
-            "type": "PATTERN",
-            "value": "[^}]*"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "for_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{/for}"
-      }
-    },
-    "while_block": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "open",
-          "content": {
-            "type": "SYMBOL",
-            "name": "while_start"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_node"
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "close",
-          "content": {
-            "type": "SYMBOL",
-            "name": "while_end"
-          }
-        }
-      ]
-    },
-    "while_start": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{while"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]*"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "foreach"
+              },
+              {
+                "type": "STRING",
+                "value": "for"
+              }
+            ]
           },
           {
             "type": "STRING",
             "value": "}"
           }
         ]
-      }
-    },
-    "while_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{/while}"
       }
     },
     "switch_block": {
@@ -2844,74 +2697,6 @@
         "value": "{default}"
       }
     },
-    "macro": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "open",
-          "content": {
-            "type": "SYMBOL",
-            "name": "macro_start"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_node"
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "close",
-          "content": {
-            "type": "SYMBOL",
-            "name": "macro_end"
-          }
-        }
-      ]
-    },
-    "macro_start": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{macro"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]*"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "macro_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{/macro"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]*"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
     "macro_call": {
       "type": "SEQ",
       "members": [
@@ -2978,172 +2763,6 @@
           "value": "}"
         }
       ]
-    },
-    "latte_generic_block": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "open",
-          "content": {
-            "type": "SYMBOL",
-            "name": "latte_generic_block_start"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_node"
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "close",
-          "content": {
-            "type": "SYMBOL",
-            "name": "latte_generic_block_end"
-          }
-        }
-      ]
-    },
-    "latte_generic_block_start": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "php"
-              },
-              {
-                "type": "STRING",
-                "value": "spaceless"
-              },
-              {
-                "type": "STRING",
-                "value": "translate"
-              },
-              {
-                "type": "STRING",
-                "value": "try"
-              },
-              {
-                "type": "STRING",
-                "value": "cache"
-              },
-              {
-                "type": "STRING",
-                "value": "define"
-              },
-              {
-                "type": "STRING",
-                "value": "snippet"
-              },
-              {
-                "type": "STRING",
-                "value": "snippetArea"
-              },
-              {
-                "type": "STRING",
-                "value": "iterateWhile"
-              }
-            ]
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^}]*"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "latte_generic_block_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{/"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "php"
-              },
-              {
-                "type": "STRING",
-                "value": "spaceless"
-              },
-              {
-                "type": "STRING",
-                "value": "translate"
-              },
-              {
-                "type": "STRING",
-                "value": "try"
-              },
-              {
-                "type": "STRING",
-                "value": "cache"
-              },
-              {
-                "type": "STRING",
-                "value": "define"
-              },
-              {
-                "type": "STRING",
-                "value": "snippet"
-              },
-              {
-                "type": "STRING",
-                "value": "snippetArea"
-              },
-              {
-                "type": "STRING",
-                "value": "iterateWhile"
-              }
-            ]
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^}]*"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
     },
     "latte_expression": {
       "type": "TOKEN",

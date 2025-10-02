@@ -28,32 +28,19 @@ module.exports = grammar(html, {
         // Latte tags - more specific patterns first
         $.latte_print_tag,
         $.latte_variable,
-        $.var_tag,
+        $.latte_assignment_tag,
         $.var_type_tag,
         $.template_type_tag,
-        $.default_tag,
         $.capture_tag,
-        $.include_tag,
-        $.extends_tag,
-        $.layout_tag,
+        $.latte_file_tag,
         $.embed_tag,
-        $.import_tag,
-        $.sandbox_tag,
-        $.dump_tag,
-        $.debugbreak_tag,
-        $.template_print_tag,
-        $.var_print_tag,
         $.latte_single_tag,
-        $.block,
         $.if_block,
-        $.foreach_block,
-        $.for_block,
-        $.while_block,
+        $.loop_block,
         $.switch_block,
-        $.macro,
+        $.block, // Generic simple blocks (block, while, macro, php, spaceless, etc.)
         $.latte_expression_tag, // Try expression tag first
         $.macro_call, // Fall back to macro call
-        $.latte_generic_block, // Generic block for {tag}...{/tag} patterns
         // Text must come last as it's a catch-all
         $.text,
       ),
@@ -75,20 +62,10 @@ module.exports = grammar(html, {
         "}",
       ),
 
-    // Variable assignment {var $var = 'value'}
-    var_tag: ($) =>
+    // Variable assignment tags: {var $var = 'value'} and {default $var = 'value'}
+    latte_assignment_tag: ($) =>
       seq(
-        "{var",
-        field("variable", $.php_variable),
-        "=",
-        field("value", $._expression_with_filters),
-        "}",
-      ),
-
-    // Default tag {default $var = 'value'}
-    default_tag: ($) =>
-      seq(
-        "{default",
+        token(choice("{var", "{default")),
         field("variable", $.php_variable),
         "=",
         field("value", $._expression_with_filters),
@@ -129,14 +106,16 @@ module.exports = grammar(html, {
         "{/capture}",
       ),
 
-    // Include tag {include 'file.latte'}
-    include_tag: (_) => token(seq("{include", /[^}]+/, "}")),
-
-    // Extends tag {extends 'layout.latte'}
-    extends_tag: (_) => token(seq("{extends", /[^}]+/, "}")),
-
-    // Layout tag {layout 'layout.latte'}
-    layout_tag: (_) => token(seq("{layout", /[^}]+/, "}")),
+    // File-related tags: {include}, {extends}, {layout}, {import}, {sandbox}
+    latte_file_tag: (_) =>
+      token(
+        seq(
+          "{",
+          choice("include", "extends", "layout", "import", "sandbox"),
+          /[^}]+/,
+          "}",
+        ),
+      ),
 
     // Embed tag {embed 'file.latte'}...{/embed}
     embed_tag: ($) =>
@@ -146,26 +125,9 @@ module.exports = grammar(html, {
         token("{/embed}"),
       ),
 
-    // Import tag {import 'file.latte'}
-    import_tag: (_) => token(seq("{import", /[^}]+/, "}")),
-
-    // Sandbox tag {sandbox 'file.latte'}
-    sandbox_tag: (_) => token(seq("{sandbox", /[^}]+/, "}")),
-
-    // Dump tag {dump $var}
-    dump_tag: (_) => token(seq("{dump", optional(/[^}]+/), "}")),
-
-    // Debugbreak tag {debugbreak}
-    debugbreak_tag: (_) => token(seq("{debugbreak", optional(/[^}]+/), "}")),
-
-    // TemplatePrint tag {templatePrint}
-    template_print_tag: (_) => token("{templatePrint}"),
-
-    // VarPrint tag {varPrint}
-    var_print_tag: (_) => token("{varPrint}"),
-
     // Generic single-line Latte tags
-    // Handles: {parameters}, {contentType}, {rollback}, {do}, {trace}, {syntax}
+    // Handles: {parameters}, {contentType}, {rollback}, {do}, {trace}, {syntax},
+    // {dump}, {debugbreak}, {templatePrint}, {varPrint}
     latte_single_tag: (_) =>
       token(
         seq(
@@ -177,6 +139,10 @@ module.exports = grammar(html, {
             "do",
             "trace",
             "syntax",
+            "dump",
+            "debugbreak",
+            "templatePrint",
+            "varPrint",
           ),
           optional(/[^}]+/),
           "}",
@@ -421,7 +387,8 @@ module.exports = grammar(html, {
 
     filter_args: (_) => /:[^|}]+/,
 
-    // Generic block (for {block name})
+    // Simple blocks - handles: block, while, macro, and all generic blocks
+    // Pattern: {tag ...}...{/tag}
     block: ($) =>
       seq(
         field("open", $.block_start),
@@ -429,8 +396,51 @@ module.exports = grammar(html, {
         field("close", $.block_end),
       ),
 
-    block_start: (_) => token(seq("{block", /[^}]*/, "}")),
-    block_end: (_) => token(seq("{/block", /[^}]*/, "}")),
+    block_start: (_) =>
+      token(
+        seq(
+          "{",
+          choice(
+            "block",
+            "while",
+            "macro",
+            "php",
+            "spaceless",
+            "translate",
+            "try",
+            "cache",
+            "define",
+            "snippet",
+            "snippetArea",
+            "iterateWhile",
+          ),
+          optional(/[^}]*/),
+          "}",
+        ),
+      ),
+
+    block_end: (_) =>
+      token(
+        seq(
+          "{/",
+          choice(
+            "block",
+            "while",
+            "macro",
+            "php",
+            "spaceless",
+            "translate",
+            "try",
+            "cache",
+            "define",
+            "snippet",
+            "snippetArea",
+            "iterateWhile",
+          ),
+          optional(/[^}]*/),
+          "}",
+        ),
+      ),
 
     // If block with elseif/else support
     if_block: ($) =>
@@ -464,40 +474,18 @@ module.exports = grammar(html, {
 
     else_start: (_) => token("{else}"),
 
-    // Foreach block
-    foreach_block: ($) =>
+    // Loop blocks (foreach/for) - can have optional {else} block
+    loop_block: ($) =>
       seq(
-        field("open", $.foreach_start),
+        field("open", $.loop_start),
         repeat($._node),
         optional($.else_block),
-        field("close", $.foreach_end),
+        field("close", $.loop_end),
       ),
 
-    foreach_start: (_) => token(seq("{foreach", /[^}]*/, "}")),
-    foreach_end: (_) => token("{/foreach}"),
+    loop_start: (_) => token(seq("{", choice("foreach", "for"), /[^}]*/, "}")),
 
-    // For block
-    for_block: ($) =>
-      seq(
-        field("open", $.for_start),
-        repeat($._node),
-        optional($.else_block),
-        field("close", $.for_end),
-      ),
-
-    for_start: (_) => token(seq("{for", /[^}]*/, "}")),
-    for_end: (_) => token("{/for}"),
-
-    // While block
-    while_block: ($) =>
-      seq(
-        field("open", $.while_start),
-        repeat($._node),
-        field("close", $.while_end),
-      ),
-
-    while_start: (_) => token(seq("{while", /[^}]*/, "}")),
-    while_end: (_) => token("{/while}"),
+    loop_end: (_) => token(seq("{/", choice("foreach", "for"), "}")),
 
     // Switch block
     switch_block: ($) =>
@@ -518,16 +506,6 @@ module.exports = grammar(html, {
 
     default_start: (_) => token("{default}"),
 
-    macro: ($) =>
-      seq(
-        field("open", $.macro_start),
-        repeat($._node),
-        field("close", $.macro_end),
-      ),
-
-    macro_start: (_) => token(seq("{macro", /[^}]*/, "}")),
-    macro_end: (_) => token(seq("{/macro", /[^}]*/, "}")),
-
     macro_call: ($) =>
       seq(
         "{",
@@ -542,55 +520,6 @@ module.exports = grammar(html, {
 
     // Generic expression tag for things like {count(...)} or {Status::Published}
     latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),
-
-    // Generic block pattern for Latte tags like {spaceless}...{/spaceless}, {translate}...{/translate}, etc.
-    // This handles: php, spaceless, translate, try, cache, define, snippet, snippetArea, iterateWhile, rollback
-    latte_generic_block: ($) =>
-      seq(
-        field("open", $.latte_generic_block_start),
-        repeat($._node),
-        field("close", $.latte_generic_block_end),
-      ),
-
-    latte_generic_block_start: (_) =>
-      token(
-        seq(
-          "{",
-          choice(
-            "php",
-            "spaceless",
-            "translate",
-            "try",
-            "cache",
-            "define",
-            "snippet",
-            "snippetArea",
-            "iterateWhile",
-          ),
-          optional(/[^}]*/),
-          "}",
-        ),
-      ),
-
-    latte_generic_block_end: (_) =>
-      token(
-        seq(
-          "{/",
-          choice(
-            "php",
-            "spaceless",
-            "translate",
-            "try",
-            "cache",
-            "define",
-            "snippet",
-            "snippetArea",
-            "iterateWhile",
-          ),
-          optional(/[^}]*/),
-          "}",
-        ),
-      ),
 
     quoted_attribute_value: ($) =>
       choice(
