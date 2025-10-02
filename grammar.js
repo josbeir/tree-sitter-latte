@@ -39,8 +39,8 @@ module.exports = grammar(html, {
         $.loop_block,
         $.switch_block,
         $.block, // Generic simple blocks (block, while, macro, php, spaceless, etc.)
-        $.latte_expression_tag, // Try expression tag first
-        $.macro_call, // Fall back to macro call
+        $.macro_call, // Try macro call first (uppercase identifier)
+        $.latte_expression_tag, // Fall back to expression tag
         // Text must come last as it's a catch-all
         $.text,
       ),
@@ -507,17 +507,8 @@ module.exports = grammar(html, {
 
     default_start: (_) => token("{default}"),
 
-    macro_call: ($) =>
-      seq(
-        "{",
-        field("macro_name", alias($.macro_identifier, $.macro_name)),
-        optional(field("macro_args", $.macro_args)),
-        "}",
-      ),
-
-    // Uppercase identifier for macro calls
-    macro_identifier: (_) => /[A-Z][a-zA-Z0-9_]*/,
-    macro_args: (_) => /\s+[^}]+/,
+    macro_call: (_) =>
+      token(seq("{", /[A-Z][a-zA-Z0-9_]*/, optional(/\s+[^}]+/), "}")),
 
     // Generic expression tag for things like {count(...)} or {Status::Published}
     latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),

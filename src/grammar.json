@@ -130,11 +130,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "latte_expression_tag"
+          "name": "macro_call"
         },
         {
           "type": "SYMBOL",
-          "name": "macro_call"
+          "name": "latte_expression_tag"
         },
         {
           "type": "SYMBOL",
@@ -2723,54 +2723,36 @@
       }
     },
     "macro_call": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
-          "type": "FIELD",
-          "name": "macro_name",
-          "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "SYMBOL",
-              "name": "macro_identifier"
-            },
-            "named": true,
-            "value": "macro_name"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "macro_args",
-              "content": {
-                "type": "SYMBOL",
-                "name": "macro_args"
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[A-Z][a-zA-Z0-9_]*"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "\\s+[^}]+"
+              },
+              {
+                "type": "BLANK"
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "}"
-        }
-      ]
-    },
-    "macro_identifier": {
-      "type": "PATTERN",
-      "value": "[A-Z][a-zA-Z0-9_]*"
-    },
-    "macro_args": {
-      "type": "PATTERN",
-      "value": "\\s+[^}]+"
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
     },
     "latte_expression_tag": {
       "type": "SEQ",

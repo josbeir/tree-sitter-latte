@@ -1809,32 +1809,6 @@
     }
   },
   {
-    "type": "macro_call",
-    "named": true,
-    "fields": {
-      "macro_args": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "macro_args",
-            "named": true
-          }
-        ]
-      },
-      "macro_name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "macro_name",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "null_literal",
     "named": true,
     "fields": {}
@@ -2503,11 +2477,7 @@
     "named": true
   },
   {
-    "type": "macro_args",
-    "named": true
-  },
-  {
-    "type": "macro_name",
+    "type": "macro_call",
     "named": true
   },
   {
