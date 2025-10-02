@@ -138,9 +138,11 @@ Static class constant
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call
-    (macro_name)
-    (macro_args)))
+  (latte_expression_tag
+    expression: (expression
+      (static_call
+        class: (identifier)
+        constant: (identifier)))))
 
 ================================================================================
 Static method call
@@ -151,9 +153,15 @@ Static method call
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call
-    (macro_name)
-    (macro_args)))
+  (latte_expression_tag
+    expression: (expression
+      (static_call
+        class: (identifier)
+        method: (identifier)
+        arguments: (argument_list
+          (expression
+            (php_variable
+              name: (identifier))))))))
 
 ================================================================================
 Function call
@@ -164,9 +172,14 @@ Function call
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call
-    (macro_name)
-    (macro_args)))
+  (latte_expression_tag
+    expression: (expression
+      (function_call
+        function: (identifier)
+        arguments: (argument_list
+          (expression
+            (php_variable
+              name: (identifier))))))))
 
 ================================================================================
 Function call with multiple arguments
@@ -177,9 +190,19 @@ Function call with multiple arguments
 --------------------------------------------------------------------------------
 
 (document
-  (macro_call
-    (macro_name)
-    (macro_args)))
+  (latte_expression_tag
+    expression: (expression
+      (function_call
+        function: (identifier)
+        arguments: (argument_list
+          (expression
+            (php_variable
+              name: (identifier)))
+          (expression
+            (php_variable
+              name: (identifier)))
+          (expression
+            (boolean_literal)))))))
 
 ================================================================================
 Binary expression with comparison

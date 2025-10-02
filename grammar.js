@@ -43,6 +43,7 @@ module.exports = grammar(html, {
         $.debugbreak_tag,
         $.template_print_tag,
         $.var_print_tag,
+        $.latte_single_tag,
         $.block,
         $.if_block,
         $.foreach_block,
@@ -50,7 +51,9 @@ module.exports = grammar(html, {
         $.while_block,
         $.switch_block,
         $.macro,
-        $.macro_call,
+        $.latte_expression_tag, // Try expression tag first
+        $.macro_call, // Fall back to macro call
+        $.latte_generic_block, // Generic block for {tag}...{/tag} patterns
         // Text must come last as it's a catch-all
         $.text,
       ),
@@ -160,6 +163,25 @@ module.exports = grammar(html, {
 
     // VarPrint tag {varPrint}
     var_print_tag: (_) => token("{varPrint}"),
+
+    // Generic single-line Latte tags
+    // Handles: {parameters}, {contentType}, {rollback}, {do}, {trace}, {syntax}
+    latte_single_tag: (_) =>
+      token(
+        seq(
+          "{",
+          choice(
+            "parameters",
+            "contentType",
+            "rollback",
+            "do",
+            "trace",
+            "syntax",
+          ),
+          optional(/[^}]+/),
+          "}",
+        ),
+      ),
 
     // Expression with optional filters
     _expression_with_filters: ($) =>
@@ -508,14 +530,67 @@ module.exports = grammar(html, {
 
     macro_call: ($) =>
       seq(
-        token(prec(-1, "{")),
-        field("macro_name", $.macro_name),
-        field("macro_args", $.macro_args),
+        "{",
+        field("macro_name", alias($.macro_identifier, $.macro_name)),
+        optional(field("macro_args", $.macro_args)),
         "}",
       ),
 
-    macro_name: (_) => /[a-zA-Z_][a-zA-Z0-9_]*/,
-    macro_args: (_) => /[^}]*/,
+    // Uppercase identifier for macro calls
+    macro_identifier: (_) => /[A-Z][a-zA-Z0-9_]*/,
+    macro_args: (_) => /\s+[^}]+/,
+
+    // Generic expression tag for things like {count(...)} or {Status::Published}
+    latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),
+
+    // Generic block pattern for Latte tags like {spaceless}...{/spaceless}, {translate}...{/translate}, etc.
+    // This handles: php, spaceless, translate, try, cache, define, snippet, snippetArea, iterateWhile, rollback
+    latte_generic_block: ($) =>
+      seq(
+        field("open", $.latte_generic_block_start),
+        repeat($._node),
+        field("close", $.latte_generic_block_end),
+      ),
+
+    latte_generic_block_start: (_) =>
+      token(
+        seq(
+          "{",
+          choice(
+            "php",
+            "spaceless",
+            "translate",
+            "try",
+            "cache",
+            "define",
+            "snippet",
+            "snippetArea",
+            "iterateWhile",
+          ),
+          optional(/[^}]*/),
+          "}",
+        ),
+      ),
+
+    latte_generic_block_end: (_) =>
+      token(
+        seq(
+          "{/",
+          choice(
+            "php",
+            "spaceless",
+            "translate",
+            "try",
+            "cache",
+            "define",
+            "snippet",
+            "snippetArea",
+            "iterateWhile",
+          ),
+          optional(/[^}]*/),
+          "}",
+        ),
+      ),
 
     quoted_attribute_value: ($) =>
       choice(

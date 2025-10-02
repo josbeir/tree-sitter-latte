@@ -51,6 +51,10 @@
 (debugbreak_tag) @keyword.directive
 (template_print_tag) @keyword.directive
 (var_print_tag) @keyword.directive
+(latte_single_tag) @keyword.directive
+
+; Generic Latte blocks (spaceless, translate, php, cache, define, etc.)
+(latte_generic_block) @keyword.control
 
 ; Latte filters - highlight the pipe and filter name
 (filter_chain

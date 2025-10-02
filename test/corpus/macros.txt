@@ -12,9 +12,13 @@ Macro definition and usage
 
 (document
   (macro
-    (macro_start)
+    open: (macro_start)
     (text)
-    (macro_end))
-  (macro_call
-    (macro_name)
-    (macro_args)))
+    close: (macro_end))
+  (latte_expression_tag
+    expression: (expression
+      (function_call
+        function: (identifier)
+        arguments: (argument_list
+          (expression
+            (string_literal)))))))

@@ -291,7 +291,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -450,7 +462,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -597,7 +621,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -744,7 +780,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -943,7 +991,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -1090,7 +1150,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -1245,7 +1317,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -1392,7 +1476,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -1540,7 +1636,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -1737,11 +1845,6 @@
     }
   },
   {
-    "type": "filter_name",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "for_block",
     "named": true,
     "fields": {
@@ -1843,7 +1946,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -2011,7 +2126,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -2209,7 +2336,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -2284,6 +2423,208 @@
     "type": "if_start",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "latte_expression_tag",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "filters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "latte_generic_block",
+    "named": true,
+    "fields": {
+      "close": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "latte_generic_block_end",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "latte_generic_block_start",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "capture_tag",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "debugbreak_tag",
+          "named": true
+        },
+        {
+          "type": "default_tag",
+          "named": true
+        },
+        {
+          "type": "doctype",
+          "named": true
+        },
+        {
+          "type": "dump_tag",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "embed_tag",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "erroneous_end_tag",
+          "named": true
+        },
+        {
+          "type": "extends_tag",
+          "named": true
+        },
+        {
+          "type": "for_block",
+          "named": true
+        },
+        {
+          "type": "foreach_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "import_tag",
+          "named": true
+        },
+        {
+          "type": "include_tag",
+          "named": true
+        },
+        {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
+          "named": true
+        },
+        {
+          "type": "layout_tag",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        },
+        {
+          "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "sandbox_tag",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "switch_block",
+          "named": true
+        },
+        {
+          "type": "template_print_tag",
+          "named": true
+        },
+        {
+          "type": "template_type_tag",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "var_print_tag",
+          "named": true
+        },
+        {
+          "type": "var_tag",
+          "named": true
+        },
+        {
+          "type": "var_type_tag",
+          "named": true
+        },
+        {
+          "type": "while_block",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "latte_print_tag",
@@ -2489,7 +2830,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -2561,7 +2914,7 @@
     "fields": {
       "macro_args": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "macro_args",
@@ -2580,11 +2933,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "macro_name",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "null_literal",
@@ -3140,7 +3488,19 @@
           "named": true
         },
         {
+          "type": "latte_expression_tag",
+          "named": true
+        },
+        {
+          "type": "latte_generic_block",
+          "named": true
+        },
+        {
           "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_single_tag",
           "named": true
         },
         {
@@ -3448,6 +3808,10 @@
     "named": true
   },
   {
+    "type": "filter_name",
+    "named": true
+  },
+  {
     "type": "for_end",
     "named": true
   },
@@ -3485,6 +3849,18 @@
     "named": true
   },
   {
+    "type": "latte_generic_block_end",
+    "named": true
+  },
+  {
+    "type": "latte_generic_block_start",
+    "named": true
+  },
+  {
+    "type": "latte_single_tag",
+    "named": true
+  },
+  {
     "type": "layout_tag",
     "named": true
   },
@@ -3494,6 +3870,10 @@
   },
   {
     "type": "macro_end",
+    "named": true
+  },
+  {
+    "type": "macro_name",
     "named": true
   },
   {
