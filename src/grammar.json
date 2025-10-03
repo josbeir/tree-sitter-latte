@@ -741,10 +741,6 @@
         {
           "type": "PATTERN",
           "value": "[A-Z][a-zA-Z0-9_]*(\\\\[A-Z][a-zA-Z0-9_]*)*(\\[\\])?"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[A-Z][a-zA-Z0-9_]*(\\[\\])?"
         }
       ]
     },
@@ -1328,10 +1324,6 @@
                     {
                       "type": "STRING",
                       "value": "<=>"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "<=>"
                     }
                   ]
                 }
@@ -1382,10 +1374,6 @@
                     {
                       "type": "STRING",
                       "value": "!=="
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "<>"
                     },
                     {
                       "type": "STRING",

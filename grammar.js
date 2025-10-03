@@ -13,8 +13,6 @@ module.exports = grammar(html, {
 
   word: ($) => $.identifier,
 
-  //conflicts: ($) => [],
-
   rules: {
     document: ($) => repeat($._node),
 
@@ -55,21 +53,14 @@ module.exports = grammar(html, {
       seq("{=", field("expression", $._expression_with_filters), "}"),
 
     // Latte variable {$variable}
-    // Latte variable {$variable}
     latte_variable: ($) =>
-      seq(
-        "{",
-        $.php_only,
-        optional(field("filters", $.filter_chain)),
-        "}",
-      ),
+      seq("{", $.php_only, optional(field("filters", $.filter_chain)), "}"),
 
     // PHP content inside {$...} - exposed for injection (like Blade)
-    php_only: ($) => prec(1,
-      seq(
-        "$",
-        field("name", $.identifier),
-        repeat($._variable_accessor)),
+    php_only: ($) =>
+      prec(
+        1,
+        seq("$", field("name", $.identifier), repeat($._variable_accessor)),
       ),
     // Variable assignment tags: {var $var = 'value'} and {default $var = 'value'}
     latte_assignment_tag: ($) =>
@@ -99,10 +90,9 @@ module.exports = grammar(html, {
       choice(
         // Primitive types
         /string|int|float|bool|array|object|mixed|void|null/,
-        // FQDN with optional array suffix: App\Model\User or App\Model\User[]
+        // Class name (FQDN or simple) with optional array suffix
+        // Examples: App\Model\User, User, User[], App\Model\User[]
         /[A-Z][a-zA-Z0-9_]*(\\[A-Z][a-zA-Z0-9_]*)*(\[\])?/,
-        // Simple class name with optional array suffix
-        /[A-Z][a-zA-Z0-9_]*(\[\])?/,
       ),
 
     // Capture tag {capture $var}...{/capture}
@@ -234,7 +224,7 @@ module.exports = grammar(html, {
           7,
           seq(
             field("left", $.expression),
-            field("operator", choice("<", "<=", ">", ">=", "<=>", "<=>")),
+            field("operator", choice("<", "<=", ">", ">=", "<=>")),
             field("right", $.expression),
           ),
         ),
@@ -242,7 +232,7 @@ module.exports = grammar(html, {
           6,
           seq(
             field("left", $.expression),
-            field("operator", choice("==", "!=", "===", "!==", "<>", "<>")),
+            field("operator", choice("==", "!=", "===", "!==", "<>")),
             field("right", $.expression),
           ),
         ),
