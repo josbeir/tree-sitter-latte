@@ -11,9 +11,8 @@ n:if attribute
     (start_tag
       (tag_name)
       (attribute
-        (attribute_name)
-        (quoted_attribute_value
-          (attribute_value))))
+        (n_attribute_value
+          (php_only))))
     (text)
     (end_tag
       (tag_name))))
@@ -30,7 +29,12 @@ Multiple n:attributes
   (element
     (start_tag
       (tag_name)
-      (attribute (attribute_name) (quoted_attribute_value (attribute_value)))
-      (attribute (attribute_name) (quoted_attribute_value (attribute_value))))
+      (attribute
+        (n_attribute_value
+          (php_only)))
+      (attribute
+        (n_attribute_value
+          (php_only))))
     (text)
-    (end_tag (tag_name))))
+    (end_tag
+      (tag_name))))
