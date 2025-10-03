@@ -1,5 +1,10 @@
 ; inherits: html
 
+; Inject PHP into {php ...} blocks
+; php_content is an aliased token containing raw PHP code
+((php_block) @injection.content
+ (#set! injection.language "php_only"))
+
 ; Inject PHP from php_only nodes (used in {$variable->property})
 ; This captures the variable content without the surrounding braces
 ((php_only) @injection.content

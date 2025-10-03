@@ -127,6 +127,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "php_block"
+        },
+        {
+          "type": "SYMBOL",
           "name": "block"
         },
         {
@@ -2091,6 +2095,49 @@
       "type": "PATTERN",
       "value": ":[^|}]+"
     },
+    "php_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "{php"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PREC",
+                  "value": -1,
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[^}]*"
+                  }
+                }
+              },
+              "named": false,
+              "value": "php_content"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "}"
+          }
+        }
+      ]
+    },
     "block": {
       "type": "SEQ",
       "members": [
@@ -2142,10 +2189,6 @@
               {
                 "type": "STRING",
                 "value": "macro"
-              },
-              {
-                "type": "STRING",
-                "value": "php"
               },
               {
                 "type": "STRING",
@@ -2223,10 +2266,6 @@
               {
                 "type": "STRING",
                 "value": "macro"
-              },
-              {
-                "type": "STRING",
-                "value": "php"
               },
               {
                 "type": "STRING",

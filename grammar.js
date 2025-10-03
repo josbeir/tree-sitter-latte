@@ -38,7 +38,8 @@ module.exports = grammar(html, {
         $.if_block,
         $.loop_block,
         $.switch_block,
-        $.block, // Generic simple blocks (block, while, macro, php, spaceless, etc.)
+        $.php_block, // PHP block with raw PHP content
+        $.block, // Generic simple blocks (block, while, macro, spaceless, etc.)
         $.macro_call, // Try macro call first
         $.latte_expression_tag, // Fall back to expression tag
         // Text must come last as it's a catch-all
@@ -387,6 +388,15 @@ module.exports = grammar(html, {
 
     filter_args: (_) => /:[^|}]+/,
 
+    // PHP tag: {php ...} or multiline {php\n...\n}
+    // Uses single closing brace, not {/php}
+    php_block: (_) =>
+      seq(
+        token("{php"),
+        optional(alias(token(prec(-1, /[^}]*/)), "php_content")),
+        token("}"),
+      ),
+
     // Simple blocks - handles: block, while, macro, and all generic blocks
     // Pattern: {tag ...}...{/tag}
     block: ($) =>
@@ -404,7 +414,6 @@ module.exports = grammar(html, {
             "block",
             "while",
             "macro",
-            "php",
             "spaceless",
             "translate",
             "try",
@@ -427,7 +436,6 @@ module.exports = grammar(html, {
             "block",
             "while",
             "macro",
-            "php",
             "spaceless",
             "translate",
             "try",

@@ -295,6 +295,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -414,6 +418,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -521,6 +529,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -625,6 +637,10 @@
         },
         {
           "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "php_block",
           "named": true
         },
         {
@@ -737,6 +753,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -841,6 +861,10 @@
         },
         {
           "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "php_block",
           "named": true
         },
         {
@@ -959,6 +983,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -1063,6 +1091,10 @@
         },
         {
           "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "php_block",
           "named": true
         },
         {
@@ -1171,6 +1203,10 @@
         },
         {
           "type": "macro_call",
+          "named": true
+        },
+        {
+          "type": "php_block",
           "named": true
         },
         {
@@ -1462,6 +1498,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -1732,6 +1772,10 @@
           "named": true
         },
         {
+          "type": "php_block",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -1808,6 +1852,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "php_block",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "php_only",
@@ -2539,6 +2588,10 @@
     "named": false
   },
   {
+    "type": "php_content",
+    "named": false
+  },
+  {
     "type": "raw_text",
     "named": true
   },
@@ -2592,6 +2645,10 @@
   },
   {
     "type": "{capture",
+    "named": false
+  },
+  {
+    "type": "{php",
     "named": false
   },
   {
