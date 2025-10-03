@@ -12,7 +12,7 @@
 {CustomTag variable}
 {CustomTag 'variable'}
 {HtmlHelper method}
-{mytag 'tag', [key: 'value'], $myvar}
+{mytag 'tag', $myvar}
 
 <!DOCTYPE html>
 <html>
@@ -26,8 +26,7 @@
     {* Variable assignments *}
     {var $name = 'John Doe'}
     {var $age = 30}
-    {var $items = [1, 2, 3, 4, 5]}
-    {var $items = [key: 'value', value: true]}
+    {var $enabled = true}
     {default $page = 1}
 
     {* Type declaration for local variable *}

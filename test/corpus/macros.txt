@@ -6,7 +6,7 @@ Macro definition and usage
   Hello, world!
 {/macro}
 
-{greet('Latte')}
+{greet 'Latte'}
 
 --------------------------------------------------------------------------------
 
@@ -15,13 +15,9 @@ Macro definition and usage
     open: (block_start)
     (text)
     close: (block_end))
-  (latte_expression_tag
-    (ERROR
-      (macro_name))
-    expression: (expression
-      (parenthesized_expression
-        (expression
-          (string_literal))))))
+  (macro_call
+    name: (macro_name)
+    arguments: (macro_arguments)))
 
 ================================================================================
 Macro call with uppercase identifier

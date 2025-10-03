@@ -1,17 +1,14 @@
 ; inherits: html
 
-; Inject PHP into {php ...} blocks
-; php_content is an aliased token containing raw PHP code
+; PHP blocks - raw PHP code in {php ...} tags
 ((php_block) @injection.content
  (#set! injection.language "php_only"))
 
-; Inject PHP from php_only nodes (used in {$variable->property})
-; This captures the variable content without the surrounding braces
+; PHP variables - {$variable->property}
 ((php_only) @injection.content
   (#set! injection.language "php_only"))
 
-; Inject PHP into expressions (used in {= ... }, {var $x = ...}, etc.)
-; This is more specific than php_variable since it covers all expression contexts
+; PHP expressions in print and assignment tags
 ((latte_print_tag
   expression: (expression) @injection.content)
  (#set! injection.language "php_only"))
@@ -20,15 +17,42 @@
   value: (expression) @injection.content)
  (#set! injection.language "php_only"))
 
-; Inject PHP into latte_expression nodes in attributes
+; Control flow tags - PHP conditions and expressions
+; {if $x}, {elseif $y}, {while $z}, {switch $status}, {case $value}
+((if_start) @injection.content
+ (#set! injection.language "php_only"))
+
+((elseif_start) @injection.content
+ (#set! injection.language "php_only"))
+
+((while_start) @injection.content
+ (#set! injection.language "php_only"))
+
+((switch_start) @injection.content
+ (#set! injection.language "php_only"))
+
+((case_start) @injection.content
+ (#set! injection.language "php_only"))
+
+; Loop tags - PHP expressions
+; {for $i = 0; $i < 10; $i++}, {foreach $items as $item}
+((for_start) @injection.content
+ (#set! injection.language "php_only"))
+
+((foreach_start) @injection.content
+ (#set! injection.language "php_only"))
+
+; Latte expressions in HTML attributes
 ((latte_expression) @injection.content
  (#set! injection.language "php_only")
  (#set! injection.include-children))
 
-; Inject PHP into macro arguments
+; Arguments - PHP expressions in macro/file/filter arguments
 ((macro_arguments) @injection.content
  (#set! injection.language "php_only"))
 
-; Inject PHP into filter arguments
+((file_tag_arguments) @injection.content
+ (#set! injection.language "php_only"))
+
 ((filter_args) @injection.content
  (#set! injection.language "php_only"))

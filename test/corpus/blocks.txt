@@ -10,9 +10,9 @@ Simple block
 
 (document
   (block
-    (block_start)
+    open: (block_start)
     (text)
-    (block_end)))
+    close: (block_end)))
 
 ================================================================================
 Nested blocks
@@ -28,12 +28,12 @@ Nested blocks
 
 (document
   (block
-    (block_start)
+    open: (block_start)
     (block
-      (block_start)
+      open: (block_start)
       (text)
-      (block_end))
-    (block_end)))
+      close: (block_end))
+    close: (block_end)))
 
 ================================================================================
 Foreach with else
@@ -49,13 +49,13 @@ Foreach with else
 
 (document
   (loop_block
-    (loop_start)
+    open: (foreach_start)
     (element
       (start_tag
         (tag_name))
       (latte_variable
         (php_only
-          (identifier)))
+          name: (identifier)))
       (end_tag
         (tag_name)))
     (else_block
@@ -66,7 +66,7 @@ Foreach with else
         (text)
         (end_tag
           (tag_name))))
-    (loop_end)))
+    close: (foreach_end)))
 
 ================================================================================
 Capture block

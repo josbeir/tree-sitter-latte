@@ -9,7 +9,6 @@ const html = require("./tree-sitter-html/grammar");
 // Shared constants for tag names
 const BLOCK_TAGS = [
   "block",
-  "while",
   "macro",
   "spaceless",
   "translate",
@@ -23,22 +22,7 @@ const BLOCK_TAGS = [
 
 const IF_VARIANTS = ["if", "ifset", "ifchanged"];
 const ELSEIF_VARIANTS = ["elseif", "elseifset"];
-const LOOP_TAGS = ["foreach", "for"];
 const FILE_TAGS = ["include", "extends", "layout", "import", "sandbox"];
-
-// Single tags without arguments
-const SINGLE_TAGS_NO_ARGS = ["rollback", "trace", "debugbreak"];
-
-// Single tags with optional arguments
-const SINGLE_TAGS_WITH_ARGS = [
-  "parameters",
-  "contentType",
-  "do",
-  "syntax",
-  "dump",
-  "templatePrint",
-  "varPrint",
-];
 
 // Helper to create open/close tag pairs
 function blockTag(tagNames, content = /[^}]*/) {
@@ -55,6 +39,15 @@ function blockTagWithOptionalClose(tagNames, content = /[^}]*/) {
     start: token(seq("{", choice(...tags), optional(content), "}")),
     end: token(seq("{/", choice(...tags), optional(content), "}")),
   };
+}
+
+// Helper for control flow tags with tokenized content: {tag content}
+function controlFlowTag(tagNames, fieldName = "condition") {
+  const tags = Array.isArray(tagNames) ? tagNames : [tagNames];
+  const tagChoice = tags.length === 1 ? tags[0] : choice(...tags);
+  return token(
+    seq("{", tagChoice, alias(optional(seq(/\s+/, /[^}]+/)), fieldName), "}"),
+  );
 }
 
 // Helper to create a string literal with a given quote character
@@ -91,12 +84,11 @@ module.exports = grammar(html, {
         $.capture_tag,
         $.latte_file_tag,
         $.embed_tag,
-        $.latte_single_tag,
         $.if_block,
         $.loop_block,
         $.switch_block,
         $.php_block, // PHP block with raw PHP content
-        $.block, // Generic simple blocks (block, while, macro, spaceless, etc.)
+        $.block, // Generic simple blocks (block, macro, spaceless, etc.)
         // macro_call must come before latte_expression_tag to match simple function-like
         // macros (e.g., {include ...}) before they're parsed as generic expressions
         $.macro_call,
@@ -167,6 +159,7 @@ module.exports = grammar(html, {
     latte_file_tag: ($) =>
       seq(
         field("tag_name", $.file_tag_name),
+        optional(/\s+/),
         field("file", $.file_path),
         optional(field("arguments", $.file_tag_arguments)),
         "}",
@@ -176,18 +169,7 @@ module.exports = grammar(html, {
 
     file_path: ($) => choice($.string_literal, $.php_variable),
 
-    file_tag_arguments: ($) =>
-      seq(
-        ",",
-        optional(/\s*/),
-        seq(
-          $.file_tag_argument,
-          repeat(seq(",", optional(/\s*/), $.file_tag_argument)),
-        ),
-      ),
-
-    file_tag_argument: ($) =>
-      seq(field("name", $.identifier), ":", field("value", $.expression)),
+    file_tag_arguments: (_) => /,\s*[^}]+/,
 
     // Embed tag {embed 'file.latte'}...{/embed}
     embed_tag: ($) =>
@@ -195,64 +177,6 @@ module.exports = grammar(html, {
         token(seq("{embed", /[^}]+/, "}")),
         repeat($._node),
         token("{/embed}"),
-      ),
-
-    // Generic single-line Latte tags
-    // Handles: {parameters}, {contentType}, {rollback}, {do}, {trace}, {syntax},
-    // {dump}, {debugbreak}, {templatePrint}, {varPrint}
-    latte_single_tag: (_) =>
-      token(
-        seq(
-          "{",
-          choice(
-            "parameters",
-            "contentType",
-            "rollback",
-            "do",
-            "trace",
-            "syntax",
-            "dump",
-            "debugbreak",
-            "templatePrint",
-            "varPrint",
-          ),
-          optional(/[^}]+/),
-          "}",
-        ),
-      ),
-
-    embed_end: (_) => token("{/embed}"),
-
-    // Generic single-line Latte tags
-    latte_single_tag: ($) =>
-      choice(
-        // Tags without arguments
-        seq(
-          field("tag_name", token(seq("{", choice(...SINGLE_TAGS_NO_ARGS)))),
-          "}",
-        ),
-        // dump/varPrint/templatePrint - expression based
-        seq(
-          field(
-            "tag_name",
-            token(seq("{", choice("dump", "varPrint", "templatePrint"))),
-          ),
-          optional(/\s+/),
-          optional(field("expression", $._expression_with_filters)),
-          "}",
-        ),
-        // do/parameters/contentType/syntax - raw arguments (complex PHP/type syntax)
-        seq(
-          field(
-            "tag_name",
-            token(
-              seq("{", choice("do", "parameters", "contentType", "syntax")),
-            ),
-          ),
-          optional(/\s+/),
-          optional(field("arguments", token(/[^}]+/))),
-          "}",
-        ),
       ),
 
     // Expression with optional filters
@@ -273,190 +197,22 @@ module.exports = grammar(html, {
     _variable_accessor: ($) =>
       choice(
         seq("->", field("property", $.identifier)),
-        seq(
-          "->",
-          field("method", $.identifier),
-          "(",
-          optional($.argument_list),
-          ")",
-        ),
+        seq("->", field("method", $.identifier), "(", optional(/[^)]+/), ")"),
         seq("[", field("index", $.expression), "]"),
         seq("::", field("constant", $.identifier)),
       ),
 
-    // Expression (without filters)
+    // Minimal expression grammar for Latte-specific contexts
+    // Used in {= expression }, {var $x = expression}, and $var[expression]
+    // Complex PHP expressions are handled via injections
     expression: ($) =>
       choice(
         $.php_variable,
-        $.function_call,
-        $.binary_expression,
-        $.unary_expression,
-        $.ternary_expression,
         $.string_literal,
         $.number_literal,
         $.boolean_literal,
         $.null_literal,
-        $.array_literal,
-        $.static_call,
-        $.parenthesized_expression,
-      ),
-
-    parenthesized_expression: ($) => seq("(", $.expression, ")"),
-
-    binary_expression: ($) =>
-      choice(
-        prec.left(
-          10,
-          seq(
-            field("left", $.expression),
-            field("operator", "**"),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          9,
-          seq(
-            field("left", $.expression),
-            field("operator", choice("*", "/", "%")),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          8,
-          seq(
-            field("left", $.expression),
-            field("operator", choice("+", "-", ".")),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          7,
-          seq(
-            field("left", $.expression),
-            field("operator", choice("<", "<=", ">", ">=", "<=>")),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          6,
-          seq(
-            field("left", $.expression),
-            field("operator", choice("==", "!=", "===", "!==", "<>")),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          5,
-          seq(
-            field("left", $.expression),
-            field("operator", "&&"),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          4,
-          seq(
-            field("left", $.expression),
-            field("operator", "||"),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          3,
-          seq(
-            field("left", $.expression),
-            field("operator", "??"),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          2,
-          seq(
-            field("left", $.expression),
-            field("operator", "and"),
-            field("right", $.expression),
-          ),
-        ),
-        prec.left(
-          1,
-          seq(
-            field("left", $.expression),
-            field("operator", "or"),
-            field("right", $.expression),
-          ),
-        ),
-      ),
-
-    unary_expression: ($) =>
-      prec(
-        11,
-        seq(
-          field("operator", choice("!", "not", "-", "+")),
-          field("operand", $.expression),
-        ),
-      ),
-
-    ternary_expression: ($) =>
-      prec.right(
-        0,
-        seq(
-          field("condition", $.expression),
-          "?",
-          field("consequence", $.expression),
-          ":",
-          field("alternative", $.expression),
-        ),
-      ),
-
-    function_call: ($) =>
-      prec(
-        12,
-        seq(
-          field("function", $.identifier),
-          "(",
-          optional(field("arguments", $.argument_list)),
-          ")",
-        ),
-      ),
-
-    static_call: ($) =>
-      prec(
-        12,
-        seq(
-          field("class", $.identifier),
-          "::",
-          choice(
-            field("constant", $.identifier),
-            seq(
-              field("method", $.identifier),
-              "(",
-              optional(field("arguments", $.argument_list)),
-              ")",
-            ),
-          ),
-        ),
-      ),
-
-    argument_list: ($) => seq($.expression, repeat(seq(",", $.expression))),
-
-    array_literal: ($) =>
-      seq(
-        "[",
-        optional(
-          seq(
-            $._array_element,
-            repeat(seq(",", $._array_element)),
-            optional(","),
-          ),
-        ),
-        "]",
-      ),
-
-    _array_element: ($) =>
-      choice(
-        $.expression,
-        seq(field("key", $.expression), "=>", field("value", $.expression)),
-        seq(field("key", $.identifier), ":", field("value", $.expression)),
+        $.identifier, // For simple identifiers and function names
       ),
 
     identifier: (_) => /[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*/,
@@ -524,30 +280,51 @@ module.exports = grammar(html, {
         field("close", $.if_end),
       ),
 
-    if_start: (_) => blockTag(IF_VARIANTS).start,
+    if_start: (_) => controlFlowTag(IF_VARIANTS),
 
     if_end: (_) => blockTag(IF_VARIANTS).end,
 
     elseif_block: ($) => seq($.elseif_start, repeat($._node)),
 
-    elseif_start: (_) => blockTag(ELSEIF_VARIANTS).start,
+    elseif_start: (_) => controlFlowTag(ELSEIF_VARIANTS),
 
     else_block: ($) => seq($.else_start, repeat($._node)),
 
     else_start: (_) => token("{else}"),
 
-    // Loop blocks (foreach/for) - can have optional {else} block
+    // Loop blocks (foreach/for/while) - can have optional {else} block
     loop_block: ($) =>
-      seq(
-        field("open", $.loop_start),
-        repeat($._node),
-        optional($.else_block),
-        field("close", $.loop_end),
+      choice(
+        seq(
+          field("open", $.foreach_start),
+          repeat($._node),
+          optional($.else_block),
+          field("close", $.foreach_end),
+        ),
+        seq(
+          field("open", $.for_start),
+          repeat($._node),
+          optional($.else_block),
+          field("close", $.for_end),
+        ),
+        seq(
+          field("open", $.while_start),
+          repeat($._node),
+          field("close", $.while_end),
+        ),
       ),
 
-    loop_start: (_) => blockTag(LOOP_TAGS).start,
+    foreach_start: (_) => controlFlowTag("foreach", "content"),
 
-    loop_end: (_) => blockTag(LOOP_TAGS).end,
+    foreach_end: (_) => token("{/foreach}"),
+
+    for_start: (_) => controlFlowTag("for", "content"),
+
+    for_end: (_) => token("{/for}"),
+
+    while_start: (_) => controlFlowTag("while"),
+
+    while_end: (_) => token("{/while}"),
 
     // Switch block
     switch_block: ($) =>
@@ -557,12 +334,13 @@ module.exports = grammar(html, {
         field("close", $.switch_end),
       ),
 
-    switch_start: (_) => token(seq("{switch", /[^}]*/, "}")),
+    switch_start: (_) => controlFlowTag("switch", "expression"),
+
     switch_end: (_) => token("{/switch}"),
 
     case_block: ($) => seq($.case_start, repeat($._node)),
 
-    case_start: (_) => token(seq("{case", /[^}]*/, "}")),
+    case_start: (_) => controlFlowTag("case", "value"),
 
     default_case_block: ($) => seq($.default_start, repeat($._node)),
 

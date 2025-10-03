@@ -3,16 +3,14 @@
 ; Latte comments
 (comment) @comment
 
-; Latte blocks - these are token nodes, so we can't drill into their contents
-; but we can highlight the entire node with a specific scope
+; Latte blocks - control flow blocks
 (if_block) @keyword.control
 (loop_block) @keyword.control
 (switch_block) @keyword.control
 (block) @keyword.control
 
-; Note: Variables inside {if $var}, {foreach $items}, {switch $status} etc.
-; are consumed as tokens and cannot be individually highlighted without
-; restructuring the grammar to parse their contents (which would impact performance)
+; Note: PHP expressions inside control flow tags {if $var}, {foreach $items}, {while $x}, etc.
+; are tokenized in the grammar and highlighted via PHP injection queries (see injections.scm)
 
 ; Latte print tags - highlight differently from variables
 (latte_print_tag) @tag.builtin
@@ -20,12 +18,11 @@
 ; Latte variables - inside {$var}
 (latte_variable) @variable.member
 
-; PHP content in {$var} - highlight the php_only node
+; PHP variables - both in {$var} context and in expressions
 (php_only
   "$" @punctuation.special
   name: (identifier) @variable.builtin)
 
-; PHP variables inside expressions (in tags like {var $x = ...})
 (php_variable
   "$" @punctuation.special
   name: (identifier) @variable.builtin)
@@ -36,14 +33,6 @@
 (template_type_tag) @keyword.type
 (capture_tag) @keyword.directive
 (embed_tag) @keyword.directive
-(latte_single_tag) @keyword.directive
-
-; Single tags with structured highlighting
-(latte_single_tag
-  expression: (expression) @variable)
-
-(latte_single_tag
-  arguments: _ @parameter)
 
 ; File-related tags with structured highlighting
 (latte_file_tag
@@ -51,9 +40,6 @@
 
 (file_path
   (string_literal) @string.special.path)
-
-(file_tag_argument
-  name: (identifier) @parameter)
 
 ; Macro calls - {CustomTag args}
 (macro_call
@@ -67,35 +53,11 @@
     filter_name: (filter_name) @function.method
     filter_args: (filter_args)? @parameter))
 
-; Latte functions and calls
-(function_call
-  function: (identifier) @function.call)
-
-(static_call
-  class: (identifier) @type
-  "::" @punctuation.delimiter
-  constant: (identifier)? @constant
-  method: (identifier)? @function.method)
-
-; Operators in expressions
-(binary_expression
-  operator: _ @operator)
-
-(unary_expression
-  operator: _ @operator)
-
-(ternary_expression
-  ["?" ":"] @operator)
-
-; String and number literals
+; Literals
 (string_literal) @string
 (number_literal) @number
 (boolean_literal) @boolean
 (null_literal) @constant.builtin
-
-; Identifiers in different contexts
-(php_variable
-  name: (identifier) @variable.builtin)
 
 ; Latte expressions in attributes
 (latte_expression) @embedded

@@ -23,13 +23,7 @@ Include tag with parameters
   (latte_file_tag
     tag_name: (file_tag_name)
     file: (file_path (string_literal))
-    arguments: (file_tag_arguments
-      (file_tag_argument
-        name: (identifier)
-        value: (expression (php_variable name: (identifier))))
-      (file_tag_argument
-        name: (identifier)
-        value: (expression (php_variable name: (identifier)))))))
+    arguments: (file_tag_arguments)))
 
 ================================================================================
 Extends tag
@@ -92,10 +86,9 @@ Dump tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_single_tag
-    expression: (expression
-      (php_variable
-        name: (identifier)))))
+  (macro_call
+    name: (macro_name)
+    arguments: (macro_arguments)))
 
 ================================================================================
 Dump tag without arguments
@@ -106,7 +99,8 @@ Dump tag without arguments
 --------------------------------------------------------------------------------
 
 (document
-  (latte_single_tag))
+  (macro_call
+    name: (macro_name)))
 
 ================================================================================
 Debugbreak tag
@@ -117,7 +111,8 @@ Debugbreak tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_single_tag))
+  (macro_call
+    name: (macro_name)))
 
 ================================================================================
 Embed tag
@@ -182,47 +177,6 @@ Var tag with boolean
       (identifier))
     (expression
       (boolean_literal))))
-
-================================================================================
-Var tag with array
-================================================================================
-
-{var $items = [1, 2, 3]}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (array_literal
-        (expression
-          (number_literal))
-        (expression
-          (number_literal))
-        (expression
-          (number_literal))))))
-
-================================================================================
-Var tag with function call
-================================================================================
-
-{var $total = count($items)}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (function_call
-        (identifier)
-        (argument_list
-          (expression
-            (php_variable
-              (identifier))))))))
 
 ================================================================================
 Default tag

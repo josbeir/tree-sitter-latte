@@ -139,44 +139,6 @@ Variable with chained property access
       (identifier))))
 
 ================================================================================
-Function call
-================================================================================
-
-{count($items)}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_expression_tag
-    (ERROR
-      (macro_name))
-    expression: (expression
-      (parenthesized_expression
-        (expression
-          (php_variable
-            name: (identifier)))))))
-
-================================================================================
-Function call with multiple arguments
-================================================================================
-
-{in_array($item, $list, true)}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_expression_tag
-    (ERROR
-      (macro_name)
-      (expression
-        (php_variable
-          name: (identifier)))
-      (macro_name))
-    expression: (expression
-      (boolean_literal))
-    (ERROR)))
-
-================================================================================
 Binary expression with comparison
 ================================================================================
 
@@ -190,24 +152,6 @@ Binary expression with comparison
       (php_variable
         (identifier)
         (identifier)))))
-
-================================================================================
-Print tag with function call
-================================================================================
-
-{=count($posts)}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_print_tag
-    (expression
-      (function_call
-        (identifier)
-        (argument_list
-          (expression
-            (php_variable
-              (identifier))))))))
 
 ================================================================================
 Variable assignment
@@ -281,107 +225,3 @@ Print tag with variable
     (expression
       (php_variable
         (identifier)))))
-
-================================================================================
-Unary not operator
-================================================================================
-
-{=!$isActive}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_print_tag
-    (expression
-      (unary_expression
-        (expression
-          (php_variable
-            (identifier)))))))
-
-================================================================================
-Array literal
-================================================================================
-
-{=[1, 2, 3, 4]}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_print_tag
-    (expression
-      (array_literal
-        (expression
-          (number_literal))
-        (expression
-          (number_literal))
-        (expression
-          (number_literal))
-        (expression
-          (number_literal))))))
-
-================================================================================
-Associative array literal
-================================================================================
-
-{=['name' => 'John', 'age' => 30]}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_print_tag
-    (expression
-      (array_literal
-        (expression
-          (string_literal))
-        (expression
-          (string_literal))
-        (expression
-          (string_literal))
-        (expression
-          (number_literal))))))
-
-================================================================================
-Named array with colon syntax
-================================================================================
-
-{var $config = [debug: true, timeout: 30]}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (array_literal
-        (identifier)
-        (expression
-          (boolean_literal))
-        (identifier)
-        (expression
-          (number_literal))))))
-
-================================================================================
-Mixed array syntax
-================================================================================
-
-{var $data = [name: 'John', 'email' => 'john@example.com', active: true]}
-
---------------------------------------------------------------------------------
-
-(document
-  (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (array_literal
-        (identifier)
-        (expression
-          (string_literal))
-        (expression
-          (string_literal))
-        (expression
-          (string_literal))
-        (identifier)
-        (expression
-          (boolean_literal))))))

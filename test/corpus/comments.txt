@@ -21,6 +21,6 @@ Comment inside block
 
 (document
   (if_block
-    (if_start)
+    open: (if_start)
     (comment)
-    (if_end)))
+    close: (if_end)))
