@@ -106,11 +106,19 @@ module.exports = grammar(html, {
 
     // Latte variable {$variable}
     latte_variable: ($) =>
-      seq("{", $.php_only, optional(field("filters", $.filter_chain)), "}"),
+      prec(
+        2,
+        seq(
+          "{",
+          field("variable", $._php_variable_base),
+          optional(field("filters", $.filter_chain)),
+          "}",
+        ),
+      ),
 
-    // PHP content inside {$...} - exposed for injection (like Blade)
-    // Uses higher precedence to prioritize in {$...} context
-    php_only: ($) => prec(1, $._php_variable_base),
+    // PHP content - exposed for injection
+    // Matches any PHP expression content
+    php_only: (_) => /[^|}]+/,
 
     // Variable assignment tags: {var $var = 'value'} and {default $var = 'value'}
     latte_assignment_tag: ($) =>
@@ -280,13 +288,23 @@ module.exports = grammar(html, {
         field("close", $.if_end),
       ),
 
-    if_start: (_) => controlFlowTag(IF_VARIANTS),
+    if_start: ($) =>
+      seq(
+        token(choice("{if", "{ifset", "{ifchanged")),
+        optional(seq(/\s+/, field("condition", $.php_only))),
+        token("}"),
+      ),
 
     if_end: (_) => blockTag(IF_VARIANTS).end,
 
     elseif_block: ($) => seq($.elseif_start, repeat($._node)),
 
-    elseif_start: (_) => controlFlowTag(ELSEIF_VARIANTS),
+    elseif_start: ($) =>
+      seq(
+        token(choice("{elseif", "{elseifset")),
+        optional(seq(/\s+/, field("condition", $.php_only))),
+        token("}"),
+      ),
 
     else_block: ($) => seq($.else_start, repeat($._node)),
 
@@ -301,7 +319,12 @@ module.exports = grammar(html, {
         field("close", $.loop_end),
       ),
 
-    loop_start: (_) => controlFlowTag(["foreach", "for", "while"], "content"),
+    loop_start: ($) =>
+      seq(
+        token(choice("{foreach", "{for", "{while")),
+        optional(seq(/\s+/, field("content", $.php_only))),
+        token("}"),
+      ),
 
     loop_end: (_) => token(choice("{/foreach}", "{/for}", "{/while}")),
 
@@ -313,13 +336,23 @@ module.exports = grammar(html, {
         field("close", $.switch_end),
       ),
 
-    switch_start: (_) => controlFlowTag("switch", "expression"),
+    switch_start: ($) =>
+      seq(
+        token("{switch"),
+        optional(seq(/\s+/, field("expression", $.php_only))),
+        token("}"),
+      ),
 
     switch_end: (_) => token("{/switch}"),
 
     case_block: ($) => seq($.case_start, repeat($._node)),
 
-    case_start: (_) => controlFlowTag("case", "value"),
+    case_start: ($) =>
+      seq(
+        token("{case"),
+        optional(seq(/\s+/, field("value", $.php_only))),
+        token("}"),
+      ),
 
     default_case_block: ($) => seq($.default_start, repeat($._node)),
 

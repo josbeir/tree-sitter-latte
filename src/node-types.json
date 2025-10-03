@@ -373,6 +373,22 @@
     }
   },
   {
+    "type": "case_start",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "default_case_block",
     "named": true,
     "fields": {},
@@ -918,6 +934,22 @@
     }
   },
   {
+    "type": "elseif_start",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "embed_tag",
     "named": true,
     "fields": {},
@@ -1278,6 +1310,22 @@
     }
   },
   {
+    "type": "if_start",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "latte_assignment_tag",
     "named": true,
     "fields": {
@@ -1423,6 +1471,16 @@
     "type": "latte_variable",
     "named": true,
     "fields": {
+      "constant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "filters": {
         "multiple": false,
         "required": false,
@@ -1432,17 +1490,89 @@
             "named": true
           }
         ]
+      },
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "method": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "property": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "$",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "->",
+            "named": false
+          },
+          {
+            "type": "::",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "php_only",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1574,6 +1704,22 @@
     }
   },
   {
+    "type": "loop_start",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "macro_call",
     "named": true,
     "fields": {
@@ -1613,62 +1759,6 @@
     "type": "php_block",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "php_only",
-    "named": true,
-    "fields": {
-      "constant": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "index": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "method": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "property": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    }
   },
   {
     "type": "php_variable",
@@ -1875,6 +1965,22 @@
     }
   },
   {
+    "type": "switch_start",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "template_type_tag",
     "named": true,
     "fields": {
@@ -2022,10 +2128,6 @@
     "named": true
   },
   {
-    "type": "case_start",
-    "named": true
-  },
-  {
     "type": "comment",
     "named": true,
     "extra": true
@@ -2040,10 +2142,6 @@
   },
   {
     "type": "else_start",
-    "named": true
-  },
-  {
-    "type": "elseif_start",
     "named": true
   },
   {
@@ -2083,10 +2181,6 @@
     "named": true
   },
   {
-    "type": "if_start",
-    "named": true
-  },
-  {
     "type": "latte_comment",
     "named": true,
     "extra": true
@@ -2097,10 +2191,6 @@
   },
   {
     "type": "loop_end",
-    "named": true
-  },
-  {
-    "type": "loop_start",
     "named": true
   },
   {
@@ -2120,15 +2210,15 @@
     "named": false
   },
   {
+    "type": "php_only",
+    "named": true
+  },
+  {
     "type": "raw_text",
     "named": true
   },
   {
     "type": "switch_end",
-    "named": true
-  },
-  {
-    "type": "switch_start",
     "named": true
   },
   {
@@ -2164,7 +2254,15 @@
     "named": false
   },
   {
+    "type": "{case",
+    "named": false
+  },
+  {
     "type": "{php",
+    "named": false
+  },
+  {
+    "type": "{switch",
     "named": false
   },
   {

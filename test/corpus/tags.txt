@@ -9,7 +9,8 @@ Include tag
 (document
   (latte_file_tag
     tag_name: (file_tag_name)
-    file: (file_path (string_literal))))
+    file: (file_path
+      (string_literal))))
 
 ================================================================================
 Include tag with parameters
@@ -22,7 +23,8 @@ Include tag with parameters
 (document
   (latte_file_tag
     tag_name: (file_tag_name)
-    file: (file_path (string_literal))
+    file: (file_path
+      (string_literal))
     arguments: (file_tag_arguments)))
 
 ================================================================================
@@ -36,7 +38,8 @@ Extends tag
 (document
   (latte_file_tag
     tag_name: (file_tag_name)
-    file: (file_path (string_literal))))
+    file: (file_path
+      (string_literal))))
 
 ================================================================================
 Layout tag
@@ -49,7 +52,8 @@ Layout tag
 (document
   (latte_file_tag
     tag_name: (file_tag_name)
-    file: (file_path (string_literal))))
+    file: (file_path
+      (string_literal))))
 
 ================================================================================
 Import tag
@@ -62,7 +66,8 @@ Import tag
 (document
   (latte_file_tag
     tag_name: (file_tag_name)
-    file: (file_path (string_literal))))
+    file: (file_path
+      (string_literal))))
 
 ================================================================================
 Sandbox tag
@@ -75,7 +80,8 @@ Sandbox tag
 (document
   (latte_file_tag
     tag_name: (file_tag_name)
-    file: (file_path (string_literal))))
+    file: (file_path
+      (string_literal))))
 
 ================================================================================
 Dump tag

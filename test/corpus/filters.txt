@@ -8,8 +8,7 @@ Variable with single filter
 
 (document
   (latte_variable
-    (php_only
-      (identifier))
+    (identifier)
     (filter_chain
       (filter
         (filter_name)))))
@@ -24,8 +23,7 @@ Variable with chained filters
 
 (document
   (latte_variable
-    (php_only
-      (identifier))
+    (identifier)
     (filter_chain
       (filter
         (filter_name))
@@ -42,8 +40,7 @@ Variable with filter and arguments
 
 (document
   (latte_variable
-    (php_only
-      (identifier))
+    (identifier)
     (filter_chain
       (filter
         (filter_name)
@@ -59,8 +56,7 @@ Variable with filter and multiple arguments
 
 (document
   (latte_variable
-    (php_only
-      (identifier))
+    (identifier)
     (filter_chain
       (filter
         (filter_name)
@@ -135,8 +131,7 @@ Filter in HTML context
     (start_tag
       (tag_name))
     (latte_variable
-      (php_only
-        (identifier))
+      (identifier)
       (filter_chain
         (filter
           (filter_name))))
@@ -156,15 +151,13 @@ Multiple filters in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (php_only
-        (identifier))
+      (identifier)
       (filter_chain
         (filter
           (filter_name))))
     (text)
     (latte_variable
-      (php_only
-        (identifier))
+      (identifier)
       (filter_chain
         (filter
           (filter_name))))

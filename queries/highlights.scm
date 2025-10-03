@@ -18,14 +18,13 @@
 ; Latte variables - inside {$var}
 (latte_variable) @variable.member
 
-; PHP variables - both in {$var} context and in expressions
-(php_only
-  "$" @punctuation.special
-  name: (identifier) @variable.builtin)
-
+; PHP variables
 (php_variable
   "$" @punctuation.special
   name: (identifier) @variable.builtin)
+
+; PHP content - highlighted via injection
+(php_only) @embedded
 
 ; Latte special tags
 (latte_assignment_tag) @keyword.directive
@@ -50,8 +49,7 @@
 (filter_chain
   (filter
     "|" @operator
-    filter_name: (filter_name) @function.method
-    filter_args: (filter_args)? @parameter))
+    filter_name: (filter_name) @function.method))
 
 ; Literals
 (string_literal) @string

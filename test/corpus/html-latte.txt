@@ -27,7 +27,8 @@ HTML inside Latte block
 
 (document
   (if_block
-    open: (if_start)
+    open: (if_start
+      condition: (php_only))
     (element
       (start_tag
         (tag_name))
@@ -48,13 +49,13 @@ Foreach with variable in HTML
 
 (document
   (loop_block
-    open: (loop_start)
+    open: (loop_start
+      content: (php_only))
     (element
       (start_tag
         (tag_name))
       (latte_variable
-        (php_only
-          name: (identifier)))
+        name: (identifier))
       (end_tag
         (tag_name)))
     close: (loop_end)))
