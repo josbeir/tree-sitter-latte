@@ -60,6 +60,13 @@
 ; Latte expressions in attributes
 (latte_expression) @embedded
 
+; N-attributes - Latte attributes in HTML tags (n:if, n:foreach, etc.)
+; The attribute name (n:xxx) is an unnamed token, so we highlight the value
+(n_attribute_value) @attribute
+
+(n_attribute_value
+  expression: (php_only) @embedded)
+
 ; Latte delimiters - make them stand out
 "{=" @punctuation.special
 

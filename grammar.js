@@ -40,15 +40,6 @@ function blockTagWithOptionalClose(tagNames, content = /[^}]*/) {
   };
 }
 
-// Helper for control flow tags with tokenized content: {tag content}
-function controlFlowTag(tagNames, fieldName = "condition") {
-  const tags = Array.isArray(tagNames) ? tagNames : [tagNames];
-  const tagChoice = tags.length === 1 ? tags[0] : choice(...tags);
-  return token(
-    seq("{", tagChoice, alias(optional(seq(/\s+/, /[^}]+/)), fieldName), "}"),
-  );
-}
-
 // Helper to create a string literal with a given quote character
 function stringWithQuote(quote) {
   const escaped = quote === "'" ? /([^'\\]|\\.)*/ : /([^"\\]|\\.)*/;
