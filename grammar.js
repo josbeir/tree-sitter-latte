@@ -55,15 +55,22 @@ module.exports = grammar(html, {
       seq("{=", field("expression", $._expression_with_filters), "}"),
 
     // Latte variable {$variable}
+    // Latte variable {$variable}
     latte_variable: ($) =>
       seq(
-        "{$",
-        field("name", $.identifier),
-        repeat($._variable_accessor),
+        "{",
+        $.php_only,
         optional(field("filters", $.filter_chain)),
         "}",
       ),
 
+    // PHP content inside {$...} - exposed for injection (like Blade)
+    php_only: ($) => prec(1,
+      seq(
+        "$",
+        field("name", $.identifier),
+        repeat($._variable_accessor)),
+      ),
     // Variable assignment tags: {var $var = 'value'} and {default $var = 'value'}
     latte_assignment_tag: ($) =>
       seq(
