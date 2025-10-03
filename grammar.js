@@ -26,6 +26,20 @@ const ELSEIF_VARIANTS = ["elseif", "elseifset"];
 const LOOP_TAGS = ["foreach", "for"];
 const FILE_TAGS = ["include", "extends", "layout", "import", "sandbox"];
 
+// Single tags without arguments
+const SINGLE_TAGS_NO_ARGS = ["rollback", "trace", "debugbreak"];
+
+// Single tags with optional arguments
+const SINGLE_TAGS_WITH_ARGS = [
+  "parameters",
+  "contentType",
+  "do",
+  "syntax",
+  "dump",
+  "templatePrint",
+  "varPrint",
+];
+
 // Helper to create open/close tag pairs
 function blockTag(tagNames, content = /[^}]*/) {
   const tags = Array.isArray(tagNames) ? tagNames : [tagNames];
@@ -203,6 +217,40 @@ module.exports = grammar(html, {
             "varPrint",
           ),
           optional(/[^}]+/),
+          "}",
+        ),
+      ),
+
+    embed_end: (_) => token("{/embed}"),
+
+    // Generic single-line Latte tags
+    latte_single_tag: ($) =>
+      choice(
+        // Tags without arguments
+        seq(
+          field("tag_name", token(seq("{", choice(...SINGLE_TAGS_NO_ARGS)))),
+          "}",
+        ),
+        // dump/varPrint/templatePrint - expression based
+        seq(
+          field(
+            "tag_name",
+            token(seq("{", choice("dump", "varPrint", "templatePrint"))),
+          ),
+          optional(/\s+/),
+          optional(field("expression", $._expression_with_filters)),
+          "}",
+        ),
+        // do/parameters/contentType/syntax - raw arguments (complex PHP/type syntax)
+        seq(
+          field(
+            "tag_name",
+            token(
+              seq("{", choice("do", "parameters", "contentType", "syntax")),
+            ),
+          ),
+          optional(/\s+/),
+          optional(field("arguments", token(/[^}]+/))),
           "}",
         ),
       ),

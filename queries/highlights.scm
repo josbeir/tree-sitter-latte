@@ -38,6 +38,13 @@
 (embed_tag) @keyword.directive
 (latte_single_tag) @keyword.directive
 
+; Single tags with structured highlighting
+(latte_single_tag
+  expression: (expression) @variable)
+
+(latte_single_tag
+  arguments: _ @parameter)
+
 ; File-related tags with structured highlighting
 (latte_file_tag
   tag_name: (file_tag_name) @keyword.directive)

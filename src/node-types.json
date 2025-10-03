@@ -1726,6 +1726,36 @@
     }
   },
   {
+    "type": "latte_single_tag",
+    "named": true,
+    "fields": {
+      "expression": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      },
+      "filters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_chain",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "latte_variable",
     "named": true,
     "fields": {
@@ -2646,10 +2676,6 @@
   },
   {
     "type": "latte_expression",
-    "named": true
-  },
-  {
-    "type": "latte_single_tag",
     "named": true
   },
   {

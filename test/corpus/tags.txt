@@ -92,7 +92,10 @@ Dump tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_single_tag))
+  (latte_single_tag
+    expression: (expression
+      (php_variable
+        name: (identifier)))))
 
 ================================================================================
 Dump tag without arguments
