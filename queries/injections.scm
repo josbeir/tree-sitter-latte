@@ -18,14 +18,11 @@
  (#set! injection.language "php_only"))
 
 ; Control flow tags - PHP conditions and expressions
-; {if $x}, {elseif $y}, {while $z}, {switch $status}, {case $value}
+; {if $x}, {elseif $y}, {switch $status}, {case $value}
 ((if_start) @injection.content
  (#set! injection.language "php_only"))
 
 ((elseif_start) @injection.content
- (#set! injection.language "php_only"))
-
-((while_start) @injection.content
  (#set! injection.language "php_only"))
 
 ((switch_start) @injection.content
@@ -35,11 +32,8 @@
  (#set! injection.language "php_only"))
 
 ; Loop tags - PHP expressions
-; {for $i = 0; $i < 10; $i++}, {foreach $items as $item}
-((for_start) @injection.content
- (#set! injection.language "php_only"))
-
-((foreach_start) @injection.content
+; {for $i = 0; $i < 10; $i++}, {foreach $items as $item}, {while $x}
+((loop_start) @injection.content
  (#set! injection.language "php_only"))
 
 ; Latte expressions in HTML attributes

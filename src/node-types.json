@@ -1454,15 +1454,7 @@
         "required": true,
         "types": [
           {
-            "type": "for_end",
-            "named": true
-          },
-          {
-            "type": "foreach_end",
-            "named": true
-          },
-          {
-            "type": "while_end",
+            "type": "loop_end",
             "named": true
           }
         ]
@@ -1472,15 +1464,7 @@
         "required": true,
         "types": [
           {
-            "type": "for_start",
-            "named": true
-          },
-          {
-            "type": "foreach_start",
-            "named": true
-          },
-          {
-            "type": "while_start",
+            "type": "loop_start",
             "named": true
           }
         ]
@@ -2091,22 +2075,6 @@
     "named": true
   },
   {
-    "type": "for_end",
-    "named": true
-  },
-  {
-    "type": "for_start",
-    "named": true
-  },
-  {
-    "type": "foreach_end",
-    "named": true
-  },
-  {
-    "type": "foreach_start",
-    "named": true
-  },
-  {
     "type": "identifier",
     "named": true
   },
@@ -2125,6 +2093,14 @@
   },
   {
     "type": "latte_expression",
+    "named": true
+  },
+  {
+    "type": "loop_end",
+    "named": true
+  },
+  {
+    "type": "loop_start",
     "named": true
   },
   {
@@ -2166,14 +2142,6 @@
   {
     "type": "true",
     "named": false
-  },
-  {
-    "type": "while_end",
-    "named": true
-  },
-  {
-    "type": "while_start",
-    "named": true
   },
   {
     "type": "{",

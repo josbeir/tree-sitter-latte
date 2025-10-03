@@ -1734,119 +1734,46 @@
       }
     },
     "loop_block": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SEQ",
+          "type": "FIELD",
+          "name": "open",
+          "content": {
+            "type": "SYMBOL",
+            "name": "loop_start"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_node"
+          }
+        },
+        {
+          "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "open",
-              "content": {
-                "type": "SYMBOL",
-                "name": "foreach_start"
-              }
+              "type": "SYMBOL",
+              "name": "else_block"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_node"
-              }
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "else_block"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "FIELD",
-              "name": "close",
-              "content": {
-                "type": "SYMBOL",
-                "name": "foreach_end"
-              }
+              "type": "BLANK"
             }
           ]
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "open",
-              "content": {
-                "type": "SYMBOL",
-                "name": "for_start"
-              }
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_node"
-              }
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "else_block"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "FIELD",
-              "name": "close",
-              "content": {
-                "type": "SYMBOL",
-                "name": "for_end"
-              }
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "open",
-              "content": {
-                "type": "SYMBOL",
-                "name": "while_start"
-              }
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_node"
-              }
-            },
-            {
-              "type": "FIELD",
-              "name": "close",
-              "content": {
-                "type": "SYMBOL",
-                "name": "while_end"
-              }
-            }
-          ]
+          "type": "FIELD",
+          "name": "close",
+          "content": {
+            "type": "SYMBOL",
+            "name": "loop_end"
+          }
         }
       ]
     },
-    "foreach_start": {
+    "loop_start": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
@@ -1856,8 +1783,21 @@
             "value": "{"
           },
           {
-            "type": "STRING",
-            "value": "foreach"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "foreach"
+              },
+              {
+                "type": "STRING",
+                "value": "for"
+              },
+              {
+                "type": "STRING",
+                "value": "while"
+              }
+            ]
           },
           {
             "type": "ALIAS",
@@ -1892,117 +1832,24 @@
         ]
       }
     },
-    "foreach_end": {
+    "loop_end": {
       "type": "TOKEN",
       "content": {
-        "type": "STRING",
-        "value": "{/foreach}"
-      }
-    },
-    "for_start": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
+        "type": "CHOICE",
         "members": [
           {
             "type": "STRING",
-            "value": "{"
+            "value": "{/foreach}"
           },
           {
             "type": "STRING",
-            "value": "for"
-          },
-          {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "PATTERN",
-                      "value": "\\s+"
-                    },
-                    {
-                      "type": "PATTERN",
-                      "value": "[^}]+"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            "named": false,
-            "value": "content"
+            "value": "{/for}"
           },
           {
             "type": "STRING",
-            "value": "}"
+            "value": "{/while}"
           }
         ]
-      }
-    },
-    "for_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{/for}"
-      }
-    },
-    "while_start": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{"
-          },
-          {
-            "type": "STRING",
-            "value": "while"
-          },
-          {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "PATTERN",
-                      "value": "\\s+"
-                    },
-                    {
-                      "type": "PATTERN",
-                      "value": "[^}]+"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            "named": false,
-            "value": "condition"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "while_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{/while}"
       }
     },
     "switch_block": {

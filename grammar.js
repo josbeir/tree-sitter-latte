@@ -294,37 +294,16 @@ module.exports = grammar(html, {
 
     // Loop blocks (foreach/for/while) - can have optional {else} block
     loop_block: ($) =>
-      choice(
-        seq(
-          field("open", $.foreach_start),
-          repeat($._node),
-          optional($.else_block),
-          field("close", $.foreach_end),
-        ),
-        seq(
-          field("open", $.for_start),
-          repeat($._node),
-          optional($.else_block),
-          field("close", $.for_end),
-        ),
-        seq(
-          field("open", $.while_start),
-          repeat($._node),
-          field("close", $.while_end),
-        ),
+      seq(
+        field("open", $.loop_start),
+        repeat($._node),
+        optional($.else_block),
+        field("close", $.loop_end),
       ),
 
-    foreach_start: (_) => controlFlowTag("foreach", "content"),
+    loop_start: (_) => controlFlowTag(["foreach", "for", "while"], "content"),
 
-    foreach_end: (_) => token("{/foreach}"),
-
-    for_start: (_) => controlFlowTag("for", "content"),
-
-    for_end: (_) => token("{/for}"),
-
-    while_start: (_) => controlFlowTag("while"),
-
-    while_end: (_) => token("{/while}"),
+    loop_end: (_) => token(choice("{/foreach}", "{/for}", "{/while}")),
 
     // Switch block
     switch_block: ($) =>
