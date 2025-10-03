@@ -75,7 +75,8 @@ VarType in HTML context
       (start_tag
         (tag_name))
       (latte_variable
-        (identifier))
+        (php_only
+          (identifier)))
       (end_tag
         (tag_name)))
     (end_tag

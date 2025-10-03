@@ -53,7 +53,8 @@ Foreach with variable in HTML
       (start_tag
         (tag_name))
       (latte_variable
-        (identifier))
+        (php_only
+          (identifier)))
       (end_tag
         (tag_name)))
     (loop_end)))

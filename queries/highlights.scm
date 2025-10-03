@@ -20,7 +20,12 @@
 ; Latte variables - inside {$var}
 (latte_variable) @variable.member
 
-; PHP variables inside expressions
+; PHP content in {$var} - highlight the php_only node
+(php_only
+  "$" @punctuation.special
+  name: (identifier) @variable.builtin)
+
+; PHP variables inside expressions (in tags like {var $x = ...})
 (php_variable
   "$" @punctuation.special
   name: (identifier) @variable.builtin)
@@ -73,9 +78,6 @@
 (null_literal) @constant.builtin
 
 ; Identifiers in different contexts
-(latte_variable
-  name: (identifier) @variable.member)
-
 (php_variable
   name: (identifier) @variable.builtin)
 
@@ -83,10 +85,7 @@
 (latte_expression) @embedded
 
 ; Latte delimiters - make them stand out
-[
-  "{="
-  "{$"
-] @punctuation.special
+"{=" @punctuation.special
 
 [
   "{"

@@ -8,7 +8,8 @@ Simple variable
 
 (document
   (latte_variable
-    (identifier)))
+    (php_only
+      (identifier))))
 
 ================================================================================
 Variable in HTML
@@ -23,7 +24,8 @@ Variable in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (identifier))
+      (php_only
+        (identifier)))
     (end_tag
       (tag_name))))
 
@@ -40,10 +42,12 @@ Multiple variables in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (identifier))
+      (php_only
+        (identifier)))
     (text)
     (latte_variable
-      (identifier))
+      (php_only
+        (identifier)))
     (end_tag
       (tag_name))))
 
@@ -71,8 +75,9 @@ Variable with object property
 
 (document
   (latte_variable
-    (identifier)
-    (identifier)))
+    (php_only
+      (identifier)
+      (identifier))))
 
 ================================================================================
 Variable with method call
@@ -84,8 +89,9 @@ Variable with method call
 
 (document
   (latte_variable
-    (identifier)
-    (identifier)))
+    (php_only
+      (identifier)
+      (identifier))))
 
 ================================================================================
 Variable with array access
@@ -97,9 +103,10 @@ Variable with array access
 
 (document
   (latte_variable
-    (identifier)
-    (expression
-      (number_literal))))
+    (php_only
+      (identifier)
+      (expression
+        (number_literal)))))
 
 ================================================================================
 Variable with string array access
@@ -111,9 +118,10 @@ Variable with string array access
 
 (document
   (latte_variable
-    (identifier)
-    (expression
-      (string_literal))))
+    (php_only
+      (identifier)
+      (expression
+        (string_literal)))))
 
 ================================================================================
 Variable with chained property access
@@ -125,9 +133,10 @@ Variable with chained property access
 
 (document
   (latte_variable
-    (identifier)
-    (identifier)
-    (identifier)))
+    (php_only
+      (identifier)
+      (identifier)
+      (identifier))))
 
 ================================================================================
 Function call
