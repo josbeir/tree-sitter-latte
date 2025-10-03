@@ -25,7 +25,8 @@ Include tag with parameters
     tag_name: (file_tag_name)
     file: (file_path
       (string_literal))
-    arguments: (file_tag_arguments)))
+    arguments: (file_tag_arguments
+      (php_only))))
 
 ================================================================================
 Extends tag
@@ -134,6 +135,8 @@ Embed tag
 
 (document
   (embed_tag
+    (file_path
+      (string_literal))
     (block
       (block_start)
       (text)

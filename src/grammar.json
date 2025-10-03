@@ -864,8 +864,17 @@
       ]
     },
     "file_tag_arguments": {
-      "type": "PATTERN",
-      "value": ",\\s*[^}]+"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ",\\s*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "php_only"
+        }
+      ]
     },
     "embed_tag": {
       "type": "SEQ",
@@ -873,21 +882,51 @@
         {
           "type": "TOKEN",
           "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "{embed"
-              },
-              {
-                "type": "PATTERN",
-                "value": "[^}]+"
-              },
-              {
-                "type": "STRING",
-                "value": "}"
+            "type": "STRING",
+            "value": "{embed"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\\s+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "file",
+          "content": {
+            "type": "SYMBOL",
+            "name": "file_path"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "arguments",
+              "content": {
+                "type": "SYMBOL",
+                "name": "file_tag_arguments"
               }
-            ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "}"
           }
         },
         {

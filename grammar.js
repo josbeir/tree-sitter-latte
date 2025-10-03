@@ -21,7 +21,6 @@ const BLOCK_TAGS = [
 ];
 
 const IF_VARIANTS = ["if", "ifset", "ifchanged"];
-const ELSEIF_VARIANTS = ["elseif", "elseifset"];
 const FILE_TAGS = ["include", "extends", "layout", "import", "sandbox"];
 
 // Helper to create open/close tag pairs
@@ -177,12 +176,16 @@ module.exports = grammar(html, {
 
     file_path: ($) => choice($.string_literal, $.php_variable),
 
-    file_tag_arguments: (_) => /,\s*[^}]+/,
+    file_tag_arguments: ($) => seq(/,\s*/, $.php_only),
 
     // Embed tag {embed 'file.latte'}...{/embed}
     embed_tag: ($) =>
       seq(
-        token(seq("{embed", /[^}]+/, "}")),
+        token("{embed"),
+        optional(/\s+/),
+        field("file", $.file_path),
+        optional(field("arguments", $.file_tag_arguments)),
+        token("}"),
         repeat($._node),
         token("{/embed}"),
       ),
