@@ -7,7 +7,9 @@ Include tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_file_tag))
+  (latte_file_tag
+    tag_name: (file_tag_name)
+    file: (file_path (string_literal))))
 
 ================================================================================
 Include tag with parameters
@@ -18,7 +20,16 @@ Include tag with parameters
 --------------------------------------------------------------------------------
 
 (document
-  (latte_file_tag))
+  (latte_file_tag
+    tag_name: (file_tag_name)
+    file: (file_path (string_literal))
+    arguments: (file_tag_arguments
+      (file_tag_argument
+        name: (identifier)
+        value: (expression (php_variable name: (identifier))))
+      (file_tag_argument
+        name: (identifier)
+        value: (expression (php_variable name: (identifier)))))))
 
 ================================================================================
 Extends tag
@@ -29,7 +40,9 @@ Extends tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_file_tag))
+  (latte_file_tag
+    tag_name: (file_tag_name)
+    file: (file_path (string_literal))))
 
 ================================================================================
 Layout tag
@@ -40,7 +53,9 @@ Layout tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_file_tag))
+  (latte_file_tag
+    tag_name: (file_tag_name)
+    file: (file_path (string_literal))))
 
 ================================================================================
 Import tag
@@ -51,7 +66,9 @@ Import tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_file_tag))
+  (latte_file_tag
+    tag_name: (file_tag_name)
+    file: (file_path (string_literal))))
 
 ================================================================================
 Sandbox tag
@@ -62,7 +79,9 @@ Sandbox tag
 --------------------------------------------------------------------------------
 
 (document
-  (latte_file_tag))
+  (latte_file_tag
+    tag_name: (file_tag_name)
+    file: (file_path (string_literal))))
 
 ================================================================================
 Dump tag

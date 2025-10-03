@@ -35,9 +35,18 @@
 (var_type_tag) @keyword.type
 (template_type_tag) @keyword.type
 (capture_tag) @keyword.directive
-(latte_file_tag) @keyword.directive
 (embed_tag) @keyword.directive
 (latte_single_tag) @keyword.directive
+
+; File-related tags with structured highlighting
+(latte_file_tag
+  tag_name: (file_tag_name) @keyword.directive)
+
+(file_path
+  (string_literal) @string.special.path)
+
+(file_tag_argument
+  name: (identifier) @parameter)
 
 ; Macro calls - {CustomTag args}
 (macro_call

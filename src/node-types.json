@@ -1125,11 +1125,6 @@
     }
   },
   {
-    "type": "elseif_start",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "embed_tag",
     "named": true,
     "fields": {},
@@ -1320,6 +1315,66 @@
         },
         {
           "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "php_variable",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_tag_argument",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "file_tag_arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "file_tag_argument",
           "named": true
         }
       ]
@@ -1529,16 +1584,6 @@
     }
   },
   {
-    "type": "if_end",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "if_start",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "latte_assignment_tag",
     "named": true,
     "fields": {
@@ -1608,6 +1653,42 @@
         "types": [
           {
             "type": "filter_chain",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "latte_file_tag",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "file_tag_arguments",
+            "named": true
+          }
+        ]
+      },
+      "file": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "file_path",
+            "named": true
+          }
+        ]
+      },
+      "tag_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "file_tag_name",
             "named": true
           }
         ]
@@ -2519,6 +2600,10 @@
     "named": true
   },
   {
+    "type": "elseif_start",
+    "named": true
+  },
+  {
     "type": "entity",
     "named": true
   },
@@ -2529,6 +2614,10 @@
   {
     "type": "false",
     "named": false
+  },
+  {
+    "type": "file_tag_name",
+    "named": true
   },
   {
     "type": "filter_args",
@@ -2543,16 +2632,20 @@
     "named": true
   },
   {
+    "type": "if_end",
+    "named": true
+  },
+  {
+    "type": "if_start",
+    "named": true
+  },
+  {
     "type": "latte_comment",
     "named": true,
     "extra": true
   },
   {
     "type": "latte_expression",
-    "named": true
-  },
-  {
-    "type": "latte_file_tag",
     "named": true
   },
   {
@@ -2625,18 +2718,6 @@
   },
   {
     "type": "{/embed}",
-    "named": false
-  },
-  {
-    "type": "{/ifchanged}",
-    "named": false
-  },
-  {
-    "type": "{/ifset}",
-    "named": false
-  },
-  {
-    "type": "{/if}",
     "named": false
   },
   {
