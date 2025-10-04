@@ -1665,7 +1665,17 @@
   {
     "type": "php_block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "php_only",
@@ -2080,10 +2090,6 @@
   },
   {
     "type": "null",
-    "named": false
-  },
-  {
-    "type": "php_content",
     "named": false
   },
   {

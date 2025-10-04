@@ -198,12 +198,7 @@ export default grammar(html, {
     filter_args: (_) => /:[^|}]+/,
 
     // {php ...}
-    php_block: (_) =>
-      seq(
-        token("{php"),
-        optional(alias(token(prec(-1, /[^}]*/)), "php_content")),
-        token("}"),
-      ),
+    php_block: ($) => seq(token("{php"), optional($.php_only), token("}")),
 
     // {block}...{/block}, {macro}...{/macro}, etc.
     block: ($) =>

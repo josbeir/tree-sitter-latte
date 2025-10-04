@@ -1367,20 +1367,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "ALIAS",
-              "content": {
-                "type": "TOKEN",
-                "content": {
-                  "type": "PREC",
-                  "value": -1,
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[^}]*"
-                  }
-                }
-              },
-              "named": false,
-              "value": "php_content"
+              "type": "SYMBOL",
+              "name": "php_only"
             },
             {
               "type": "BLANK"
