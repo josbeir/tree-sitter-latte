@@ -28,6 +28,7 @@ HTML inside Latte block
 (document
   (if_block
     open: (if_start
+      (directive_start)
       condition: (php_only))
     (element
       (start_tag
@@ -35,7 +36,7 @@ HTML inside Latte block
       (text)
       (end_tag
         (tag_name)))
-    close: (if_end)))
+    close: (directive_end)))
 
 ================================================================================
 Foreach with variable in HTML
@@ -50,6 +51,7 @@ Foreach with variable in HTML
 (document
   (loop_block
     open: (loop_start
+      (directive_start)
       content: (php_only))
     (element
       (start_tag
@@ -58,4 +60,4 @@ Foreach with variable in HTML
         name: (identifier))
       (end_tag
         (tag_name)))
-    close: (loop_end)))
+    close: (directive_end)))

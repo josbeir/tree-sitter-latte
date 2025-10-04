@@ -1584,8 +1584,42 @@
           "type": "FIELD",
           "name": "close",
           "content": {
-            "type": "SYMBOL",
-            "name": "if_end"
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "{/"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "if"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "ifset"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "ifchanged"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "}"
+                  }
+                ]
+              }
+            },
+            "named": true,
+            "value": "directive_end"
           }
         }
       ]
@@ -1594,24 +1628,29 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "TOKEN",
+          "type": "ALIAS",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "{if"
-              },
-              {
-                "type": "STRING",
-                "value": "{ifset"
-              },
-              {
-                "type": "STRING",
-                "value": "{ifchanged"
-              }
-            ]
-          }
+            "type": "TOKEN",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "{if"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{ifset"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{ifchanged"
+                }
+              ]
+            }
+          },
+          "named": true,
+          "value": "directive_start"
         },
         {
           "type": "CHOICE",
@@ -1647,39 +1686,6 @@
         }
       ]
     },
-    "if_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{/"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "if"
-              },
-              {
-                "type": "STRING",
-                "value": "ifset"
-              },
-              {
-                "type": "STRING",
-                "value": "ifchanged"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
     "elseif_block": {
       "type": "SEQ",
       "members": [
@@ -1700,20 +1706,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "TOKEN",
+          "type": "ALIAS",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "{elseif"
-              },
-              {
-                "type": "STRING",
-                "value": "{elseifset"
-              }
-            ]
-          }
+            "type": "TOKEN",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "{elseif"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{elseifset"
+                }
+              ]
+            }
+          },
+          "named": true,
+          "value": "directive_start"
         },
         {
           "type": "CHOICE",
@@ -1806,8 +1817,29 @@
           "type": "FIELD",
           "name": "close",
           "content": {
-            "type": "SYMBOL",
-            "name": "loop_end"
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "{/foreach}"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "{/for}"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "{/while}"
+                  }
+                ]
+              }
+            },
+            "named": true,
+            "value": "directive_end"
           }
         }
       ]
@@ -1816,24 +1848,29 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "TOKEN",
+          "type": "ALIAS",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "{foreach"
-              },
-              {
-                "type": "STRING",
-                "value": "{for"
-              },
-              {
-                "type": "STRING",
-                "value": "{while"
-              }
-            ]
-          }
+            "type": "TOKEN",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "{foreach"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{for"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{while"
+                }
+              ]
+            }
+          },
+          "named": true,
+          "value": "directive_start"
         },
         {
           "type": "CHOICE",
@@ -1869,26 +1906,6 @@
         }
       ]
     },
-    "loop_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{/foreach}"
-          },
-          {
-            "type": "STRING",
-            "value": "{/for}"
-          },
-          {
-            "type": "STRING",
-            "value": "{/while}"
-          }
-        ]
-      }
-    },
     "switch_block": {
       "type": "SEQ",
       "members": [
@@ -1920,8 +1937,16 @@
           "type": "FIELD",
           "name": "close",
           "content": {
-            "type": "SYMBOL",
-            "name": "switch_end"
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "STRING",
+                "value": "{/switch}"
+              }
+            },
+            "named": true,
+            "value": "directive_end"
           }
         }
       ]
@@ -1930,11 +1955,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "TOKEN",
+          "type": "ALIAS",
           "content": {
-            "type": "STRING",
-            "value": "{switch"
-          }
+            "type": "TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "{switch"
+            }
+          },
+          "named": true,
+          "value": "directive_start"
         },
         {
           "type": "CHOICE",
@@ -1970,13 +2000,6 @@
         }
       ]
     },
-    "switch_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "{/switch}"
-      }
-    },
     "case_block": {
       "type": "SEQ",
       "members": [
@@ -1997,11 +2020,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "TOKEN",
+          "type": "ALIAS",
           "content": {
-            "type": "STRING",
-            "value": "{case"
-          }
+            "type": "TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "{case"
+            }
+          },
+          "named": true,
+          "value": "directive_start"
         },
         {
           "type": "CHOICE",

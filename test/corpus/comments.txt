@@ -22,6 +22,7 @@ Comment inside block
 (document
   (if_block
     open: (if_start
+      (directive_start)
       condition: (php_only))
     (comment)
-    close: (if_end)))
+    close: (directive_end)))

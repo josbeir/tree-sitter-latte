@@ -15,16 +15,18 @@ If-Elseif-Else
 (document
   (if_block
     open: (if_start
+      (directive_start)
       condition: (php_only))
     (text)
     (elseif_block
       (elseif_start
+        (directive_start)
         condition: (php_only))
       (text))
     (else_block
       (else_start)
       (text))
-    close: (if_end)))
+    close: (directive_end)))
 
 ================================================================================
 Ifset Block
@@ -39,6 +41,7 @@ Ifset Block
 (document
   (if_block
     open: (if_start
+      (directive_start)
       condition: (php_only))
     (element
       (start_tag
@@ -47,7 +50,7 @@ Ifset Block
         name: (identifier))
       (end_tag
         (tag_name)))
-    close: (if_end)))
+    close: (directive_end)))
 
 ================================================================================
 If with comparison expression
@@ -62,6 +65,7 @@ If with comparison expression
 (document
   (if_block
     open: (if_start
+      (directive_start)
       condition: (php_only))
     (element
       (start_tag
@@ -69,7 +73,7 @@ If with comparison expression
       (text)
       (end_tag
         (tag_name)))
-    close: (if_end)))
+    close: (directive_end)))
 
 ================================================================================
 If with function call
@@ -88,12 +92,14 @@ If with function call
 (document
   (if_block
     open: (if_start
+      (directive_start)
       condition: (php_only))
     (element
       (start_tag
         (tag_name))
       (loop_block
         open: (loop_start
+          (directive_start)
           content: (php_only))
         (element
           (start_tag
@@ -102,10 +108,10 @@ If with function call
             name: (identifier))
           (end_tag
             (tag_name)))
-        close: (loop_end))
+        close: (directive_end))
       (end_tag
         (tag_name)))
-    close: (if_end)))
+    close: (directive_end)))
 
 ================================================================================
 For loop
@@ -120,6 +126,7 @@ For loop
 (document
   (loop_block
     open: (loop_start
+      (directive_start)
       content: (php_only))
     (element
       (start_tag
@@ -129,7 +136,7 @@ For loop
         name: (identifier))
       (end_tag
         (tag_name)))
-    close: (loop_end)))
+    close: (directive_end)))
 
 ================================================================================
 While loop
@@ -144,6 +151,7 @@ While loop
 (document
   (loop_block
     open: (loop_start
+      (directive_start)
       content: (php_only))
     (element
       (start_tag
@@ -151,7 +159,7 @@ While loop
       (text)
       (end_tag
         (tag_name)))
-    close: (loop_end)))
+    close: (directive_end)))
 
 ================================================================================
 Switch statement
@@ -171,9 +179,11 @@ Switch statement
 (document
   (switch_block
     open: (switch_start
+      (directive_start)
       expression: (php_only))
     (case_block
       (case_start
+        (directive_start)
         value: (php_only))
       (element
         (start_tag
@@ -183,6 +193,7 @@ Switch statement
           (tag_name))))
     (case_block
       (case_start
+        (directive_start)
         value: (php_only))
       (element
         (start_tag
@@ -198,4 +209,4 @@ Switch statement
         (text)
         (end_tag
           (tag_name))))
-    close: (switch_end)))
+    close: (directive_end)))

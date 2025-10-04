@@ -386,6 +386,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "directive_start",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -947,6 +957,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "directive_start",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1222,7 +1242,7 @@
         "required": true,
         "types": [
           {
-            "type": "if_end",
+            "type": "directive_end",
             "named": true
           }
         ]
@@ -1359,6 +1379,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "directive_start",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1620,7 +1650,7 @@
         "required": true,
         "types": [
           {
-            "type": "loop_end",
+            "type": "directive_end",
             "named": true
           }
         ]
@@ -1753,6 +1783,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "directive_start",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1969,7 +2009,7 @@
         "required": true,
         "types": [
           {
-            "type": "switch_end",
+            "type": "directive_end",
             "named": true
           }
         ]
@@ -2014,6 +2054,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "directive_start",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2173,6 +2223,14 @@
     "named": true
   },
   {
+    "type": "directive_end",
+    "named": true
+  },
+  {
+    "type": "directive_start",
+    "named": true
+  },
+  {
     "type": "doctype",
     "named": false
   },
@@ -2209,20 +2267,12 @@
     "named": true
   },
   {
-    "type": "if_end",
-    "named": true
-  },
-  {
     "type": "latte_comment",
     "named": true,
     "extra": true
   },
   {
     "type": "latte_expression",
-    "named": true
-  },
-  {
-    "type": "loop_end",
     "named": true
   },
   {
@@ -2247,10 +2297,6 @@
   },
   {
     "type": "raw_text",
-    "named": true
-  },
-  {
-    "type": "switch_end",
     "named": true
   },
   {
@@ -2286,19 +2332,11 @@
     "named": false
   },
   {
-    "type": "{case",
-    "named": false
-  },
-  {
     "type": "{embed",
     "named": false
   },
   {
     "type": "{php",
-    "named": false
-  },
-  {
-    "type": "{switch",
     "named": false
   },
   {

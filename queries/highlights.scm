@@ -9,6 +9,10 @@
 (switch_block) @keyword.control
 (block) @keyword.control
 
+; Directive tags - start and end tokens
+(directive_start) @keyword.control
+(directive_end) @keyword.control
+
 ; Note: PHP expressions inside control flow tags {if $var}, {foreach $items}, {while $x}, etc.
 ; are tokenized in the grammar and highlighted via PHP injection queries (see injections.scm)
 
