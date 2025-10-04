@@ -1,4 +1,6 @@
-
-{php
-    $var = 'bla';
-}
+    <table
+        x-data="{
+            handle: (item, order) => {
+                htmx.ajax('POST', '{url(['action' => 'adjustOrder'])}/'+ item +'/'+ order, {'swap': 'none'});
+            }
+        }">

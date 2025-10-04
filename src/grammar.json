@@ -483,7 +483,16 @@
                     "type": "ALIAS",
                     "content": {
                       "type": "PATTERN",
-                      "value": "\\{[^$='\"]"
+                      "value": "\\{\\s+"
+                    },
+                    "named": true,
+                    "value": "attribute_value"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\{[^$='\\s]"
                     },
                     "named": true,
                     "value": "attribute_value"
@@ -530,7 +539,16 @@
                     "type": "ALIAS",
                     "content": {
                       "type": "PATTERN",
-                      "value": "\\{[^$=\"']"
+                      "value": "\\{\\s+"
+                    },
+                    "named": true,
+                    "value": "attribute_value"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\{[^$=\"\\s]"
                     },
                     "named": true,
                     "value": "attribute_value"
