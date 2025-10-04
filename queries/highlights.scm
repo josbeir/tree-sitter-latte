@@ -61,11 +61,10 @@
 (latte_expression) @embedded
 
 ; N-attributes - Latte attributes in HTML tags (n:if, n:foreach, etc.)
-; The attribute name (n:xxx) is an unnamed token, so we highlight the value
-(n_attribute_value) @attribute
-
-(n_attribute_value
-  expression: (php_only) @embedded)
+; Highlight attribute names starting with "n:"
+(attribute
+  (attribute_name) @attribute.special
+  (#match? @attribute.special "^n:"))
 
 ; Latte delimiters - make them stand out
 "{=" @punctuation.special

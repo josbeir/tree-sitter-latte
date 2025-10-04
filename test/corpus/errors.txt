@@ -10,6 +10,8 @@ Malformed attribute
   (element
     (start_tag
       (tag_name)
+      (attribute
+        (attribute_name))
       (ERROR))
     (text)
     (end_tag

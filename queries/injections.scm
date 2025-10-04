@@ -10,6 +10,15 @@
 ; - {include 'file', arguments}
 ; - {embed 'file', arguments}
 ; - Filter arguments: |filter:args
-; - N-attributes: n:if="$condition", n:foreach="$items as $item"
 ((php_only) @injection.content
+ (#set! injection.include-children)
  (#set! injection.language "php_only"))
+
+; N-attributes - Latte attributes in HTML tags (n:if, n:foreach, etc.)
+; Inject PHP into the attribute values of any attribute starting with "n:"
+(attribute
+  (attribute_name) @_attr
+  (#match? @_attr "^n:")
+  (quoted_attribute_value
+    (attribute_value) @injection.content)
+  (#set! injection.language "php_only"))

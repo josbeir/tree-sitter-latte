@@ -371,31 +371,6 @@ module.exports = grammar(html, {
     // This is a catch-all for any Latte tag that contains an expression
     latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),
 
-    // Override attribute to support Latte n-attributes
-    attribute: ($) =>
-      choice(
-        prec(
-          1,
-          seq(
-            field("name", token(seq("n:", /[a-zA-Z_][a-zA-Z0-9_:-]*/))),
-            "=",
-            field("value", $.n_attribute_value),
-          ),
-        ),
-        seq(
-          $.attribute_name,
-          optional(
-            seq("=", choice($.attribute_value, $.quoted_attribute_value)),
-          ),
-        ),
-      ),
-
-    n_attribute_value: ($) =>
-      choice(
-        seq('"', field("expression", alias(/[^"]+/, $.php_only)), '"'),
-        seq("'", field("expression", alias(/[^']+/, $.php_only)), "'"),
-      ),
-
     quoted_attribute_value: ($) =>
       choice(
         seq(
