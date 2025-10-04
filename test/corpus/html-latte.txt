@@ -108,3 +108,37 @@ Foreach with variable in HTML
       (end_tag
         (tag_name)))
     close: (directive_end)))
+
+================================================================================
+Latte variable without space after brace
+================================================================================
+
+<div>{$var}</div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (latte_variable
+      (php_only))
+    (end_tag
+      (tag_name))))
+
+================================================================================
+Latte variable with space after brace (invalid)
+================================================================================
+
+<div>{ $var }</div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (latte_expression_tag
+      (php_only))
+    (end_tag
+      (tag_name))))

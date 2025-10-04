@@ -1668,6 +1668,11 @@
     "fields": {}
   },
   {
+    "type": "php_only",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "php_variable",
     "named": true,
     "fields": {
@@ -2080,10 +2085,6 @@
   {
     "type": "php_content",
     "named": false
-  },
-  {
-    "type": "php_only",
-    "named": true
   },
   {
     "type": "raw_text",

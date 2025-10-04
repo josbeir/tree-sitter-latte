@@ -76,7 +76,15 @@ export default grammar(html, {
 
     // {$variable}
     latte_variable: ($) =>
-      prec(2, seq("{", $.php_only, optional($.filter_chain), "}")),
+      prec(
+        2,
+        seq(
+          token(prec(1, seq("{", /\$/))),
+          alias(/[^|}]+/, $.php_only),
+          optional($.filter_chain),
+          "}",
+        ),
+      ),
 
     php_only: (_) => /[^|}]+/,
 
