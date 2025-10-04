@@ -282,7 +282,18 @@
   {
     "type": "case_block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -296,11 +307,11 @@
           "named": true
         },
         {
-          "type": "case_start",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "directive_start",
           "named": true
         },
         {
@@ -381,32 +392,6 @@
         },
         {
           "type": "var_type_tag",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "case_start",
-    "named": true,
-    "fields": {
-      "value": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "php_only",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "directive_start",
           "named": true
         }
       ]
@@ -853,7 +838,18 @@
   {
     "type": "elseif_block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -871,15 +867,15 @@
           "named": true
         },
         {
+          "type": "directive_start",
+          "named": true
+        },
+        {
           "type": "doctype",
           "named": true
         },
         {
           "type": "element",
-          "named": true
-        },
-        {
-          "type": "elseif_start",
           "named": true
         },
         {
@@ -952,32 +948,6 @@
         },
         {
           "type": "var_type_tag",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "elseif_start",
-    "named": true,
-    "fields": {
-      "condition": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "php_only",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "directive_start",
           "named": true
         }
       ]
@@ -1261,13 +1231,27 @@
           }
         ]
       },
-      "open": {
+      "condition": {
         "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "if_start",
+            "type": "directive_start",
             "named": true
+          },
+          {
+            "type": "}",
+            "named": false
           }
         ]
       }
@@ -1374,32 +1358,6 @@
         },
         {
           "type": "var_type_tag",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "if_start",
-    "named": true,
-    "fields": {
-      "condition": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "php_only",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "directive_start",
           "named": true
         }
       ]
@@ -1669,13 +1627,27 @@
           }
         ]
       },
-      "open": {
+      "content": {
         "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "loop_start",
+            "type": "directive_start",
             "named": true
+          },
+          {
+            "type": "}",
+            "named": false
           }
         ]
       }
@@ -1778,32 +1750,6 @@
         },
         {
           "type": "var_type_tag",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "loop_start",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "php_only",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "directive_start",
           "named": true
         }
       ]
@@ -2028,13 +1974,27 @@
           }
         ]
       },
-      "open": {
+      "expression": {
         "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "switch_start",
+            "type": "directive_start",
             "named": true
+          },
+          {
+            "type": "}",
+            "named": false
           }
         ]
       }
@@ -2049,32 +2009,6 @@
         },
         {
           "type": "default_case_block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "switch_start",
-    "named": true,
-    "fields": {
-      "expression": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "php_only",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "directive_start",
           "named": true
         }
       ]

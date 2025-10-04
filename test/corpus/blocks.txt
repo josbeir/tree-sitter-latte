@@ -55,9 +55,8 @@ Foreach with else
 
 (document
   (loop_block
-    open: (loop_start
-      (directive_start)
-      content: (php_only))
+    open: (directive_start)
+    content: (php_only)
     (element
       (start_tag
         (tag_name))

@@ -1569,8 +1569,75 @@
           "type": "FIELD",
           "name": "open",
           "content": {
-            "type": "SYMBOL",
-            "name": "if_start"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "{"
+                      },
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "if"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "ifset"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "ifchanged"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "named": true,
+                "value": "directive_start"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "\\s+"
+                      },
+                      {
+                        "type": "FIELD",
+                        "name": "condition",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "php_only"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              }
+            ]
           }
         },
         {
@@ -1643,138 +1710,81 @@
         }
       ]
     },
-    "if_start": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "{if"
-                },
-                {
-                  "type": "STRING",
-                  "value": "{ifset"
-                },
-                {
-                  "type": "STRING",
-                  "value": "{ifchanged"
-                }
-              ]
-            }
-          },
-          "named": true,
-          "value": "directive_start"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\s+"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "condition",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "php_only"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "}"
-          }
-        }
-      ]
-    },
     "elseif_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "elseif_start"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "{"
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "elseif"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "elseifset"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "named": true,
+              "value": "directive_start"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "\\s+"
+                    },
+                    {
+                      "type": "FIELD",
+                      "name": "condition",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "php_only"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "TOKEN",
+              "content": {
+                "type": "STRING",
+                "value": "}"
+              }
+            }
+          ]
         },
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
             "name": "_node"
-          }
-        }
-      ]
-    },
-    "elseif_start": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "{elseif"
-                },
-                {
-                  "type": "STRING",
-                  "value": "{elseifset"
-                }
-              ]
-            }
-          },
-          "named": true,
-          "value": "directive_start"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\s+"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "condition",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "php_only"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "}"
           }
         }
       ]
@@ -1809,8 +1819,75 @@
           "type": "FIELD",
           "name": "open",
           "content": {
-            "type": "SYMBOL",
-            "name": "loop_start"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "{"
+                      },
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "foreach"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "for"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "while"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "named": true,
+                "value": "directive_start"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "\\s+"
+                      },
+                      {
+                        "type": "FIELD",
+                        "name": "content",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "php_only"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              }
+            ]
           }
         },
         {
@@ -1863,68 +1940,6 @@
         }
       ]
     },
-    "loop_start": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "{foreach"
-                },
-                {
-                  "type": "STRING",
-                  "value": "{for"
-                },
-                {
-                  "type": "STRING",
-                  "value": "{while"
-                }
-              ]
-            }
-          },
-          "named": true,
-          "value": "directive_start"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\s+"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "content",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "php_only"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "}"
-          }
-        }
-      ]
-    },
     "switch_block": {
       "type": "SEQ",
       "members": [
@@ -1932,8 +1947,62 @@
           "type": "FIELD",
           "name": "open",
           "content": {
-            "type": "SYMBOL",
-            "name": "switch_start"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "{"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "switch"
+                      }
+                    ]
+                  }
+                },
+                "named": true,
+                "value": "directive_start"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "\\s+"
+                      },
+                      {
+                        "type": "FIELD",
+                        "name": "expression",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "php_only"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              }
+            ]
           }
         },
         {
@@ -1970,116 +2039,72 @@
         }
       ]
     },
-    "switch_start": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "STRING",
-              "value": "{switch"
-            }
-          },
-          "named": true,
-          "value": "directive_start"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\s+"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "expression",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "php_only"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "}"
-          }
-        }
-      ]
-    },
     "case_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "case_start"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "{"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "case"
+                    }
+                  ]
+                }
+              },
+              "named": true,
+              "value": "directive_start"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "\\s+"
+                    },
+                    {
+                      "type": "FIELD",
+                      "name": "value",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "php_only"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "TOKEN",
+              "content": {
+                "type": "STRING",
+                "value": "}"
+              }
+            }
+          ]
         },
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
             "name": "_node"
-          }
-        }
-      ]
-    },
-    "case_start": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "STRING",
-              "value": "{case"
-            }
-          },
-          "named": true,
-          "value": "directive_start"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "\\s+"
-                },
-                {
-                  "type": "FIELD",
-                  "name": "value",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "php_only"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "}"
           }
         }
       ]

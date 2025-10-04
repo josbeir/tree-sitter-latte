@@ -14,14 +14,12 @@ If-Elseif-Else
 
 (document
   (if_block
-    open: (if_start
-      (directive_start)
-      condition: (php_only))
+    open: (directive_start)
+    condition: (php_only)
     (text)
     (elseif_block
-      (elseif_start
-        (directive_start)
-        condition: (php_only))
+      (directive_start)
+      condition: (php_only)
       (text))
     (else_block
       (else_start)
@@ -40,9 +38,8 @@ Ifset Block
 
 (document
   (if_block
-    open: (if_start
-      (directive_start)
-      condition: (php_only))
+    open: (directive_start)
+    condition: (php_only)
     (element
       (start_tag
         (tag_name))
@@ -64,9 +61,8 @@ If with comparison expression
 
 (document
   (if_block
-    open: (if_start
-      (directive_start)
-      condition: (php_only))
+    open: (directive_start)
+    condition: (php_only)
     (element
       (start_tag
         (tag_name))
@@ -91,16 +87,14 @@ If with function call
 
 (document
   (if_block
-    open: (if_start
-      (directive_start)
-      condition: (php_only))
+    open: (directive_start)
+    condition: (php_only)
     (element
       (start_tag
         (tag_name))
       (loop_block
-        open: (loop_start
-          (directive_start)
-          content: (php_only))
+        open: (directive_start)
+        content: (php_only)
         (element
           (start_tag
             (tag_name))
@@ -125,9 +119,8 @@ For loop
 
 (document
   (loop_block
-    open: (loop_start
-      (directive_start)
-      content: (php_only))
+    open: (directive_start)
+    content: (php_only)
     (element
       (start_tag
         (tag_name))
@@ -150,9 +143,8 @@ While loop
 
 (document
   (loop_block
-    open: (loop_start
-      (directive_start)
-      content: (php_only))
+    open: (directive_start)
+    content: (php_only)
     (element
       (start_tag
         (tag_name))
@@ -178,13 +170,11 @@ Switch statement
 
 (document
   (switch_block
-    open: (switch_start
-      (directive_start)
-      expression: (php_only))
+    open: (directive_start)
+    expression: (php_only)
     (case_block
-      (case_start
-        (directive_start)
-        value: (php_only))
+      (directive_start)
+      value: (php_only)
       (element
         (start_tag
           (tag_name))
@@ -192,9 +182,8 @@ Switch statement
         (end_tag
           (tag_name))))
     (case_block
-      (case_start
-        (directive_start)
-        value: (php_only))
+      (directive_start)
+      value: (php_only)
       (element
         (start_tag
           (tag_name))

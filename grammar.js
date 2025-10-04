@@ -23,20 +23,6 @@ const BLOCK_TAGS = [
 const IF_VARIANTS = ["if", "ifset", "ifchanged"];
 const FILE_TAGS = ["include", "extends", "layout", "import", "sandbox"];
 
-// Helper for control flow tags that contain PHP content
-// Returns a function that takes $ (to access $.php_only and alias)
-// Creates a generic "directive_start" node via alias
-function controlFlowTag(tagNames, fieldName = "condition") {
-  const tags = Array.isArray(tagNames) ? tagNames : [tagNames];
-  const tagChoice = tags.length === 1 ? tags[0] : choice(...tags);
-  return ($) =>
-    seq(
-      alias(token(tagChoice), $.directive_start),
-      optional(seq(/\s+/, field(fieldName, $.php_only))),
-      token("}"),
-    );
-}
-
 // Helper to create a string literal with a given quote character
 function stringWithQuote(quote) {
   const escaped = quote === "'" ? /([^'\\]|\\.)*/ : /([^"\\]|\\.)*/;
@@ -281,7 +267,17 @@ module.exports = grammar(html, {
     // If block with elseif/else support
     if_block: ($) =>
       seq(
-        field("open", $.if_start),
+        field(
+          "open",
+          seq(
+            alias(
+              token(seq("{", choice("if", "ifset", "ifchanged"))),
+              $.directive_start,
+            ),
+            optional(seq(/\s+/, field("condition", $.php_only))),
+            token("}"),
+          ),
+        ),
         repeat($._node),
         repeat($.elseif_block),
         optional($.else_block),
@@ -291,11 +287,18 @@ module.exports = grammar(html, {
         ),
       ),
 
-    if_start: controlFlowTag(["{if", "{ifset", "{ifchanged"], "condition"),
-
-    elseif_block: ($) => seq($.elseif_start, repeat($._node)),
-
-    elseif_start: controlFlowTag(["{elseif", "{elseifset"], "condition"),
+    elseif_block: ($) =>
+      seq(
+        seq(
+          alias(
+            token(seq("{", choice("elseif", "elseifset"))),
+            $.directive_start,
+          ),
+          optional(seq(/\s+/, field("condition", $.php_only))),
+          token("}"),
+        ),
+        repeat($._node),
+      ),
 
     else_block: ($) => seq($.else_start, repeat($._node)),
 
@@ -304,7 +307,17 @@ module.exports = grammar(html, {
     // Loop blocks (foreach/for/while) - can have optional {else} block
     loop_block: ($) =>
       seq(
-        field("open", $.loop_start),
+        field(
+          "open",
+          seq(
+            alias(
+              token(seq("{", choice("foreach", "for", "while"))),
+              $.directive_start,
+            ),
+            optional(seq(/\s+/, field("content", $.php_only))),
+            token("}"),
+          ),
+        ),
         repeat($._node),
         optional($.else_block),
         field(
@@ -316,21 +329,30 @@ module.exports = grammar(html, {
         ),
       ),
 
-    loop_start: controlFlowTag(["{foreach", "{for", "{while"], "content"),
-
     // Switch block
     switch_block: ($) =>
       seq(
-        field("open", $.switch_start),
+        field(
+          "open",
+          seq(
+            alias(token(seq("{", "switch")), $.directive_start),
+            optional(seq(/\s+/, field("expression", $.php_only))),
+            token("}"),
+          ),
+        ),
         repeat(choice($.case_block, $.default_case_block)),
         field("close", alias(token("{/switch}"), $.directive_end)),
       ),
 
-    switch_start: controlFlowTag(["{switch"], "expression"),
-
-    case_block: ($) => seq($.case_start, repeat($._node)),
-
-    case_start: controlFlowTag(["{case"], "value"),
+    case_block: ($) =>
+      seq(
+        seq(
+          alias(token(seq("{", "case")), $.directive_start),
+          optional(seq(/\s+/, field("value", $.php_only))),
+          token("}"),
+        ),
+        repeat($._node),
+      ),
 
     default_case_block: ($) => seq($.default_start, repeat($._node)),
 
