@@ -17,6 +17,9 @@ const BLOCK_TAGS = [
   "snippet",
   "snippetArea",
   "iterateWhile",
+  "label",
+  "form",
+  "formContainer",
 ];
 
 const IF_VARIANTS = ["if", "ifset", "ifchanged"];

@@ -1396,6 +1396,18 @@
                           {
                             "type": "STRING",
                             "value": "iterateWhile"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "label"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "form"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "formContainer"
                           }
                         ]
                       }
@@ -1503,6 +1515,18 @@
                       {
                         "type": "STRING",
                         "value": "iterateWhile"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "label"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "form"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "formContainer"
                       }
                     ]
                   },

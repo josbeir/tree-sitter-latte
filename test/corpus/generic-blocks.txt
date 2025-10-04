@@ -154,3 +154,280 @@ Item content
     (text)
     (directive_end))
   (text))
+
+================================================================================
+Form block with name parameter
+================================================================================
+
+{form signInForm}
+<div>Login Form</div>
+{/form}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (element
+      (start_tag
+        (tag_name))
+      (text)
+      (end_tag
+        (tag_name)))
+    (directive_end))
+  (text))
+
+================================================================================
+Form block with nested inputs
+================================================================================
+
+{form userForm}
+{input username}
+{input password}
+{/form}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (macro_call
+      (macro_name)
+      (macro_arguments))
+    (macro_call
+      (macro_name)
+      (macro_arguments))
+    (directive_end))
+  (text))
+
+================================================================================
+Form block with HTML elements
+================================================================================
+
+{form contactForm}
+<fieldset>
+    <legend>Contact</legend>
+</fieldset>
+{/form}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (element
+      (start_tag
+        (tag_name))
+      (element
+        (start_tag
+          (tag_name))
+        (text)
+        (end_tag
+          (tag_name)))
+      (end_tag
+        (tag_name)))
+    (directive_end))
+  (text))
+
+================================================================================
+Empty form block
+================================================================================
+
+{form emptyForm}
+{/form}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (directive_end))
+  (text))
+
+================================================================================
+Label block with control name
+================================================================================
+
+{label username}
+Username:
+{/label}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (text)
+    (directive_end))
+  (text))
+
+================================================================================
+Label block with nested input
+================================================================================
+
+{label email}
+Email: {input email}
+{/label}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (text)
+    (macro_call
+      (macro_name)
+      (macro_arguments))
+    (directive_end))
+  (text))
+
+================================================================================
+Label block with HTML and text
+================================================================================
+
+{label password}
+<span>Password:</span> Enter password
+{/label}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (element
+      (start_tag
+        (tag_name))
+      (text)
+      (end_tag
+        (tag_name)))
+    (text)
+    (directive_end))
+  (text))
+
+================================================================================
+Label block without parameters
+================================================================================
+
+{label}
+Generic Label
+{/label}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (text)
+    (directive_end))
+  (text))
+
+================================================================================
+FormContainer block with name
+================================================================================
+
+{formContainer emailNews}
+<p>Newsletter options</p>
+{/formContainer}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (element
+      (start_tag
+        (tag_name))
+      (text)
+      (end_tag
+        (tag_name)))
+    (directive_end))
+  (text))
+
+================================================================================
+FormContainer with nested inputs
+================================================================================
+
+{formContainer preferences}
+{input sport}
+{input science}
+{/formContainer}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (macro_call
+      (macro_name)
+      (macro_arguments))
+    (macro_call
+      (macro_name)
+      (macro_arguments))
+    (directive_end))
+  (text))
+
+================================================================================
+FormContainer with HTML list
+================================================================================
+
+{formContainer interests}
+<ul>
+    <li>{input music}</li>
+    <li>{input art}</li>
+</ul>
+{/formContainer}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (element
+      (start_tag
+        (tag_name))
+      (element
+        (start_tag
+          (tag_name))
+        (macro_call
+          (macro_name)
+          (macro_arguments))
+        (end_tag
+          (tag_name)))
+      (element
+        (start_tag
+          (tag_name))
+        (macro_call
+          (macro_name)
+          (macro_arguments))
+        (end_tag
+          (tag_name)))
+      (end_tag
+        (tag_name)))
+    (directive_end))
+  (text))
+
+================================================================================
+Empty formContainer block
+================================================================================
+
+{formContainer address}
+{/formContainer}
+
+--------------------------------------------------------------------------------
+
+(document
+  (block
+    (directive_start)
+    (php_only)
+    (directive_end))
+  (text))
