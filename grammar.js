@@ -113,13 +113,18 @@ export default grammar(html, {
     // {embed 'file.latte'}...{/embed}
     embed_tag: ($) =>
       seq(
-        token("{embed"),
-        optional(/\s+/),
-        field("file", $.file_path),
-        optional(field("arguments", $.file_tag_arguments)),
-        token("}"),
+        field(
+          "open",
+          seq(
+            alias(token("{embed"), $.directive_start),
+            optional(/\s+/),
+            field("file", $.file_path),
+            optional(field("arguments", $.file_tag_arguments)),
+            token("}"),
+          ),
+        ),
         repeat($._node),
-        token("{/embed}"),
+        field("close", alias(token("{/embed}"), $.directive_end)),
       ),
 
     _expression_with_filters: ($) =>

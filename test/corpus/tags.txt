@@ -135,14 +135,16 @@ Embed tag
 
 (document
   (embed_tag
-    (file_path
+    open: (directive_start)
+    file: (file_path
       (string_literal))
     (block
-      (directive_start)
-      (php_only)
+      open: (directive_start)
+      arguments: (php_only)
       (text)
-      (directive_end))
-    (text)))
+      close: (directive_end))
+    (text)
+    close: (directive_end)))
 
 ================================================================================
 Var tag with string

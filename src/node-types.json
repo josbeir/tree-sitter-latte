@@ -960,6 +960,16 @@
           }
         ]
       },
+      "close": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "directive_end",
+            "named": true
+          }
+        ]
+      },
       "file": {
         "multiple": false,
         "required": true,
@@ -967,6 +977,20 @@
           {
             "type": "file_path",
             "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "directive_start",
+            "named": true
+          },
+          {
+            "type": "}",
+            "named": false
           }
         ]
       }
@@ -2090,19 +2114,11 @@
     "named": false
   },
   {
-    "type": "{/embed}",
-    "named": false
-  },
-  {
     "type": "{=",
     "named": false
   },
   {
     "type": "{capture",
-    "named": false
-  },
-  {
-    "type": "{embed",
     "named": false
   },
   {
