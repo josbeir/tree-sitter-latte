@@ -1170,6 +1170,47 @@
     }
   },
   {
+    "type": "filter",
+    "named": true,
+    "fields": {
+      "filter_args": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "filter_args",
+            "named": true
+          }
+        ]
+      },
+      "filter_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "filter_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "filter_chain",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "filter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_block",
     "named": true,
     "fields": {
@@ -1390,6 +1431,10 @@
       "required": true,
       "types": [
         {
+          "type": "filter_chain",
+          "named": true
+        },
+        {
           "type": "php_only",
           "named": true
         }
@@ -1404,6 +1449,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "filter_chain",
+          "named": true
+        },
         {
           "type": "php_only",
           "named": true
@@ -1973,6 +2022,14 @@
   },
   {
     "type": "file_tag_name",
+    "named": true
+  },
+  {
+    "type": "filter_args",
+    "named": true
+  },
+  {
+    "type": "filter_name",
     "named": true
   },
   {

@@ -69,11 +69,11 @@ export default grammar(html, {
 
     // {= expression}
     latte_print_tag: ($) =>
-      seq("{=", $.php_only, repeat(seq("|", $.php_only)), "}"),
+      seq("{=", $.php_only, optional($.filter_chain), "}"),
 
     // {$variable}
     latte_variable: ($) =>
-      prec(2, seq("{", $.php_only, repeat(seq("|", $.php_only)), "}")),
+      prec(2, seq("{", $.php_only, optional($.filter_chain), "}")),
 
     php_only: (_) => /[^|}]+/,
 
