@@ -1,23 +1,23 @@
-const js = require("@eslint/js");
+import js from "@eslint/js";
 
-module.exports = [
+export default [
   js.configs.recommended,
   {
-    ignores: ["vendor/**", "src/**", "build/**", "node_modules/**"],
+    ignores: [
+      "vendor/**",
+      "src/**",
+      "build/**",
+      "node_modules/**",
+      "bindings/**",
+      "tree-sitter-html/**",
+    ],
   },
   {
-    files: ["**/*.js"],
+    files: ["grammar.js"],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: "commonjs",
+      sourceType: "module",
       globals: {
-        console: "readonly",
-        process: "readonly",
-        require: "readonly",
-        module: "readonly",
-        __dirname: "readonly",
-        __filename: "readonly",
-        // Tree-sitter grammar DSL functions
         grammar: "readonly",
         seq: "readonly",
         choice: "readonly",

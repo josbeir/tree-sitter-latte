@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-const html = require("./tree-sitter-html/grammar");
+import html from "./tree-sitter-html/grammar.js";
 
 const BLOCK_TAGS = [
   "block",
@@ -27,7 +27,7 @@ function stringWithQuote(quote) {
   return seq(quote, optional(escaped), quote);
 }
 
-module.exports = grammar(html, {
+export default grammar(html, {
   name: "latte",
 
   extras: ($) => [/\s/, $.latte_comment],

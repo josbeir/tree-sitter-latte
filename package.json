@@ -4,6 +4,7 @@
   "description": "Latte template support",
   "repository": "https://github.com/tree-sitter/tree-sitter-latte",
   "license": "MIT",
+  "type": "module",
   "author": {
     "name": "josbeir",
     "email": "josbeir@gmail.com",
