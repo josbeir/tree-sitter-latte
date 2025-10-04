@@ -458,30 +458,29 @@
               "value": "'"
             },
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "latte_expression"
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "latte_variable"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "latte_print_tag"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "[^'{]+"
                     },
-                    {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "PATTERN",
-                        "value": "[^'{]+"
-                      },
-                      "named": true,
-                      "value": "attribute_value"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
+                    "named": true,
+                    "value": "attribute_value"
+                  }
+                ]
+              }
             },
             {
               "type": "STRING",
@@ -497,30 +496,29 @@
               "value": "\""
             },
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "latte_expression"
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "latte_variable"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "latte_print_tag"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "[^\"{]+"
                     },
-                    {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "PATTERN",
-                        "value": "[^\"{]+"
-                      },
-                      "named": true,
-                      "value": "attribute_value"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
+                    "named": true,
+                    "value": "attribute_value"
+                  }
+                ]
+              }
             },
             {
               "type": "STRING",
@@ -2167,26 +2165,6 @@
           "value": "}"
         }
       ]
-    },
-    "latte_expression": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^}]+"
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
     }
   },
   "extras": [

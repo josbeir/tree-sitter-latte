@@ -1704,7 +1704,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
@@ -1712,7 +1712,11 @@
           "named": true
         },
         {
-          "type": "latte_expression",
+          "type": "latte_print_tag",
+          "named": true
+        },
+        {
+          "type": "latte_variable",
           "named": true
         }
       ]
@@ -2040,10 +2044,6 @@
     "type": "latte_comment",
     "named": true,
     "extra": true
-  },
-  {
-    "type": "latte_expression",
-    "named": true
   },
   {
     "type": "macro_arguments",

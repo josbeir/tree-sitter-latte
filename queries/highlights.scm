@@ -61,9 +61,6 @@
 (boolean_literal) @boolean
 (null_literal) @constant.builtin
 
-; Latte expressions in attributes
-(latte_expression) @embedded
-
 ; N-attributes - Latte attributes in HTML tags (n:if, n:foreach, etc.)
 ; Highlight attribute names starting with "n:"
 (attribute

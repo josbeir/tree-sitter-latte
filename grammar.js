@@ -323,21 +323,27 @@ export default grammar(html, {
       choice(
         seq(
           "'",
-          optional(
-            choice($.latte_expression, alias(/[^'{]+/, $.attribute_value)),
+          repeat(
+            choice(
+              $.latte_variable,
+              $.latte_print_tag,
+              alias(/[^'{]+/, $.attribute_value),
+            ),
           ),
           "'",
         ),
         seq(
           '"',
-          optional(
-            choice($.latte_expression, alias(/[^"{]+/, $.attribute_value)),
+          repeat(
+            choice(
+              $.latte_variable,
+              $.latte_print_tag,
+              alias(/[^"{]+/, $.attribute_value),
+            ),
           ),
           '"',
         ),
       ),
-
-    latte_expression: (_) => token(seq("{", /[^}]+/, "}")),
 
     text: (_) => /[^<>&\s{]([^<>&{]*[^<>&\s{])?/,
   },

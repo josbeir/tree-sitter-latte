@@ -1,5 +1,5 @@
 ================================================================================
-Latte in HTML attribute
+Latte in HTML attribute - single expression
 ================================================================================
 
 <input value="{$foo}">
@@ -13,7 +13,56 @@ Latte in HTML attribute
       (attribute
         (attribute_name)
         (quoted_attribute_value
-          (latte_expression))))))
+          (latte_variable
+            (php_only)))))))
+
+================================================================================
+Latte in HTML attribute - mixed content
+================================================================================
+
+<div class="text-{$color}">
+</div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value)
+          (latte_variable
+            (php_only)))))
+    (end_tag
+      (tag_name))))
+
+================================================================================
+Latte in HTML attribute - multiple expressions
+================================================================================
+
+<div data-value="prefix-{$val1}-middle-{$val2}-suffix">
+</div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value)
+          (latte_variable
+            (php_only))
+          (attribute_value)
+          (latte_variable
+            (php_only))
+          (attribute_value))))
+    (end_tag
+      (tag_name))))
 
 ================================================================================
 HTML inside Latte block
