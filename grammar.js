@@ -6,7 +6,6 @@
 
 const html = require("./tree-sitter-html/grammar");
 
-// Shared constants for tag names
 const BLOCK_TAGS = [
   "block",
   "macro",
@@ -23,7 +22,6 @@ const BLOCK_TAGS = [
 const IF_VARIANTS = ["if", "ifset", "ifchanged"];
 const FILE_TAGS = ["include", "extends", "layout", "import", "sandbox"];
 
-// Helper to create a string literal with a given quote character
 function stringWithQuote(quote) {
   const escaped = quote === "'" ? /([^'\\]|\\.)*/ : /([^"\\]|\\.)*/;
   return seq(quote, optional(escaped), quote);
@@ -48,7 +46,6 @@ module.exports = grammar(html, {
         $.style_element,
         $.erroneous_end_tag,
         alias($.latte_comment, $.comment),
-        // Latte tags - more specific patterns first
         $.latte_print_tag,
         $.latte_variable,
         $.latte_assignment_tag,
@@ -60,24 +57,21 @@ module.exports = grammar(html, {
         $.if_block,
         $.loop_block,
         $.switch_block,
-        $.php_block, // PHP block with raw PHP content
-        $.block, // Generic simple blocks (block, macro, spaceless, etc.)
-        // macro_call must come before latte_expression_tag to match simple function-like
-        // macros (e.g., {include ...}) before they're parsed as generic expressions
+        $.php_block,
+        $.block,
         $.macro_call,
-        $.latte_expression_tag, // Generic expression tag - catch-all for {expression}
-        // Text must come last as it's a catch-all
+        $.latte_expression_tag,
         $.text,
       ),
 
-    // Latte comment {* ... *}
+    // {* comment *}
     latte_comment: (_) => token(seq("{*", /[^*]*\*+([^}*][^*]*\*+)*/, "}")),
 
-    // Latte print tag {= ... }
+    // {= expression}
     latte_print_tag: ($) =>
       seq("{=", field("expression", $._expression_with_filters), "}"),
 
-    // Latte variable {$variable}
+    // {$variable}
     latte_variable: ($) =>
       prec(
         2,
@@ -89,11 +83,9 @@ module.exports = grammar(html, {
         ),
       ),
 
-    // PHP content - exposed for injection
-    // Matches any PHP expression content
     php_only: (_) => /[^|}]+/,
 
-    // Variable assignment tags: {var $var = 'value'} and {default $var = 'value'}
+    // {var $x = value}, {default $x = value}
     latte_assignment_tag: ($) =>
       seq(
         token(choice("{var", "{default")),
@@ -103,7 +95,7 @@ module.exports = grammar(html, {
         "}",
       ),
 
-    // VarType tag {varType Type $var}
+    // {varType Type $var}
     var_type_tag: ($) =>
       seq(
         "{varType",
@@ -112,21 +104,17 @@ module.exports = grammar(html, {
         "}",
       ),
 
-    // TemplateType tag {templateType ClassName}
+    // {templateType ClassName}
     template_type_tag: ($) =>
       seq("{templateType", field("type", $.type_identifier), "}"),
 
-    // Type identifier: FQDN, primitive types, or array types
     type_identifier: (_) =>
       choice(
-        // Primitive types
         /string|int|float|bool|array|object|mixed|void|null/,
-        // Class name (FQDN or simple) with optional array suffix
-        // Examples: App\Model\User, User, User[], App\Model\User[]
         /[A-Z][a-zA-Z0-9_]*(\\[A-Z][a-zA-Z0-9_]*)*(\[\])?/,
       ),
 
-    // Capture tag {capture $var}...{/capture}
+    // {capture $var}...{/capture}
     capture_tag: ($) =>
       seq(
         "{capture",
@@ -136,7 +124,7 @@ module.exports = grammar(html, {
         "{/capture}",
       ),
 
-    // File-related tags: {include}, {extends}, {layout}, {import}, {sandbox}
+    // {include 'file.latte'}, {extends}, {layout}, {import}, {sandbox}
     latte_file_tag: ($) =>
       seq(
         field("tag_name", $.file_tag_name),
@@ -152,7 +140,7 @@ module.exports = grammar(html, {
 
     file_tag_arguments: ($) => seq(/,\s*/, $.php_only),
 
-    // Embed tag {embed 'file.latte'}...{/embed}
+    // {embed 'file.latte'}...{/embed}
     embed_tag: ($) =>
       seq(
         token("{embed"),
@@ -164,18 +152,14 @@ module.exports = grammar(html, {
         token("{/embed}"),
       ),
 
-    // Expression with optional filters
     _expression_with_filters: ($) =>
       seq(
         field("expression", $.expression),
         optional(field("filters", $.filter_chain)),
       ),
 
-    // PHP variable with property/array access
-    // Uses left-associativity for expression context
     php_variable: ($) => prec.left($._php_variable_base),
 
-    // Shared base pattern for PHP variables
     _php_variable_base: ($) =>
       seq("$", field("name", $.identifier), repeat($._variable_accessor)),
 
@@ -187,9 +171,6 @@ module.exports = grammar(html, {
         seq("::", field("constant", $.identifier)),
       ),
 
-    // Minimal expression grammar for Latte-specific contexts
-    // Used in {= expression }, {var $x = expression}, and $var[expression]
-    // Complex PHP expressions are handled via injections
     expression: ($) =>
       choice(
         $.php_variable,
@@ -197,7 +178,7 @@ module.exports = grammar(html, {
         $.number_literal,
         $.boolean_literal,
         $.null_literal,
-        $.identifier, // For simple identifiers and function names
+        $.identifier,
       ),
 
     identifier: (_) => /[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*/,
@@ -206,12 +187,12 @@ module.exports = grammar(html, {
 
     number_literal: (_) =>
       choice(
-        /[0-9]+\.[0-9]+([eE][+-]?[0-9]+)?/, // float (keep first due to specificity)
-        /[0-9]+/, // integer (common, but after float to avoid ambiguity)
-        /[0-9]+[eE][+-]?[0-9]+/, // scientific
-        /0[xX][0-9a-fA-F]+/, // hex
-        /0[bB][01]+/, // binary
-        /0[oO][0-7]+/, // octal
+        /[0-9]+\.[0-9]+([eE][+-]?[0-9]+)?/,
+        /[0-9]+/,
+        /[0-9]+[eE][+-]?[0-9]+/,
+        /0[xX][0-9a-fA-F]+/,
+        /0[bB][01]+/,
+        /0[oO][0-7]+/,
       ),
 
     boolean_literal: (_) =>
@@ -233,8 +214,7 @@ module.exports = grammar(html, {
 
     filter_args: (_) => /:[^|}]+/,
 
-    // PHP tag: {php ...} or multiline {php\n...\n}
-    // Uses single closing brace, not {/php}
+    // {php ...}
     php_block: (_) =>
       seq(
         token("{php"),
@@ -242,8 +222,7 @@ module.exports = grammar(html, {
         token("}"),
       ),
 
-    // Simple blocks - handles: block, while, macro, and all generic blocks
-    // Pattern: {tag ...}...{/tag}
+    // {block}...{/block}, {macro}...{/macro}, etc.
     block: ($) =>
       seq(
         field(
@@ -264,7 +243,7 @@ module.exports = grammar(html, {
         ),
       ),
 
-    // If block with elseif/else support
+    // {if}...{elseif}...{else}...{/if}
     if_block: ($) =>
       seq(
         field(
@@ -304,7 +283,7 @@ module.exports = grammar(html, {
 
     else_start: (_) => token("{else}"),
 
-    // Loop blocks (foreach/for/while) - can have optional {else} block
+    // {foreach}...{/foreach}, {for}...{/for}, {while}...{/while}
     loop_block: ($) =>
       seq(
         field(
@@ -329,7 +308,7 @@ module.exports = grammar(html, {
         ),
       ),
 
-    // Switch block
+    // {switch}...{case}...{default}...{/switch}
     switch_block: ($) =>
       seq(
         field(
@@ -358,9 +337,7 @@ module.exports = grammar(html, {
 
     default_start: (_) => token("{default}"),
 
-    // Macro call: {macroName arg1 arg2}
-    // Uses token with precedence to match simple identifier+args patterns
-    // before falling back to latte_expression_tag for complex expressions
+    // {macroName arg1 arg2}
     macro_call: ($) =>
       seq(
         "{",
@@ -373,8 +350,6 @@ module.exports = grammar(html, {
 
     macro_arguments: (_) => /\s+[^}]+/,
 
-    // Generic expression tag for complex expressions like {count(...)} or {Status::Published}
-    // This is a catch-all for any Latte tag that contains an expression
     latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),
 
     quoted_attribute_value: ($) =>
@@ -397,7 +372,6 @@ module.exports = grammar(html, {
 
     latte_expression: (_) => token(seq("{", /[^}]+/, "}")),
 
-    // Override text rule to not match Latte tags starting with {
     text: (_) => /[^<>&\s{]([^<>&{]*[^<>&\s{])?/,
   },
 });
