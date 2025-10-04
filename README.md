@@ -51,6 +51,10 @@ npm test
 
 Pull requests and issues are welcome! Please add tests for new Latte constructs in `test/corpus/latte.txt`.
 
+## Other latte tree-sitter grammars:
+
+- <https://github.com/Bleksak/tree-sitter-latte>
+
 ## License
 
 MIT
