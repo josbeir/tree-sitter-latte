@@ -12,7 +12,8 @@ Macro definition and usage
 
 (document
   (block
-    open: (directive_start)
+    (directive_start)
+    arguments: (php_only)
     (text)
     close: (directive_end))
   (text)

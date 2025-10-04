@@ -26,6 +26,16 @@
     "type": "block",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "php_only",
+            "named": true
+          }
+        ]
+      },
       "close": {
         "multiple": false,
         "required": true,
@@ -35,21 +45,11 @@
             "named": true
           }
         ]
-      },
-      "open": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "directive_start",
-            "named": true
-          }
-        ]
       }
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -61,6 +61,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "directive_start",
           "named": true
         },
         {

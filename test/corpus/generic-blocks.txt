@@ -11,7 +11,6 @@ Spaceless block
 (document
   (block
     (directive_start)
-    (text)
     (element
       (start_tag
         (tag_name))
@@ -76,6 +75,7 @@ Cached content
 (document
   (block
     (directive_start)
+    (php_only)
     (text)
     (directive_end))
   (text))
@@ -93,6 +93,7 @@ Content
 (document
   (block
     (directive_start)
+    (php_only)
     (text)
     (directive_end))
   (text))
@@ -110,7 +111,7 @@ Snippet block
 (document
   (block
     (directive_start)
-    (text)
+    (php_only)
     (element
       (start_tag
         (tag_name))

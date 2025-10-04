@@ -139,6 +139,7 @@ Embed tag
       (string_literal))
     (block
       (directive_start)
+      (php_only)
       (text)
       (directive_end))
     (text)))

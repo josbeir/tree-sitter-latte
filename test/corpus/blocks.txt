@@ -10,7 +10,8 @@ Simple block
 
 (document
   (block
-    open: (directive_start)
+    (directive_start)
+    arguments: (php_only)
     (text)
     close: (directive_end))
   (text))
@@ -29,10 +30,11 @@ Nested blocks
 
 (document
   (block
-    open: (directive_start)
-    (text)
+    (directive_start)
+    arguments: (php_only)
     (block
-      open: (directive_start)
+      (directive_start)
+      arguments: (php_only)
       (text)
       close: (directive_end))
     (text)
