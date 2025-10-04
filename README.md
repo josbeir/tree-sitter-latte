@@ -29,7 +29,6 @@ You can use this grammar with any tool that supports tree-sitter grammars, such 
 
 - [Atom](https://github.com/atom/atom)
 - [Neovim](https://github.com/nvim-treesitter/nvim-treesitter)
-- [VSCode extensions](https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-tree-sitter)
 - [Zed editor](https://zed.dev/)
 - [tree-sitter CLI](https://tree-sitter.github.io/tree-sitter/using-parsers)
 

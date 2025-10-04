@@ -2166,8 +2166,17 @@
               "type": "FIELD",
               "name": "arguments",
               "content": {
-                "type": "SYMBOL",
-                "name": "macro_arguments"
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "PATTERN",
+                    "value": "\\s+"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "php_only"
+                  }
+                ]
               }
             },
             {
@@ -2191,10 +2200,6 @@
           "value": "[a-zA-Z_][a-zA-Z0-9_]*"
         }
       }
-    },
-    "macro_arguments": {
-      "type": "PATTERN",
-      "value": "\\s+[^}]+"
     },
     "latte_expression_tag": {
       "type": "SEQ",

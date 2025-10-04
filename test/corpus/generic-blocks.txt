@@ -195,10 +195,10 @@ Form block with nested inputs
     (php_only)
     (macro_call
       (macro_name)
-      (macro_arguments))
+      (php_only))
     (macro_call
       (macro_name)
-      (macro_arguments))
+      (php_only))
     (directive_end))
   (text))
 
@@ -283,7 +283,7 @@ Email: {input email}
     (text)
     (macro_call
       (macro_name)
-      (macro_arguments))
+      (php_only))
     (directive_end))
   (text))
 
@@ -368,10 +368,10 @@ FormContainer with nested inputs
     (php_only)
     (macro_call
       (macro_name)
-      (macro_arguments))
+      (php_only))
     (macro_call
       (macro_name)
-      (macro_arguments))
+      (php_only))
     (directive_end))
   (text))
 
@@ -400,7 +400,7 @@ FormContainer with HTML list
           (tag_name))
         (macro_call
           (macro_name)
-          (macro_arguments))
+          (php_only))
         (end_tag
           (tag_name)))
       (element
@@ -408,7 +408,7 @@ FormContainer with HTML list
           (tag_name))
         (macro_call
           (macro_name)
-          (macro_arguments))
+          (php_only))
         (end_tag
           (tag_name)))
       (end_tag

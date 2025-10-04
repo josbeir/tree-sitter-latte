@@ -47,7 +47,7 @@
 ; Macro calls - {CustomTag args}
 (macro_call
   name: (macro_name) @function.macro
-  arguments: (macro_arguments)? @parameter)
+  arguments: (php_only)? @parameter)
 
 ; Latte filters - highlight the pipe and filter name
 (filter_chain

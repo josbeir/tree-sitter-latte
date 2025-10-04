@@ -9,7 +9,7 @@ Parameters tag
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 ContentType tag
@@ -22,7 +22,7 @@ ContentType tag
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Do tag
@@ -35,7 +35,7 @@ Do tag
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Trace tag
@@ -60,7 +60,7 @@ Syntax tag
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Rollback tag

@@ -317,13 +317,11 @@ export default grammar(html, {
       seq(
         "{",
         field("name", $.macro_name),
-        optional(field("arguments", $.macro_arguments)),
+        optional(field("arguments", seq(/\s+/, $.php_only))),
         "}",
       ),
 
     macro_name: (_) => token(prec(1, /[a-zA-Z_][a-zA-Z0-9_]*/)),
-
-    macro_arguments: (_) => /\s+[^}]+/,
 
     latte_expression_tag: ($) => seq("{", $.php_only, "}"),
 

@@ -1631,11 +1631,11 @@
     "named": true,
     "fields": {
       "arguments": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "macro_arguments",
+            "type": "php_only",
             "named": true
           }
         ]
@@ -2068,10 +2068,6 @@
     "type": "latte_comment",
     "named": true,
     "extra": true
-  },
-  {
-    "type": "macro_arguments",
-    "named": true
   },
   {
     "type": "macro_name",

@@ -19,7 +19,7 @@ Macro definition and usage
   (text)
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Macro call with uppercase identifier
@@ -32,7 +32,7 @@ Macro call with uppercase identifier
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Macro call with lowercase identifier
@@ -45,7 +45,7 @@ Macro call with lowercase identifier
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Macro call without arguments
@@ -70,7 +70,7 @@ Macro call with string argument
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Macro call with multiple arguments
@@ -83,4 +83,4 @@ Macro call with multiple arguments
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))

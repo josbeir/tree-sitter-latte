@@ -95,7 +95,7 @@ Dump tag
 (document
   (macro_call
     name: (macro_name)
-    arguments: (macro_arguments)))
+    arguments: (php_only)))
 
 ================================================================================
 Dump tag without arguments
