@@ -1373,103 +1373,107 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "ALIAS",
-              "content": {
+          "type": "FIELD",
+          "name": "open",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "{"
+                      },
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "block"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "macro"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "spaceless"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "translate"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "try"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "cache"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "define"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "snippet"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "snippetArea"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "iterateWhile"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "named": true,
+                "value": "directive_start"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "\\s+"
+                      },
+                      {
+                        "type": "FIELD",
+                        "name": "arguments",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "php_only"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
                 "type": "TOKEN",
                 "content": {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "{"
-                    },
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": "block"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "macro"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "spaceless"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "translate"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "try"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "cache"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "define"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "snippet"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "snippetArea"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "iterateWhile"
-                        }
-                      ]
-                    }
-                  ]
+                  "type": "STRING",
+                  "value": "}"
                 }
-              },
-              "named": true,
-              "value": "directive_start"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "PATTERN",
-                      "value": "\\s+"
-                    },
-                    {
-                      "type": "FIELD",
-                      "name": "arguments",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "php_only"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "TOKEN",
-              "content": {
-                "type": "STRING",
-                "value": "}"
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "type": "REPEAT",

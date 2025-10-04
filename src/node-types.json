@@ -45,11 +45,25 @@
             "named": true
           }
         ]
+      },
+      "open": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "directive_start",
+            "named": true
+          },
+          {
+            "type": "}",
+            "named": false
+          }
+        ]
       }
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "block",
@@ -61,10 +75,6 @@
         },
         {
           "type": "comment",
-          "named": true
-        },
-        {
-          "type": "directive_start",
           "named": true
         },
         {

@@ -260,10 +260,13 @@ module.exports = grammar(html, {
     // Pattern: {tag ...}...{/tag}
     block: ($) =>
       seq(
-        seq(
-          alias(token(seq("{", choice(...BLOCK_TAGS))), $.directive_start),
-          optional(seq(/\s+/, field("arguments", $.php_only))),
-          token("}"),
+        field(
+          "open",
+          seq(
+            alias(token(seq("{", choice(...BLOCK_TAGS))), $.directive_start),
+            optional(seq(/\s+/, field("arguments", $.php_only))),
+            token("}"),
+          ),
         ),
         repeat($._node),
         field(
