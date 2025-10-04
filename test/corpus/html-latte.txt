@@ -142,3 +142,27 @@ Latte variable with space after brace (invalid)
       (php_only))
     (end_tag
       (tag_name))))
+
+================================================================================
+Non-Latte curly braces in attributes (Alpine.js)
+================================================================================
+
+<div x-data="{ count: 0, name: 'test' }" x-init="init()"></div>
+
+--------------------------------------------------------------------------------
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value)
+          (attribute_value)))
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (end_tag
+      (tag_name))))
