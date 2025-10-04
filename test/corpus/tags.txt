@@ -154,10 +154,7 @@ Var tag with string
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (string_literal))))
+    (php_only)))
 
 ================================================================================
 Var tag with number
@@ -169,10 +166,7 @@ Var tag with number
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (number_literal))))
+    (php_only)))
 
 ================================================================================
 Var tag with boolean
@@ -184,10 +178,7 @@ Var tag with boolean
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (boolean_literal))))
+    (php_only)))
 
 ================================================================================
 Default tag
@@ -199,7 +190,4 @@ Default tag
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (number_literal))))
+    (php_only)))

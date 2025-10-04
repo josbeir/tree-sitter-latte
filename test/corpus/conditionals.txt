@@ -44,7 +44,7 @@ Ifset Block
       (start_tag
         (tag_name))
       (latte_variable
-        name: (identifier))
+        (php_only))
       (end_tag
         (tag_name)))
     close: (directive_end)))
@@ -99,7 +99,7 @@ If with function call
           (start_tag
             (tag_name))
           (latte_variable
-            name: (identifier))
+            (php_only))
           (end_tag
             (tag_name)))
         close: (directive_end))
@@ -126,7 +126,7 @@ For loop
         (tag_name))
       (text)
       (latte_variable
-        name: (identifier))
+        (php_only))
       (end_tag
         (tag_name)))
     close: (directive_end)))

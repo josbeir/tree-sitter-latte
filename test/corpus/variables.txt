@@ -8,7 +8,7 @@ Simple variable
 
 (document
   (latte_variable
-    (identifier)))
+    (php_only)))
 
 ================================================================================
 Variable in HTML
@@ -23,7 +23,7 @@ Variable in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (identifier))
+      (php_only))
     (end_tag
       (tag_name))))
 
@@ -40,10 +40,10 @@ Multiple variables in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (identifier))
+      (php_only))
     (text)
     (latte_variable
-      (identifier))
+      (php_only))
     (end_tag
       (tag_name))))
 
@@ -57,9 +57,7 @@ Simple print tag
 
 (document
   (latte_print_tag
-    expression: (expression
-      (php_variable
-        name: (identifier)))))
+    (php_only)))
 
 ================================================================================
 Variable with object property
@@ -71,8 +69,7 @@ Variable with object property
 
 (document
   (latte_variable
-    (identifier)
-    (identifier)))
+    (php_only)))
 
 ================================================================================
 Variable with method call
@@ -84,8 +81,7 @@ Variable with method call
 
 (document
   (latte_variable
-    (identifier)
-    (identifier)))
+    (php_only)))
 
 ================================================================================
 Variable with array access
@@ -97,9 +93,7 @@ Variable with array access
 
 (document
   (latte_variable
-    (identifier)
-    (expression
-      (number_literal))))
+    (php_only)))
 
 ================================================================================
 Variable with string array access
@@ -111,9 +105,7 @@ Variable with string array access
 
 (document
   (latte_variable
-    (identifier)
-    (expression
-      (string_literal))))
+    (php_only)))
 
 ================================================================================
 Variable with chained property access
@@ -125,9 +117,7 @@ Variable with chained property access
 
 (document
   (latte_variable
-    (identifier)
-    (identifier)
-    (identifier)))
+    (php_only)))
 
 ================================================================================
 Binary expression with comparison
@@ -139,10 +129,7 @@ Binary expression with comparison
 
 (document
   (latte_print_tag
-    (expression
-      (php_variable
-        (identifier)
-        (identifier)))))
+    (php_only)))
 
 ================================================================================
 Variable assignment
@@ -154,10 +141,7 @@ Variable assignment
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (string_literal))))
+    (php_only)))
 
 ================================================================================
 Variable assignment with variable
@@ -169,11 +153,7 @@ Variable assignment with variable
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (php_variable
-        (identifier)))))
+    (php_only)))
 
 ================================================================================
 Default variable assignment
@@ -185,10 +165,7 @@ Default variable assignment
 
 (document
   (latte_assignment_tag
-    (php_variable
-      (identifier))
-    (expression
-      (number_literal))))
+    (php_only)))
 
 ================================================================================
 Print tag with string
@@ -200,8 +177,7 @@ Print tag with string
 
 (document
   (latte_print_tag
-    (expression
-      (string_literal))))
+    (php_only)))
 
 ================================================================================
 Print tag with variable
@@ -213,6 +189,4 @@ Print tag with variable
 
 (document
   (latte_print_tag
-    (expression
-      (php_variable
-        (identifier)))))
+    (php_only)))

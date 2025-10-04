@@ -69,60 +69,27 @@ export default grammar(html, {
 
     // {= expression}
     latte_print_tag: ($) =>
-      seq("{=", field("expression", $._expression_with_filters), "}"),
+      seq("{=", $.php_only, repeat(seq("|", $.php_only)), "}"),
 
     // {$variable}
     latte_variable: ($) =>
-      prec(
-        2,
-        seq(
-          "{",
-          field("variable", $._php_variable_base),
-          optional(field("filters", $.filter_chain)),
-          "}",
-        ),
-      ),
+      prec(2, seq("{", $.php_only, repeat(seq("|", $.php_only)), "}")),
 
     php_only: (_) => /[^|}]+/,
 
     // {var $x = value}, {default $x = value}
     latte_assignment_tag: ($) =>
-      seq(
-        token(choice("{var", "{default")),
-        field("variable", $.php_variable),
-        "=",
-        field("value", $._expression_with_filters),
-        "}",
-      ),
+      seq(token(choice("{var", "{default")), /\s+/, $.php_only, "}"),
 
     // {varType Type $var}
-    var_type_tag: ($) =>
-      seq(
-        "{varType",
-        field("type", $.type_identifier),
-        field("variable", $.php_variable),
-        "}",
-      ),
+    var_type_tag: ($) => seq("{varType", /\s+/, $.php_only, "}"),
 
     // {templateType ClassName}
-    template_type_tag: ($) =>
-      seq("{templateType", field("type", $.type_identifier), "}"),
-
-    type_identifier: (_) =>
-      choice(
-        /string|int|float|bool|array|object|mixed|void|null/,
-        /[A-Z][a-zA-Z0-9_]*(\\[A-Z][a-zA-Z0-9_]*)*(\[\])?/,
-      ),
+    template_type_tag: ($) => seq("{templateType", /\s+/, $.php_only, "}"),
 
     // {capture $var}...{/capture}
     capture_tag: ($) =>
-      seq(
-        "{capture",
-        field("variable", $.php_variable),
-        "}",
-        repeat($._node),
-        "{/capture}",
-      ),
+      seq("{capture", /\s+/, $.php_only, "}", repeat($._node), "{/capture}"),
 
     // {include 'file.latte'}, {extends}, {layout}, {import}, {sandbox}
     latte_file_tag: ($) =>
@@ -350,7 +317,7 @@ export default grammar(html, {
 
     macro_arguments: (_) => /\s+[^}]+/,
 
-    latte_expression_tag: ($) => seq("{", $._expression_with_filters, "}"),
+    latte_expression_tag: ($) => seq("{", $.php_only, "}"),
 
     quoted_attribute_value: ($) =>
       choice(

@@ -8,10 +8,8 @@ Variable with single filter
 
 (document
   (latte_variable
-    (identifier)
-    (filter_chain
-      (filter
-        (filter_name)))))
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Variable with chained filters
@@ -23,12 +21,9 @@ Variable with chained filters
 
 (document
   (latte_variable
-    (identifier)
-    (filter_chain
-      (filter
-        (filter_name))
-      (filter
-        (filter_name)))))
+    (php_only)
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Variable with filter and arguments
@@ -40,11 +35,8 @@ Variable with filter and arguments
 
 (document
   (latte_variable
-    (identifier)
-    (filter_chain
-      (filter
-        (filter_name)
-        (filter_args)))))
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Variable with filter and multiple arguments
@@ -56,11 +48,8 @@ Variable with filter and multiple arguments
 
 (document
   (latte_variable
-    (identifier)
-    (filter_chain
-      (filter
-        (filter_name)
-        (filter_args)))))
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Print tag with single filter
@@ -72,12 +61,8 @@ Print tag with single filter
 
 (document
   (latte_print_tag
-    (expression
-      (php_variable
-        (identifier)))
-    (filter_chain
-      (filter
-        (filter_name)))))
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Print tag with chained filters
@@ -89,16 +74,10 @@ Print tag with chained filters
 
 (document
   (latte_print_tag
-    (expression
-      (php_variable
-        (identifier)))
-    (filter_chain
-      (filter
-        (filter_name))
-      (filter
-        (filter_name))
-      (filter
-        (filter_name)))))
+    (php_only)
+    (php_only)
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Print tag with filter and arguments
@@ -110,13 +89,8 @@ Print tag with filter and arguments
 
 (document
   (latte_print_tag
-    (expression
-      (php_variable
-        (identifier)))
-    (filter_chain
-      (filter
-        (filter_name)
-        (filter_args)))))
+    (php_only)
+    (php_only)))
 
 ================================================================================
 Filter in HTML context
@@ -131,10 +105,8 @@ Filter in HTML context
     (start_tag
       (tag_name))
     (latte_variable
-      (identifier)
-      (filter_chain
-        (filter
-          (filter_name))))
+      (php_only)
+      (php_only))
     (end_tag
       (tag_name))))
 
@@ -151,15 +123,11 @@ Multiple filters in HTML
     (start_tag
       (tag_name))
     (latte_variable
-      (identifier)
-      (filter_chain
-        (filter
-          (filter_name))))
+      (php_only)
+      (php_only))
     (text)
     (latte_variable
-      (identifier)
-      (filter_chain
-        (filter
-          (filter_name))))
+      (php_only)
+      (php_only))
     (end_tag
       (tag_name))))

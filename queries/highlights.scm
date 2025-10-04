@@ -49,12 +49,6 @@
   name: (macro_name) @function.macro
   arguments: (macro_arguments)? @parameter)
 
-; Latte filters - highlight the pipe and filter name
-(filter_chain
-  (filter
-    "|" @operator
-    filter_name: (filter_name) @function.method))
-
 ; Literals
 (string_literal) @string
 (number_literal) @number

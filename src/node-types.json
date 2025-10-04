@@ -168,21 +168,10 @@
   {
     "type": "capture_tag",
     "named": true,
-    "fields": {
-      "variable": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "php_variable",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "block",
@@ -250,6 +239,10 @@
         },
         {
           "type": "php_block",
+          "named": true
+        },
+        {
+          "type": "php_only",
           "named": true
         },
         {
@@ -1177,47 +1170,6 @@
     }
   },
   {
-    "type": "filter",
-    "named": true,
-    "fields": {
-      "filter_args": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_args",
-            "named": true
-          }
-        ]
-      },
-      "filter_name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "filter_name",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "filter_chain",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "filter",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "if_block",
     "named": true,
     "fields": {
@@ -1366,77 +1318,31 @@
   {
     "type": "latte_assignment_tag",
     "named": true,
-    "fields": {
-      "expression": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "filters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "variable": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "php_variable",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "latte_expression_tag",
     "named": true,
-    "fields": {
-      "expression": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "filters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1478,139 +1384,31 @@
   {
     "type": "latte_print_tag",
     "named": true,
-    "fields": {
-      "expression": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "filters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "latte_variable",
     "named": true,
-    "fields": {
-      "constant": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "filters": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "filter_chain",
-            "named": true
-          }
-        ]
-      },
-      "index": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "method": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "property": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "variable": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "->",
-            "named": false
-          },
-          {
-            "type": "::",
-            "named": false
-          },
-          {
-            "type": "[",
-            "named": false
-          },
-          {
-            "type": "]",
-            "named": false
-          },
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2017,48 +1815,31 @@
   {
     "type": "template_type_tag",
     "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_identifier",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
     }
-  },
-  {
-    "type": "type_identifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "var_type_tag",
     "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_identifier",
-            "named": true
-          }
-        ]
-      },
-      "variable": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "php_variable",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "php_only",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2192,14 +1973,6 @@
   },
   {
     "type": "file_tag_name",
-    "named": true
-  },
-  {
-    "type": "filter_args",
-    "named": true
-  },
-  {
-    "type": "filter_name",
     "named": true
   },
   {

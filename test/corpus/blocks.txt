@@ -61,7 +61,7 @@ Foreach with else
       (start_tag
         (tag_name))
       (latte_variable
-        name: (identifier))
+        (php_only))
       (end_tag
         (tag_name)))
     (else_block
@@ -86,8 +86,7 @@ Capture block
 
 (document
   (capture_tag
-    (php_variable
-      (identifier))
+    (php_only)
     (element
       (start_tag
         (tag_name))

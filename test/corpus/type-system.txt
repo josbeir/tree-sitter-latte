@@ -8,9 +8,7 @@ VarType with simple type
 
 (document
   (var_type_tag
-    (type_identifier)
-    (php_variable
-      (identifier))))
+    (php_only)))
 
 ================================================================================
 VarType with class type
@@ -22,9 +20,7 @@ VarType with class type
 
 (document
   (var_type_tag
-    (type_identifier)
-    (php_variable
-      (identifier))))
+    (php_only)))
 
 ================================================================================
 VarType with array type
@@ -36,9 +32,7 @@ VarType with array type
 
 (document
   (var_type_tag
-    (type_identifier)
-    (php_variable
-      (identifier))))
+    (php_only)))
 
 ================================================================================
 TemplateType declaration
@@ -50,7 +44,7 @@ TemplateType declaration
 
 (document
   (template_type_tag
-    (type_identifier)))
+    (php_only)))
 
 ================================================================================
 VarType in HTML context
@@ -68,14 +62,12 @@ VarType in HTML context
     (start_tag
       (tag_name))
     (var_type_tag
-      (type_identifier)
-      (php_variable
-        (identifier)))
+      (php_only))
     (element
       (start_tag
         (tag_name))
       (latte_variable
-        (identifier))
+        (php_only))
       (end_tag
         (tag_name)))
     (end_tag
@@ -93,17 +85,11 @@ Multiple varType declarations
 
 (document
   (var_type_tag
-    (type_identifier)
-    (php_variable
-      (identifier)))
+    (php_only))
   (var_type_tag
-    (type_identifier)
-    (php_variable
-      (identifier)))
+    (php_only))
   (var_type_tag
-    (type_identifier)
-    (php_variable
-      (identifier))))
+    (php_only)))
 
 ================================================================================
 TemplateType with namespace
@@ -115,4 +101,4 @@ TemplateType with namespace
 
 (document
   (template_type_tag
-    (type_identifier)))
+    (php_only)))
