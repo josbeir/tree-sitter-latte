@@ -10,14 +10,16 @@ Spaceless block
 
 (document
   (block
-    (block_start)
+    (directive_start)
+    (text)
     (element
       (start_tag
         (tag_name))
       (text)
       (end_tag
         (tag_name)))
-    (block_end)))
+    (directive_end))
+  (text))
 
 ================================================================================
 Translate block
@@ -31,9 +33,10 @@ Hello World
 
 (document
   (block
-    (block_start)
+    (directive_start)
     (text)
-    (block_end)))
+    (directive_end))
+  (text))
 
 ================================================================================
 PHP block
@@ -72,9 +75,10 @@ Cached content
 
 (document
   (block
-    (block_start)
+    (directive_start)
     (text)
-    (block_end)))
+    (directive_end))
+  (text))
 
 ================================================================================
 Define block
@@ -88,9 +92,10 @@ Content
 
 (document
   (block
-    (block_start)
+    (directive_start)
     (text)
-    (block_end)))
+    (directive_end))
+  (text))
 
 ================================================================================
 Snippet block
@@ -104,14 +109,16 @@ Snippet block
 
 (document
   (block
-    (block_start)
+    (directive_start)
+    (text)
     (element
       (start_tag
         (tag_name))
       (text)
       (end_tag
         (tag_name)))
-    (block_end)))
+    (directive_end))
+  (text))
 
 ================================================================================
 Try block
@@ -125,9 +132,10 @@ Risky operation
 
 (document
   (block
-    (block_start)
+    (directive_start)
     (text)
-    (block_end)))
+    (directive_end))
+  (text))
 
 ================================================================================
 IterateWhile block
@@ -141,6 +149,7 @@ Item content
 
 (document
   (block
-    (block_start)
+    (directive_start)
     (text)
-    (block_end)))
+    (directive_end))
+  (text))

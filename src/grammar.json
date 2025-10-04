@@ -1376,8 +1376,78 @@
           "type": "FIELD",
           "name": "open",
           "content": {
-            "type": "SYMBOL",
-            "name": "block_start"
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "{"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "block"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "macro"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "spaceless"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "translate"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "try"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "cache"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "define"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "snippet"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "snippetArea"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "iterateWhile"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "[^}]*"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "named": true,
+            "value": "directive_start"
           }
         },
         {
@@ -1391,157 +1461,81 @@
           "type": "FIELD",
           "name": "close",
           "content": {
-            "type": "SYMBOL",
-            "name": "block_end"
+            "type": "ALIAS",
+            "content": {
+              "type": "TOKEN",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "{/"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "block"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "macro"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "spaceless"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "translate"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "try"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "cache"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "define"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "snippet"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "snippetArea"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "iterateWhile"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "[^}]*"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "named": true,
+            "value": "directive_end"
           }
         }
       ]
-    },
-    "block_start": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "block"
-              },
-              {
-                "type": "STRING",
-                "value": "macro"
-              },
-              {
-                "type": "STRING",
-                "value": "spaceless"
-              },
-              {
-                "type": "STRING",
-                "value": "translate"
-              },
-              {
-                "type": "STRING",
-                "value": "try"
-              },
-              {
-                "type": "STRING",
-                "value": "cache"
-              },
-              {
-                "type": "STRING",
-                "value": "define"
-              },
-              {
-                "type": "STRING",
-                "value": "snippet"
-              },
-              {
-                "type": "STRING",
-                "value": "snippetArea"
-              },
-              {
-                "type": "STRING",
-                "value": "iterateWhile"
-              }
-            ]
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^}]*"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
-    },
-    "block_end": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "{/"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "block"
-              },
-              {
-                "type": "STRING",
-                "value": "macro"
-              },
-              {
-                "type": "STRING",
-                "value": "spaceless"
-              },
-              {
-                "type": "STRING",
-                "value": "translate"
-              },
-              {
-                "type": "STRING",
-                "value": "try"
-              },
-              {
-                "type": "STRING",
-                "value": "cache"
-              },
-              {
-                "type": "STRING",
-                "value": "define"
-              },
-              {
-                "type": "STRING",
-                "value": "snippet"
-              },
-              {
-                "type": "STRING",
-                "value": "snippetArea"
-              },
-              {
-                "type": "STRING",
-                "value": "iterateWhile"
-              }
-            ]
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^}]*"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "}"
-          }
-        ]
-      }
     },
     "if_block": {
       "type": "SEQ",

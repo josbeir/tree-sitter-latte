@@ -12,9 +12,10 @@ Macro definition and usage
 
 (document
   (block
-    open: (block_start)
+    open: (directive_start)
     (text)
-    close: (block_end))
+    close: (directive_end))
+  (text)
   (macro_call
     name: (macro_name)
     arguments: (macro_arguments)))

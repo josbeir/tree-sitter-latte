@@ -31,7 +31,7 @@
         "required": true,
         "types": [
           {
-            "type": "block_end",
+            "type": "directive_end",
             "named": true
           }
         ]
@@ -41,7 +41,7 @@
         "required": true,
         "types": [
           {
-            "type": "block_start",
+            "type": "directive_start",
             "named": true
           }
         ]
@@ -2203,14 +2203,6 @@
   },
   {
     "type": "attribute_value",
-    "named": true
-  },
-  {
-    "type": "block_end",
-    "named": true
-  },
-  {
-    "type": "block_start",
     "named": true
   },
   {

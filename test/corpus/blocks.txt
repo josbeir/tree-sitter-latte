@@ -10,9 +10,10 @@ Simple block
 
 (document
   (block
-    open: (block_start)
+    open: (directive_start)
     (text)
-    close: (block_end)))
+    close: (directive_end))
+  (text))
 
 ================================================================================
 Nested blocks
@@ -28,12 +29,15 @@ Nested blocks
 
 (document
   (block
-    open: (block_start)
+    open: (directive_start)
+    (text)
     (block
-      open: (block_start)
+      open: (directive_start)
       (text)
-      close: (block_end))
-    close: (block_end)))
+      close: (directive_end))
+    (text)
+    close: (directive_end))
+  (text))
 
 ================================================================================
 Foreach with else

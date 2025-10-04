@@ -23,15 +23,6 @@ const BLOCK_TAGS = [
 const IF_VARIANTS = ["if", "ifset", "ifchanged"];
 const FILE_TAGS = ["include", "extends", "layout", "import", "sandbox"];
 
-// Helper to create open/close tag pairs with optional content in close tag
-function blockTagWithOptionalClose(tagNames, content = /[^}]*/) {
-  const tags = Array.isArray(tagNames) ? tagNames : [tagNames];
-  return {
-    start: token(seq("{", choice(...tags), optional(content), "}")),
-    end: token(seq("{/", choice(...tags), optional(content), "}")),
-  };
-}
-
 // Helper for control flow tags that contain PHP content
 // Returns a function that takes $ (to access $.php_only and alias)
 // Creates a generic "directive_start" node via alias
@@ -269,14 +260,22 @@ module.exports = grammar(html, {
     // Pattern: {tag ...}...{/tag}
     block: ($) =>
       seq(
-        field("open", $.block_start),
+        field(
+          "open",
+          alias(
+            token(seq("{", choice(...BLOCK_TAGS), optional(/[^}]*/))),
+            $.directive_start,
+          ),
+        ),
         repeat($._node),
-        field("close", $.block_end),
+        field(
+          "close",
+          alias(
+            token(seq("{/", choice(...BLOCK_TAGS), optional(/[^}]*/))),
+            $.directive_end,
+          ),
+        ),
       ),
-
-    block_start: (_) => blockTagWithOptionalClose(BLOCK_TAGS).start,
-
-    block_end: (_) => blockTagWithOptionalClose(BLOCK_TAGS).end,
 
     // If block with elseif/else support
     if_block: ($) =>

@@ -138,9 +138,10 @@ Embed tag
     (file_path
       (string_literal))
     (block
-      (block_start)
+      (directive_start)
       (text)
-      (block_end))))
+      (directive_end))
+    (text)))
 
 ================================================================================
 Var tag with string
